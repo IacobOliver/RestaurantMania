@@ -1,0 +1,45 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* @layer base {
+  :root {
+    --custom-gray: #0047ee;
+  }
+} */
+
+.nav-link {
+  background-color: black !important;
+  color: rgb(255, 255, 255) !important;
+  border: 1px solid white;
+  border-radius: 5px;
+}
+
+.navBar {
+  background: rgb(0, 0, 0);
+  background: radial-gradient(
+    circle,
+    rgba(0, 0, 0, 1) 0%,
+    rgba(0, 0, 0, 0.9164915966386554) 87%,
+    rgba(245, 178, 6, 0.8492647058823529) 100%
+  );
+}
+
+.cardBg1 {
+  background: rgb(255, 183, 1);
+  background: linear-gradient(
+    328deg,
+    rgba(255, 183, 1, 1) 0%,
+    rgba(0, 0, 0, 1) 7%,
+    rgba(0, 0, 0, 1) 93%,
+    rgba(255, 183, 1, 1) 100%
+  );
+}
+
+.scrollbar-hide::-webkit-scrollbar {
+  display: none; /* Hide the scrollbar for Webkit browsers (e.g., Chrome, Safari) */
+}
+
+.white-text {
+  color: white;
+}

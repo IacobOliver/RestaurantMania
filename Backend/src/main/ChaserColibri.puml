@@ -1,0 +1,58 @@
+@startuml
+
+abstract class Account {
+    - ID: UUID
+    - firstName : String
+    - lastName : String
+    - email : String
+    - password : String
+    - accountType: AccountType
+}
+
+
+class Admin extends Account{
+
+}
+class Client extends Account{
+    - accountFee : int
+    - restaurants : List<Restaurant>
+}
+class User extends Account{
+    - favoriteRestaurants : List<Restaurant>
+}
+
+class Restaurant{
+    - ID: UUID
+    - name: String
+    - menu: Menu
+}
+
+class Menu{
+    - products : List<Product>
+    - lastUpdated : LocalDate
+    + addNewProduct(): void
+
+}
+
+class Product{
+    - ID: UUID
+    - name: String
+    - price: double
+    - productDescription : String
+    - images: List<Images>
+    + updateProduct(): void
+
+}
+
+
+enum AccountType{
+ADMIN,
+CLIENT,
+USER
+}
+
+Restaurant <-- Menu
+Client <-- Restaurant
+Menu <-- Product
+
+@enduml

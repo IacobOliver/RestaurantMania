@@ -1,0 +1,42 @@
+{
+  "name": "huntercolibrifrontend",
+  "private": true,
+  "version": "0.0.0",
+  "type": "module",
+  "scripts": {
+    "dev": "vite --host",
+    "build": "vite build",
+    "lint": "eslint src --ext js,jsx --report-unused-disable-directives --max-warnings 0",
+    "preview": "vite preview"
+  },
+  "dependencies": {
+    "@fortawesome/fontawesome-free": "^6.4.0",
+    "@material-tailwind/react": "^2.0.8",
+    "@vitejs/plugin-react-refresh": "^1.3.6",
+    "bootstrap": "^5.3.0",
+    "email-validator": "^2.0.4",
+    "flowbite": "^1.7.0",
+    "jotai": "^2.2.2",
+    "mdb-react-ui-kit": "^6.1.0",
+    "react": "^18.2.0",
+    "react-bootstrap": "^2.8.0",
+    "react-dom": "^18.2.0",
+    "react-router-dom": "^6.14.1",
+    "tw-elements": "1.0.0-beta3",
+    "tailwindcss-animated": "^1.0.1"
+  },
+  "devDependencies": {
+    "@types/react": "^18.2.14",
+    "@types/react-dom": "^18.2.6",
+    "@vitejs/plugin-react": "^4.0.1",
+    "autoprefixer": "^10.4.14",
+    "daisyui": "^3.5.0",
+    "eslint": "^8.44.0",
+    "eslint-plugin-react": "^7.32.2",
+    "eslint-plugin-react-hooks": "^4.6.0",
+    "eslint-plugin-react-refresh": "^0.4.1",
+    "postcss": "^8.4.26",
+    "tailwindcss": "^3.3.3",
+    "vite": "^4.4.4"
+  }
+}
