@@ -3,7 +3,7 @@
 ## Project Description
 
 The purpose of this application is to help users easily and quickly find their desired restaurants. It provides a comprehensive list of restaurants with detailed information, including location, operating hours, menus, prices, product images, and ratings. Users can also publish their own restaurants and easily update their content.
-![img_1.png](img_1.png)
+![img_1.png](ScreenShots/img_1.png)
 ### Technologies used:
 
 - Spring
@@ -25,7 +25,7 @@ We used Spring to accelerate Java application development, creating the necessar
 
 - The app is currently a demo; our next step is implementing payment functionality for users registering a restaurant.
 - We plan to add the option for users to reserve a table.
-  ![img_3.png](img_3.png)
+  ![img_3.png](ScreenShots/img_3.png)
 - Additionally, we want the app to prioritize displaying restaurants around the user based on their location.
 
 ## Setup
@@ -64,10 +64,10 @@ We used Spring to accelerate Java application development, creating the necessar
 
 Pressing on Explore button you can access the page where all the Restaurants are listed.
 
-![img_4.png](img_4.png)
+![img_4.png](ScreenShots/img_4.png)
 
 Here you can search for a restaurant or navigate through all the listed restaurants
-![img_5.png](img_5.png)
+![img_5.png](ScreenShots/img_5.png)
 
 Pressing "See more" of any restaurant will send the user to page where all the details are listed (we don't have moking data for menu yet)
-![img_6.png](img_6.png)
+![img_6.png](ScreenShots/img_6.png)
