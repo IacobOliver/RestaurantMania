@@ -19,5 +19,6 @@ createRoot(document.getElementById("root")).render(
       <Route path="/explore/restaurant/:restaurantId" element={<ShowRestaurant />}></Route>
       <Route path="/createRestaurant" element={<ShowRestaurant/>}/>
     </Routes>
+    
   </BrowserRouter>
 );

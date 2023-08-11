@@ -330,8 +330,8 @@ export default function Layout() {
                     src="../../images/colibri.png"
                     draggable="false"
                   />
-                  <button className="text-tc2 text-xl font-bold hover:text-tc2_2">
-                    Colibri Chase
+                  <button className="text-tc2 text-xl font-bold hover:text-tc2_2 clm">
+                    RestaurantMania
                   </button>
                 </div>
 
