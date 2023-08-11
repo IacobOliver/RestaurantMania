@@ -15,7 +15,7 @@ import java.util.List;
 
 @Controller
 @RequestMapping(path = "/restaurant")
-@CrossOrigin(origins = {"http://localhost:5173/", "http://192.168.42.192:5173"})
+@CrossOrigin(origins = {"http://localhost:5174/", "http://192.168.42.192:5174"})
 public class RestaurantController {
     private final RestaurantService restaurantService;
     private final AwsS3Service awsS3Service;

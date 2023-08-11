@@ -11,7 +11,7 @@ import java.util.List;
 
 @Controller
 @RequestMapping(path = "/rating")
-@CrossOrigin(origins = "http://localhost:5173/")
+@CrossOrigin(origins = "http://localhost:5174/")
 public class RatingController {
     private RatingService ratingService;
 
