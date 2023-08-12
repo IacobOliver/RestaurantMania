@@ -26,4 +26,10 @@ public class CategoryProductService {
 
         return categoryProduct;
     }
+
+    public void updateCategoryName(Long categoryId, String newCategoryName){
+        CategoryProduct categoryProduct = categoryProductRepository.findById(categoryId).orElse(null);
+        categoryProduct.setName(newCategoryName);
+        categoryProductRepository.save(categoryProduct);
+    }
 }

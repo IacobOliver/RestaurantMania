@@ -49,10 +49,10 @@ export default function CategoryAccordeon({
         className="p-4"
         onClick={(e) => handleOpen(index + 1, e)}
       >
-        <div className="flex flex-row">
+        <div className="flex flex-row items-center">
           <p
             contentEditable={editName}
-            className={`${editName ? "border border-white rounded-lg" : ""}`}
+            className={`${editName ? "border border-white rounded-lg" : ""} mb-0`}
             ref={categRef}
           >
             {categ.name ? categ.name : "Add a category name"}

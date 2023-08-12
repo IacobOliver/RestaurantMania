@@ -8,7 +8,7 @@ import org.springframework.web.bind.annotation.*;
 
 @Controller
 @RequestMapping(path = "/product")
-@CrossOrigin(origins = "http://localhost:5174/")
+@CrossOrigin(origins = "*")
 public class ProductController {
     private ProductService productService;
 
@@ -19,8 +19,12 @@ public class ProductController {
 
     @PostMapping(path = "post/new/product/{categ_id}")
     public ResponseEntity<Product> postNewProduct(@PathVariable Long categ_id, @RequestBody Product product) {
-
         return ResponseEntity.ok( productService.addNewProduct(categ_id, product)) ;
+    }
+
+    @PatchMapping(path = "update/name/{product_id}")
+    public void updateProductName(@PathVariable Long product_id, @RequestBody String newProductName){
+        
     }
 
 }

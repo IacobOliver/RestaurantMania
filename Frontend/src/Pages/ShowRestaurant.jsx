@@ -96,7 +96,6 @@ export default function MyRestaurant() {
         );
     };
 
-    console.log(thisRestaurant);
     return (
         <div className="h-full overflow-x-hidden">
             <div className="grid grid-cols-1 md:grid-cols-5 bg-tc1 text-white w-screen h-full">
