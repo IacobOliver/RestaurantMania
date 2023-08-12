@@ -77,9 +77,6 @@ export default function RestaurantMenu({ thisRestaurant, setThisRestaurant }) {
       console.err("Err at updating categName " + err)
     })
 
-    
-
-
     for (let categ of thisRestaurantCopy.menu.categoryProducts) {
         if (categ.id === categId) {
             categ[key] = contentRef.current.textContent;
@@ -92,6 +89,20 @@ export default function RestaurantMenu({ thisRestaurant, setThisRestaurant }) {
 
   const editProduct = (contentRef, key, categId, prodId) => {
     let thisRestaurantCopy = { ...thisRestaurant };
+
+    fetch(`http://localhost:8080/product/update/${key}/${prodId}`, {
+      method : "PATCH",
+      headers: {
+        "Content-Type" : "application/json",
+      },
+      body: contentRef.current.textContent
+    })
+    .then(res => res.json())
+    .catch(err =>{
+      console.err("Err at updating categName " + err)
+    })
+
+
     for (let categ of thisRestaurantCopy.menu.categoryProducts) {
         if (categ.id === categId) {
             for(let prod of categ.products){
