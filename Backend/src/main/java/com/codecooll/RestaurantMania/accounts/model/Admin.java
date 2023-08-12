@@ -14,4 +14,5 @@ import lombok.Setter;
 @NoArgsConstructor
 public class Admin extends Account {
 
+
 }
