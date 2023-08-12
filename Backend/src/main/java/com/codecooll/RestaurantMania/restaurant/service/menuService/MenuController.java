@@ -11,7 +11,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 
 @Controller
 @RequestMapping(path = "/menu")
-@CrossOrigin(origins = "http://localhost:5174/")
+@CrossOrigin(origins = "*")
 public class MenuController {
     private MenuService menuService;
 

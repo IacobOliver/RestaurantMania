@@ -35,7 +35,6 @@ export default function RestaurantMenu({ thisRestaurant, setThisRestaurant }) {
       })
       .catch((error) => {
         console.error("Error fetching data (categoryProducts):", error);
-        console.log("error in fetch");
       });
   };
   const addNewProd = (categId) => {
@@ -66,6 +65,21 @@ export default function RestaurantMenu({ thisRestaurant, setThisRestaurant }) {
 
   const editContentEvent = (contentRef, key, categId) => {
     let thisRestaurantCopy = { ...thisRestaurant };
+
+    fetch(`http://localhost:8080/categoryProduct/update/${key}/${categId}`, {
+      method: "PATCH",
+      headers: {
+        "Content-Type" : "application/json",
+      },
+      body: contentRef.current.textContent,
+    }).then(res => res.json())
+    .catch(err =>{
+      console.err("Err at updating categName " + err)
+    })
+
+    
+
+
     for (let categ of thisRestaurantCopy.menu.categoryProducts) {
         if (categ.id === categId) {
             categ[key] = contentRef.current.textContent;
@@ -73,6 +87,7 @@ export default function RestaurantMenu({ thisRestaurant, setThisRestaurant }) {
           }
     }
     setThisRestaurant(thisRestaurantCopy);
+
   };
 
   const editProduct = (contentRef, key, categId, prodId) => {

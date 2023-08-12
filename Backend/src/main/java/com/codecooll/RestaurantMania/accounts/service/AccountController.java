@@ -9,7 +9,7 @@ import org.springframework.web.bind.annotation.*;
 
 @Controller
 @RequestMapping(path = "/account")
-@CrossOrigin(origins = "http://localhost:5174/")
+@CrossOrigin(origins = "*")
 public class AccountController {
     private final AccountService accountService;
 
