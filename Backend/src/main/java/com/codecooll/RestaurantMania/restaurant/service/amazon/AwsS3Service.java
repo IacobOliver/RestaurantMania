@@ -38,7 +38,7 @@ public class AwsS3Service {
     public void deleteImageByUrl (String imageUrl) {
 
         String key = getImageKeyFromUrl(imageUrl); // Extract the key (filename) from the URL
-
+        System.out.println("key:" + key);
         amazonS3Client.deleteObject(bucketName, key);
     }
     private String getImageKeyFromUrl(String imageUrl) {
