@@ -20,7 +20,7 @@ public class AwsS3Service {
     @Autowired
     private ImageUrlRepository imageUrlRepository;
 
-    private final String bucketName = "colibri-chase-images";
+    private final String bucketName = "restaurant-mania-images";
 
     public Image uploadImage(MultipartFile multipartFile) throws IOException {
 

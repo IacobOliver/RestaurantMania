@@ -48,7 +48,7 @@ public class ProductController {
     public ResponseEntity<Image> updateProductImage(@PathVariable Long product_id, @RequestBody MultipartFile image){
         try {
             Image imageUrl = awsS3Service.uploadImage(image);
-            productService.setRestaurantImageUrl(product_id, imageUrl);
+            productService.setProductImageUrl(product_id, imageUrl);
             return ResponseEntity.ok(imageUrl);
         } catch (IOException e) {
             return ResponseEntity.status(HttpStatus.INTERNAL_SERVER_ERROR).body(null);

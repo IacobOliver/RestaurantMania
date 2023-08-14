@@ -49,7 +49,7 @@ public class ProductService {
         productRepository.save(product);
     }
 
-    public void setRestaurantImageUrl(Long product_id, Image image) {
+    public void setProductImageUrl(Long product_id, Image image) {
         Product product = productRepository.getById(product_id);
         if (product.getImage() != null) {
             String url = product.getImage().getImageUrl();

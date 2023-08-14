@@ -27,8 +27,8 @@ export default function ProductCard({ product, prodId, categId, editProduct }) {
         return response.json();
       })
       .then((data) => {
-        console.log(imageRef.current.src)
-        console.log(data.imageUrl)
+        console.log(imageRef.current.src);
+        console.log(data.imageUrl);
         imageRef.current.src = data.imageUrl;
       })
       .catch((error) => {
@@ -39,25 +39,24 @@ export default function ProductCard({ product, prodId, categId, editProduct }) {
   const EditButton = ({ edit, setEdit, field, elRef }) => {
     return (
       <>
-        {edit && checking.checkIfHolder()? (
+        {edit && checking.checkIfHolder() ? (
           <i
             onClick={() => {
               editProduct(elRef, field, categId, prodId);
               setEdit(false);
             }}
             className="fa fa-check ml-3 mr-3 text-gray-200 hover:text-gray-400"
-          >
-
-          </i>
+          ></i>
         ) : null}
 
-        {!edit && checking.checkIfHolder() ?
+        {!edit && checking.checkIfHolder() ? (
           <i
             onClick={() => {
               setEdit(true);
             }}
             className="fas fa-edit ml-3 mr-3 text-gray-200 hover:text-gray-400"
-          ></i> : null}
+          ></i>
+        ) : null}
       </>
     );
   };
@@ -92,15 +91,16 @@ export default function ProductCard({ product, prodId, categId, editProduct }) {
           />
         </label>
 
-        {checking.checkIfHolder() ?
-        <input
-          disabled={false}
-          type="file"
-          id={"fileInput" + prodId}
-          className="hidden"
-          accept="image/*"
-          onChange={(e) => handleImageChange(e, imgRef)}
-        /> : null}
+        {checking.checkIfHolder() ? (
+          <input
+            disabled={false}
+            type="file"
+            id={"fileInput" + prodId}
+            className="hidden"
+            accept="image/*"
+            onChange={(e) => handleImageChange(e, imgRef)}
+          />
+        ) : null}
       </div>
 
       <div className="flex w-full h-full flex-col justify-between p-2 ">
@@ -124,9 +124,13 @@ export default function ProductCard({ product, prodId, categId, editProduct }) {
                 elRef={nameRef}
               />
             </div>
-            
-            {checking.checkIfHolder() ?   <i onClick={deleteProductEvent} className="fas fa-trash mr-3 text-md text-gray-200 bg-gray-800 rounded-lg p-2"></i> : null}
-          
+
+            {checking.checkIfHolder() ? (
+              <i
+                onClick={deleteProductEvent}
+                className="fas fa-trash mr-3 text-md text-gray-200 bg-gray-800 rounded-lg p-2"
+              ></i>
+            ) : null}
           </div>
 
           <div className="flex items-center">
@@ -152,18 +156,18 @@ export default function ProductCard({ product, prodId, categId, editProduct }) {
         </div>
 
         <div className=" flex items-center justify-end mr-5 ">
-          <div className = " flex items-center ">
-          <p
-            contentEditable={editPrice}
-            ref={priceRef}
-            className={
-              `${editPrice ? "border border-white rounded-lg" : ""}` +
-              " flex justify-end self-end text-xl text-neutral-200 mb-0"
-            }
-          >
-            {product.price ? product.price : 0}
-          </p>
-          <p className=" mb-0 text-xl text-neutral-200">‎ Ron</p>
+          <div className=" flex items-center ">
+            <p
+              contentEditable={editPrice}
+              ref={priceRef}
+              className={
+                `${editPrice ? "border border-white rounded-lg" : ""}` +
+                " flex justify-end self-end text-xl text-neutral-200 mb-0"
+              }
+            >
+              {product.price ? product.price : 0}
+            </p>
+            <p className=" mb-0 text-xl text-neutral-200">‎ Ron</p>
           </div>
 
           <EditButton
