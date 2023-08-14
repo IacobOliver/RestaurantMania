@@ -45,13 +45,13 @@ public class RestaurantService {
         return restaurantRepository.findAll();
     }
 
-    public Restaurant getById(long restaurantID){
-        Restaurant res =  restaurantRepository.getById(restaurantID);
-       return res;
+    public Restaurant getById(long restaurantID) {
+        Restaurant res = restaurantRepository.getById(restaurantID);
+        return res;
     }
 
     @Transactional
-    public void deleteById(Long restaurantId){
+    public void deleteById(Long restaurantId) {
         Restaurant restaurant = restaurantRepository.getById(restaurantId);
 
         User user = restaurant.getUser();
@@ -60,22 +60,25 @@ public class RestaurantService {
 
         restaurantRepository.deleteById(restaurantId);
     }
-    public void setRestaurantImageUrl(Long restaurantId, Image image){
+
+    public void setRestaurantImageUrl(Long restaurantId, Image image) {
         Restaurant restaurant = restaurantRepository.getById(restaurantId);
-        if(restaurant.getImage()!=null){
+        if (restaurant.getImage() != null) {
             String url = restaurant.getImage().getImageUrl();
+            System.out.println("image url to delete :" + url);
             awsS3Service.deleteImageByUrl(url);
         }
         restaurant.setImage(image);
         restaurantRepository.save(restaurant);
     }
 
-    public void updateRestaurantName(Long restaurantId, String newName){
+    public void updateRestaurantName(Long restaurantId, String newName) {
         Restaurant restaurant = restaurantRepository.getById(restaurantId);
         restaurant.setName(newName);
         restaurantRepository.save(restaurant);
     }
-    public void updateRestaurantDescription(Long restaurantId, String newDescription){
+
+    public void updateRestaurantDescription(Long restaurantId, String newDescription) {
         Restaurant restaurant = restaurantRepository.getById(restaurantId);
         restaurant.setDescription(newDescription);
         restaurantRepository.save(restaurant);

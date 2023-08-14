@@ -60,16 +60,18 @@ export default function MyRestaurantsPopUp() {
       .then((res) => res.json())
       .then((restaurant) => {
         console.log(restaurant);
+        setUser({
+          ...user,
+          restaurants: [...user.restaurants, restaurant],
+        });
         setLoading(false);
         setshowMyRestaurants(false);
         setRefreshShowRestaurant(refreshShowRestaurant + 1);
         navigate(`/explore/restaurant/${restaurant.id}`);
       });
-    setUser({ ...user, restaurants: [...user.restaurants, { rating: 0 }] });
-    //   setshowMyRestaurants(false);
-    // setRefreshShowRestaurant(refreshShowRestaurant + 1);
-  };
 
+  };
+  console.log(user);
   return (
     <div className="flex flex-col h-full text-tc2">
       <div
