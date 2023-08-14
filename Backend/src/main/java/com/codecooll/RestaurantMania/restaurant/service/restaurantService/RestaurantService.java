@@ -17,7 +17,6 @@ import java.util.List;
 
 @Service
 public class RestaurantService {
-
     private final RestaurantRepository restaurantRepository;
     private final AccountRepository accountRepository;
     private final AwsS3Service awsS3Service;
