@@ -21,8 +21,6 @@ public class ProductService {
     }
 
     public Product addNewProduct(Long categ_id, Product product) {
-
-
         Optional<CategoryProduct> categoryProductOptional = categoryProductRepository.findById(categ_id);
 
         if (categoryProductOptional.isPresent()) {
@@ -34,5 +32,14 @@ public class ProductService {
         }
 
         return product;
+    }
+
+    public void updateProduct(Long product_id, String value, String key){
+        Product product = productRepository.findById(product_id).orElse(null);
+        if(key == "name") product.setName(value);
+        else if( key == "description") product.setProductDescription(value);
+        else if( key == "price") product.setPrice(Integer.parseInt( value.replaceAll("[^\\d]", "")));
+        productRepository.save(product);
+
     }
 }

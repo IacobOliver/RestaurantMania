@@ -36,7 +36,7 @@ export default function ProductCard({ product, prodId, categId, editProduct }) {
               editProduct(elRef, field, categId, prodId);
               setEdit(false);
             }}
-            className="fa fa-check ml-3 mr-3 hover:text-gray-400"
+            className="fa fa-check ml-3 mr-3 text-gray-200 hover:text-gray-400"
           >
             {" "}
           </i>
@@ -45,7 +45,7 @@ export default function ProductCard({ product, prodId, categId, editProduct }) {
             onClick={() => {
               setEdit(true);
             }}
-            className="fas fa-edit ml-3 mr-3 hover:text-gray-400"
+            className="fas fa-edit ml-3 mr-3 text-gray-200 hover:text-gray-400"
           ></i>
         )}
       </>
@@ -53,9 +53,11 @@ export default function ProductCard({ product, prodId, categId, editProduct }) {
   };
 
   return (
-    <div className="h-24 md:h-36 mb-2 w-full flex rounded-lg bg-gray-600 flex-row">
+    <div className="h-40 mb-2 mx-1 w-full flex rounded-lg bg-gray-700 flex-row">
+      <div>
       <label htmlFor={"fileInput" + prodId}>
         <img
+          draggable={false}
           ref={imgRef}
           id="editableImage"
           className="h-full w-32 min-w-28 md:h-36 md:w-40 rounded object-cover"
@@ -74,59 +76,78 @@ export default function ProductCard({ product, prodId, categId, editProduct }) {
         accept="image/*"
         onChange={(e) => handleImageChange(e, imgRef)}
       />
-      <div className="flex w-full h-full flex-col justify-center m-1 md:m-3">
-        <h5
-          contentEditable={editName}
-          ref={nameRef}
-          className={
-            `${editName ? "border border-white rounded-lg" : ""}` +
-            "mb-0 text-base md:text-xl font-medium text-neutral-800 "
-          }
-        >
-          {product.name ? product.name : "Product Name"}
-        </h5>
-        <EditButton
-          edit={editName}
-          setEdit={setEditName}
-          field={"name"}
-          elRef={nameRef}
-        />
-        <p
-          contentEditable={editDescription}
-          ref={descriptionRef}
-          className={
-            `${editDescription ? "border border-white rounded-lg" : ""}` +
-            " mb-0 text-sm md:text-base text-neutral-100 overflow-hidden"
-          }
-        >
-          {product.productDescription
-            ? product.productDescription
-            : "Product Description"}
-        </p>
-        <EditButton
-          edit={editDescription}
-          setEdit={setEditDescription}
-          field={"productDescription"}
-          elRef={descriptionRef}
-        />
-        <p
-          contentEditable={editPrice}
-          ref={priceRef}
-          className={
-            `${editPrice ? "border border-white rounded-lg" : ""}` +
-            " flex justify-end self-end text-xs text-neutral-200 "
-          }
-        >
-          {product.price ? product.price : 0} Ron
-        </p>
-        <EditButton
-          edit={editPrice}
-          setEdit={setEditPrice}
-          field={"price"}
-          elRef={priceRef}
-        />
       </div>
-      <div></div>
+
+
+      <div className="flex w-full h-full flex-col justify-between p-2 ">
+
+        <div>
+          <div className="flex items-center justify-between mb-2">
+            <div className = " flex items-center">
+            <h5
+              contentEditable={editName}
+              ref={nameRef}
+              className={
+                `${editName ? "border border-white rounded-lg" : ""}` +
+                "mb-0 text-base md:text-xl font-bold text-gray-200 "
+              }
+            >
+              {product.name ? product.name : "Product Name"}
+            </h5>
+            <EditButton
+              edit={editName}
+              setEdit={setEditName}
+              field={"name"}
+              elRef={nameRef}
+            />
+            </div>
+
+            <i className="fas fa-trash mr-3 text-md text-gray-200 bg-gray-800 rounded-lg p-2"></i>
+          </div>
+
+          <div className="flex items-center">
+            <p
+              contentEditable={editDescription}
+              ref={descriptionRef}
+              className={
+                `${editDescription ? "border border-white rounded-lg" : ""}` +
+                " mb-0 text-sm md:text-base text-neutral-100 bg-gray-800 p-2 rounded-xl overflow-y-scroll max-h-14 max-w-2xl"
+              }
+            >
+              {product.productDescription
+                ? product.productDescription
+                : "Product Description"}
+            </p>
+            <EditButton
+              edit={editDescription}
+              setEdit={setEditDescription}
+              field={"productDescription"}
+              elRef={descriptionRef}
+            />
+          </div>
+        </div>
+
+        <div className=" flex items-center justify-end">
+          <p
+            contentEditable={editPrice}
+            ref={priceRef}
+            className={
+              `${editPrice ? "border border-white rounded-lg" : ""}` +
+              " flex justify-end self-end text-xl text-neutral-200 mb-0"
+            }
+          >
+            {product.price ? product.price : 0}
+          </p> <p className=" mb-0 text-xl text-neutral-200">‎ Ron</p>
+          <EditButton
+            edit={editPrice}
+            setEdit={setEditPrice}
+            field={"price"}
+            elRef={priceRef}
+          />
+        </div>
+
+      </div>
+
     </div>
   );
 }

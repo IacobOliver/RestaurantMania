@@ -20,7 +20,9 @@ export default function RestaurantsList() {
     <div className=" z-10 min-h-screen bg-gray-700 flex justify-center items-center py-20">
       <div className="md:px-4 md:grid md:grid-cols-2 lg:grid-cols-3 gap-5 space-y-4 md:space-y-0">
       
-      {restaurants && restaurants.map((rest, index) => <RestauntCard key={index} restaurant={rest}/>)}
+      {restaurants ?  restaurants.map((rest, index) => <RestauntCard key={index} restaurant={rest}/>) 
+                   :  <div className = "h-screen flex items-start"><span className="loading loading-bars loading-lg col-span-2 text-tc2"></span></div>}
+                   
 
       </div>
     </div>

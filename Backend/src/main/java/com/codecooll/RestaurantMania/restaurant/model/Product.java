@@ -25,6 +25,8 @@ public class Product {
     private long id;
     private String name;
     private double price;
+
+    @Column(length = 1000)
     private String productDescription;
 
     @OneToMany(cascade = CascadeType.ALL, orphanRemoval = true, fetch = FetchType.EAGER)

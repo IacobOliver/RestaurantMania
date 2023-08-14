@@ -77,9 +77,6 @@ export default function RestaurantMenu({ thisRestaurant, setThisRestaurant }) {
       console.err("Err at updating categName " + err)
     })
 
-    
-
-
     for (let categ of thisRestaurantCopy.menu.categoryProducts) {
         if (categ.id === categId) {
             categ[key] = contentRef.current.textContent;
@@ -92,6 +89,22 @@ export default function RestaurantMenu({ thisRestaurant, setThisRestaurant }) {
 
   const editProduct = (contentRef, key, categId, prodId) => {
     let thisRestaurantCopy = { ...thisRestaurant };
+    console.log("prod ID " + prodId)
+    console.log("cat Id " + categId )
+
+    fetch(`http://localhost:8080/product/update/${key}/${prodId}`, {
+      method : "PATCH",
+      headers: {
+        "Content-Type" : "application/json",
+      },
+      body: contentRef.current.textContent
+    })
+    .then(res => res.json())
+    .catch(err =>{
+      console.err("Err at updating categName " + err)
+    })
+
+
     for (let categ of thisRestaurantCopy.menu.categoryProducts) {
         if (categ.id === categId) {
             for(let prod of categ.products){
@@ -112,6 +125,7 @@ export default function RestaurantMenu({ thisRestaurant, setThisRestaurant }) {
         {thisRestaurant?.menu.categoryProducts.map((categ, index) => {
           return (
             <CategoryAccordeon
+              key={index}
               open={open}
               index={index}
               handleOpen={handleOpen}
@@ -123,8 +137,10 @@ export default function RestaurantMenu({ thisRestaurant, setThisRestaurant }) {
           );
         })}
       </div>
+
+      <div className= "w-full flex justify-center mt-3 ">
       <button
-        className="w-full justify-center bg-gray-300 hover:bg-gray-400 text-gray-800 font-bold py-2 px-4 rounded inline-flex items-center"
+        className="w-1/2 justify-center font-bold py-2 px-4 rounded inline-flex items-center  text-gray-200 bg-gradient-to-r from-yellow-400 via-yellow-500 to-yellow-600 hover:bg-gradient-to-br focus:ring-4 focus:outline-none focus:ring-yellow-300 dark:focus:ring-yellow-800 shadow-lg shadow-yellow-500/50 dark:shadow-lg dark:shadow-yellow-800/80  text-sm  text-cente"
         onClick={addNewCateg}
       >
         <svg
@@ -133,16 +149,20 @@ export default function RestaurantMenu({ thisRestaurant, setThisRestaurant }) {
           height={20}
           viewBox="0 0 24 24"
           fill="none"
-          stroke={"black"}
-          strokeWidth="2"
+          stroke={"white"}
+          strokeWidth="4"
           strokeLinecap="round"
           strokeLinejoin="round"
+          className = "mx-2"
         >
           <line x1="12" y1="5" x2="12" y2="19"></line>
           <line x1="5" y1="12" x2="19" y2="12"></line>
         </svg>
+
         <span>Add category of products(ex. Drinks)</span>
+        
       </button>
+      </div>
     </>
   );
 }

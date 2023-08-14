@@ -3,7 +3,6 @@ import { useNavigate } from "react-router-dom";
 
 export default function RestauntCard({ restaurant }) {
   const navigate = useNavigate();
-  console.log(restaurant);
 
   return (
     <div className="z-10 max-w-sm bg-tc1 px-6 pt-6 pb-2 rounded-xl shadow-lg transform hover:scale-105 transition duration-500">
