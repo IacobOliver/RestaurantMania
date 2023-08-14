@@ -43,3 +43,27 @@
 .white-text {
   color: white;
 }
+
+
+.custom-scrollbar {
+  /* Set a fixed height for the container */
+  height: 300px; /* Adjust as needed */
+  overflow-y: scroll; /* Enable vertical scrolling */
+  scrollbar-width: thin; /* Set the width of the scrollbar */
+}
+
+/* Track */
+.custom-scrollbar::-webkit-scrollbar {
+  width: 6px; /* Adjust as needed */
+}
+
+/* Handle */
+.custom-scrollbar::-webkit-scrollbar-thumb {
+  background-color: rgb(97, 97, 97);
+  border-radius: 3px; /* Rounded corners */
+}
+
+/* Handle on hover */
+.custom-scrollbar::-webkit-scrollbar-thumb:hover {
+  background-color: #357abf; /* Darker color on hover */
+}

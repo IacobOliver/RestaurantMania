@@ -12,7 +12,6 @@ export default function ProductCard({ product, prodId, categId, editProduct }) {
   const [editPrice, setEditPrice] = useState(false);
 
   function handleImageChange(event) {
-    console.log("triggered");
     const file = event.target.files[0];
     if (!file) return;
 
@@ -52,8 +51,21 @@ export default function ProductCard({ product, prodId, categId, editProduct }) {
     );
   };
 
+  const deleteProductEvent = (e) =>{
+    e.target.parentElement.parentElement.parentElement.parentElement.remove()
+    console.log(prodId)
+        fetch(`http://localhost:8080/product/delete/${prodId}`, {
+          method : "DELETE",
+          headers : {
+            "Content-Type" : "application/json",
+          },
+
+        }).then(res => res.json())
+        .catch(err => console.log("Error del product " + err))
+  }
+
   return (
-    <div className="h-40 mb-2 mx-1 w-full flex rounded-lg bg-gray-700 flex-row">
+    <div className="h-40 mb-2 mx-1 w-full flex rounded-lg bg-gray-800 flex-row">
       <div>
       <label htmlFor={"fileInput" + prodId}>
         <img
@@ -102,7 +114,7 @@ export default function ProductCard({ product, prodId, categId, editProduct }) {
             />
             </div>
 
-            <i className="fas fa-trash mr-3 text-md text-gray-200 bg-gray-800 rounded-lg p-2"></i>
+            <i onClick={deleteProductEvent} className="fas fa-trash mr-3 text-md text-gray-200 bg-gray-800 rounded-lg p-2"></i>
           </div>
 
           <div className="flex items-center">
@@ -111,7 +123,7 @@ export default function ProductCard({ product, prodId, categId, editProduct }) {
               ref={descriptionRef}
               className={
                 `${editDescription ? "border border-white rounded-lg" : ""}` +
-                " mb-0 text-sm md:text-base text-neutral-100 bg-gray-800 p-2 rounded-xl overflow-y-scroll max-h-14 max-w-2xl"
+                " mb-0 text-sm md:text-base text-neutral-100 bg-gray-800 p-2 rounded-xl overflow-y-scroll custom-scrollbar max-h-14 max-w-2xl"
               }
             >
               {product.productDescription

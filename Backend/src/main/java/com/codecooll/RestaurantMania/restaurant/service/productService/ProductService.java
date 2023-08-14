@@ -3,6 +3,7 @@ package com.codecooll.RestaurantMania.restaurant.service.productService;
 import com.codecooll.RestaurantMania.restaurant.model.CategoryProduct;
 import com.codecooll.RestaurantMania.restaurant.model.Product;
 import com.codecooll.RestaurantMania.restaurant.service.categoryProductService.CategoryProductRepository;
+import jakarta.transaction.Transactional;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -40,6 +41,13 @@ public class ProductService {
         else if( key == "description") product.setProductDescription(value);
         else if( key == "price") product.setPrice(Integer.parseInt( value.replaceAll("[^\\d]", "")));
         productRepository.save(product);
+    }
+
+    @Transactional
+    public void deleteProductById(Long product_id){
+        Product product = productRepository.findById(product_id).orElse(null);
+        product.getCategoryProduct().removeProduct(product);
+        productRepository.deleteById(product_id);
 
     }
 }

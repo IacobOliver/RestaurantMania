@@ -3,6 +3,7 @@ package com.codecooll.RestaurantMania.restaurant.service.categoryProductService;
 import com.codecooll.RestaurantMania.restaurant.model.CategoryProduct;
 import com.codecooll.RestaurantMania.restaurant.model.Menu;
 import com.codecooll.RestaurantMania.restaurant.service.menuService.MenuRepository;
+import jakarta.transaction.Transactional;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -31,5 +32,13 @@ public class CategoryProductService {
         CategoryProduct categoryProduct = categoryProductRepository.findById(categoryId).orElse(null);
         categoryProduct.setName(newCategoryName);
         categoryProductRepository.save(categoryProduct);
+    }
+
+    @Transactional
+    public void deleteCategById(Long categ_id){
+        CategoryProduct categoryProduct = categoryProductRepository.findById(categ_id).orElse(null);
+        categoryProduct.getMenu().removeCategoryProduct(categoryProduct);
+        categoryProductRepository.deleteById(categ_id);
+
     }
 }

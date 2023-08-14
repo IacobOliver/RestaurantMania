@@ -40,4 +40,9 @@ public class Menu {
                 ", lastUpdated=" + lastUpdated +
                 '}';
     }
+
+    public void removeCategoryProduct(CategoryProduct categoryProduct){
+        categoryProducts.remove(categoryProduct);
+        categoryProduct.setMenu(null);
+    }
 }

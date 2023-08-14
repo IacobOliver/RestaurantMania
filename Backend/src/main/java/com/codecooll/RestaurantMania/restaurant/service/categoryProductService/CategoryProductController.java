@@ -28,4 +28,11 @@ public class CategoryProductController {
         categoryProductService.updateCategoryName( category_Id,  newCategoryName);
     }
 
+    @DeleteMapping(path = "delete/{categ_id}")
+    public ResponseEntity<String> deleteCategById(@PathVariable Long categ_id){
+        categoryProductService.deleteCategById(categ_id);
+
+        return ResponseEntity.ok("Deleted categ " +  categ_id);
+    }
+
 }

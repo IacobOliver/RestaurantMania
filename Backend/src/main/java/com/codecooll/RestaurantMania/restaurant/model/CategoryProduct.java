@@ -40,4 +40,9 @@ public class CategoryProduct {
                 ", products=" + products +
                 '}';
     }
+
+    public void removeProduct( Product product){
+        products.remove(product);
+        product.setCategoryProduct(null);
+    }
 }

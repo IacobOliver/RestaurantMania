@@ -121,7 +121,7 @@ export default function RestaurantMenu({ thisRestaurant, setThisRestaurant }) {
 
   return (
     <>
-      <div className="md:mr-2 rounded-t-lg divide-y-2 border-b-2 bg-gray-800 lg:overflow-visible">
+      <div className="md:mr-2 rounded-t-lg divide-y-2 border-b-2 bg-gradient-to-r from-gray-900 via-gray-800 to-gray-700 lg:overflow-visible">
         {thisRestaurant?.menu.categoryProducts.map((categ, index) => {
           return (
             <CategoryAccordeon

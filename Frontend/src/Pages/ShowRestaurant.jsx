@@ -128,7 +128,7 @@ export default function MyRestaurant() {
                 {/* col2 */}
                 <div className="pl-2 pr-3 bg-gray-900 w-full col-span-3">
                     <div
-                        className="mt-3 mb-1 flex flex-col items-center p-2 bg-gray-800 text-white rounded-lg shadow-lg">
+                        className="mt-3 flex flex-col items-center p-2 bg-gradient-to-r from-gray-900 via-gray-800 to-gray-700 text-white rounded-lg shadow-lg">
                         <h1 className="text-3xl font-bold mb-0">MENU</h1>
                         <p className="text-sm text-gray-400 mt-1 mb-0">
                             Last updated at {lastUpdatedMenu}
@@ -143,13 +143,13 @@ export default function MyRestaurant() {
                     </div>
                 </div>
             </div>
-            {/* <button className = "bg-white absolute right-10 bottom-10 w-20 h-10"> SAVE </button> */}
+           
 
             <button
                 type="button"
                 className="fixed right-14 bottom-10 text-white bg-gradient-to-r from-yellow-400 via-yellow-500 to-yellow-600 hover:bg-gradient-to-br focus:ring-4 focus:outline-none focus:ring-yellow-300 dark:focus:ring-yellow-800 shadow-lg shadow-yellow-500/50 dark:shadow-lg dark:shadow-yellow-800/80 font-medium rounded-lg text-sm px-5 py-2.5 text-center mr-2 mb-2"
             >
-                SAVE
+                ACTIVATE
             </button>
         </div>
     );

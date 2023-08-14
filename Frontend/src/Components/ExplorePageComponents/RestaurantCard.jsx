@@ -18,7 +18,7 @@ export default function RestauntCard({ restaurant }) {
           alt="Colors"
         />
       </div>
-      <p className="mt-4 text-gray-200 text-lg font-bold cursor-pointer max-h-20 h-20 overflow-y-scroll">
+      <p className="mt-4 text-gray-200 text-lg font-bold cursor-pointer max-h-20 h-20 overflow-y-scroll custom-scrollbar">
         {restaurant.description}
       </p>
       <div className="my-4">

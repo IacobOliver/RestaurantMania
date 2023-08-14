@@ -29,6 +29,8 @@ function Icon({ id, open }) {
   );
 }
 
+
+
 export default function CategoryAccordeon({
   open,
   index,
@@ -40,6 +42,25 @@ export default function CategoryAccordeon({
 }) {
   const categRef = useRef(null);
   const [editName, setEditName] = useState(false);
+
+
+  
+const deleteCategoryProduct = (e) =>{
+    e.target.parentElement.parentElement.parentElement.remove()
+   console.log(categ.id)
+  fetch(`http://localhost:8080/categoryProduct/delete/${categ.id}`, {
+    method : "DELETE",
+    headers : {
+      "Content-Type" : "application/json",
+    },
+
+  }).then(res => res.json())
+  .catch(err => console.log("Error del categPrduct " + err))
+ 
+}
+
+
+
   return (
     <Accordion
       open={open === index + 1}
@@ -50,6 +71,9 @@ export default function CategoryAccordeon({
         onClick={(e) => handleOpen(index + 1, e)}
       >
         <div className="flex flex-row items-center">
+        <i onClick={deleteCategoryProduct} className="fas fa-trash mr-3 text-md text-gray-200 bg-gray-800 rounded-lg p-2"></i>
+
+
           <p
             contentEditable={editName}
             className={`${editName ? "border border-white rounded-lg" : ""} mb-0`}
