@@ -1,5 +1,5 @@
 import React, {useEffect, useState} from "react";
-import {useParams} from "react-router-dom";
+import {useParams, useNavigate} from "react-router-dom";
 import {useAtom} from "jotai";
 import RatingComponent from "../Components/RatingComponent";
 import state from "../Components/AtomStates";
@@ -14,6 +14,7 @@ export default function MyRestaurant() {
         state.refreshShowRestaurant
     );
     const params = useParams();
+    const navigate = useNavigate();
 
     let lastUpdatedMenu = "21.07.2003";
     let id = params.restaurantId * 1;
@@ -89,23 +90,25 @@ export default function MyRestaurant() {
     };
 
     const setRestaurantActive = (bool) =>{ 
-        fetch(
-            `http://localhost:8080/restaurant/activate/${thisRestaurant.id}`,
-            {
-                method: "PATCH",
-                headers : {
-                    "Content-Type" : "application/json",
-                },
-                body: bool ,
-            }
-        )
-            .then((response) => {
-                console.log(response);
-                return response.json();
-            })
-            .catch((error) => {
-                console.error("Error while uploading image:", error);
-            });
+        // fetch(
+        //     `http://localhost:8080/restaurant/activate/${thisRestaurant.id}`,
+        //     {
+        //         method: "PATCH",
+        //         headers : {
+        //             "Content-Type" : "application/json",
+        //         },
+        //         body: bool ,
+        //     }
+        // )
+        //     .then((response) => {
+        //         console.log(response);
+        //         return response.json();
+        //     })
+        //     .catch((error) => {
+        //         console.error("Error while uploading image:", error);
+        //     });
+        navigate(`/activate/restaurant/${thisRestaurant.restaurantId}`)
+
     }
 
     const Divider = () => {
