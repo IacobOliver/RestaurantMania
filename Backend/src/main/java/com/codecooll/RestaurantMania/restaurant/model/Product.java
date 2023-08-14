@@ -29,8 +29,8 @@ public class Product {
     @Column(length = 1000)
     private String productDescription;
 
-    @OneToMany(cascade = CascadeType.ALL, orphanRemoval = true, fetch = FetchType.EAGER)
-    private List<Image> images = new ArrayList<>();
+    @OneToOne(cascade = CascadeType.ALL, orphanRemoval = true)
+    private Image image;
 
     @JsonIgnore
     @ManyToOne
