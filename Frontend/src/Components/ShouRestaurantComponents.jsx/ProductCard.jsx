@@ -11,19 +11,28 @@ export default function ProductCard({ product, prodId, categId, editProduct }) {
   const [editDescription, setEditDescription] = useState(false);
   const [editPrice, setEditPrice] = useState(false);
 
-  function handleImageChange(event) {
+  function handleImageChange(event, imageRef) {
     const file = event.target.files[0];
     if (!file) return;
+    const formData = new FormData();
+    formData.append("image", file);
 
-    const image = imgRef.current;
-    const reader = new FileReader();
-
-    reader.onload = function () {
-      const imageDataUrl = reader.result;
-      image.src = imageDataUrl;
-    };
-
-    reader.readAsDataURL(file);
+    fetch(`http://localhost:8080/product/update/image/${product.id}`, {
+      method: "POST",
+      body: formData,
+    })
+      .then((response) => {
+        console.log(response);
+        return response.json();
+      })
+      .then((data) => {
+        console.log(imageRef.current.src)
+        console.log(data.imageUrl)
+        imageRef.current.src = data.imageUrl;
+      })
+      .catch((error) => {
+        console.error("Error while uploading image:", error);
+      });
   }
 
   const EditButton = ({ edit, setEdit, field, elRef }) => {
@@ -51,70 +60,71 @@ export default function ProductCard({ product, prodId, categId, editProduct }) {
     );
   };
 
-  const deleteProductEvent = (e) =>{
-    e.target.parentElement.parentElement.parentElement.parentElement.remove()
-    console.log(prodId)
-        fetch(`http://localhost:8080/product/delete/${prodId}`, {
-          method : "DELETE",
-          headers : {
-            "Content-Type" : "application/json",
-          },
-
-        }).then(res => res.json())
-        .catch(err => console.log("Error del product " + err))
-  }
+  const deleteProductEvent = (e) => {
+    e.target.parentElement.parentElement.parentElement.parentElement.remove();
+    console.log(prodId);
+    fetch(`http://localhost:8080/product/delete/${prodId}`, {
+      method: "DELETE",
+      headers: {
+        "Content-Type": "application/json",
+      },
+    })
+      .then((res) => res.json())
+      .catch((err) => console.log("Error del product " + err));
+  };
 
   return (
     <div className="h-40 mb-2 mx-1 w-full flex rounded-lg bg-gray-800 flex-row">
       <div>
-      <label htmlFor={"fileInput" + prodId}>
-        <img
-          draggable={false}
-          ref={imgRef}
-          id="editableImage"
-          className="h-full w-32 min-w-28 md:h-36 md:w-40 rounded object-cover"
-          src={
-            product.image?.imageUrl
-              ? product.image.imageUrl
-              : "https://icon-library.com/images/add-image-icon-png/add-image-icon-png-15.jpg"
-          }
+        <label htmlFor={"fileInput" + prodId}>
+          <img
+            draggable={false}
+            ref={imgRef}
+            id="editableImage"
+            className="h-full w-32 min-w-28 md:h-36 md:w-40 rounded object-cover"
+            src={
+              product.image?.imageUrl
+                ? product.image.imageUrl
+                : "https://icon-library.com/images/add-image-icon-png/add-image-icon-png-15.jpg"
+            }
+          />
+        </label>
+        <input
+          disabled={false}
+          type="file"
+          id={"fileInput" + prodId}
+          className="hidden"
+          accept="image/*"
+          onChange={(e) => handleImageChange(e, imgRef)}
         />
-      </label>
-      <input
-        disabled={false}
-        type="file"
-        id={"fileInput" + prodId}
-        className="hidden"
-        accept="image/*"
-        onChange={(e) => handleImageChange(e, imgRef)}
-      />
       </div>
 
-
       <div className="flex w-full h-full flex-col justify-between p-2 ">
-
         <div>
           <div className="flex items-center justify-between mb-2">
-            <div className = " flex items-center">
-            <h5
-              contentEditable={editName}
-              ref={nameRef}
-              className={
-                `${editName ? "border border-white rounded-lg" : ""}` +
-                "mb-0 text-base md:text-xl font-bold text-gray-200 "
-              }
-            >
-              {product.name ? product.name : "Product Name"}
-            </h5>
-            <EditButton
-              edit={editName}
-              setEdit={setEditName}
-              field={"name"}
-              elRef={nameRef}
-            />
+            <div className=" flex items-center">
+              <h5
+                contentEditable={editName}
+                ref={nameRef}
+                className={
+                  `${editName ? "border border-white rounded-lg" : ""}` +
+                  "mb-0 text-base md:text-xl font-bold text-gray-200 "
+                }
+              >
+                {product.name ? product.name : "Product Name"}
+              </h5>
+              <EditButton
+                edit={editName}
+                setEdit={setEditName}
+                field={"name"}
+                elRef={nameRef}
+              />
             </div>
 
-            <i onClick={deleteProductEvent} className="fas fa-trash mr-3 text-md text-gray-200 bg-gray-800 rounded-lg p-2"></i>
+            <i
+              onClick={deleteProductEvent}
+              className="fas fa-trash mr-3 text-md text-gray-200 bg-gray-800 rounded-lg p-2"
+            ></i>
           </div>
 
           <div className="flex items-center">
@@ -149,7 +159,8 @@ export default function ProductCard({ product, prodId, categId, editProduct }) {
             }
           >
             {product.price ? product.price : 0}
-          </p> <p className=" mb-0 text-xl text-neutral-200">‎ Ron</p>
+          </p>{" "}
+          <p className=" mb-0 text-xl text-neutral-200">‎ Ron</p>
           <EditButton
             edit={editPrice}
             setEdit={setEditPrice}
@@ -157,9 +168,7 @@ export default function ProductCard({ product, prodId, categId, editProduct }) {
             elRef={priceRef}
           />
         </div>
-
       </div>
-
     </div>
   );
 }
