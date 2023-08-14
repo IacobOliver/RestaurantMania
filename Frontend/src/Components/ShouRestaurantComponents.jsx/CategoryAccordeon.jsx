@@ -7,6 +7,7 @@ import {
   AccordionBody,
 } from "@material-tailwind/react";
 import ProductCard from "./ProductCard";
+import { checking } from "../Utils";
 
 function Icon({ id, open }) {
   return (
@@ -16,9 +17,8 @@ function Icon({ id, open }) {
       viewBox="0 0 24 24"
       strokeWidth={2}
       stroke="currentColor"
-      className={`${
-        id === open ? "rotate-180" : ""
-      } h-5 w-5 transition-transform`}
+      className={`${id === open ? "rotate-180" : ""
+        } h-5 w-5 transition-transform`}
     >
       <path
         strokeLinecap="round"
@@ -44,20 +44,20 @@ export default function CategoryAccordeon({
   const [editName, setEditName] = useState(false);
 
 
-  
-const deleteCategoryProduct = (e) =>{
-    e.target.parentElement.parentElement.parentElement.remove()
-   console.log(categ.id)
-  fetch(`http://localhost:8080/categoryProduct/delete/${categ.id}`, {
-    method : "DELETE",
-    headers : {
-      "Content-Type" : "application/json",
-    },
 
-  }).then(res => res.json())
-  .catch(err => console.log("Error del categPrduct " + err))
- 
-}
+  const deleteCategoryProduct = (e) => {
+    e.target.parentElement.parentElement.parentElement.remove()
+    console.log(categ.id)
+    fetch(`http://localhost:8080/categoryProduct/delete/${categ.id}`, {
+      method: "DELETE",
+      headers: {
+        "Content-Type": "application/json",
+      },
+
+    }).then(res => res.json())
+      .catch(err => console.log("Error del categPrduct " + err))
+
+  }
 
 
 
@@ -71,7 +71,7 @@ const deleteCategoryProduct = (e) =>{
         onClick={(e) => handleOpen(index + 1, e)}
       >
         <div className="flex flex-row items-center">
-        <i onClick={deleteCategoryProduct} className="fas fa-trash mr-3 text-md text-gray-200 bg-gray-800 rounded-lg p-2"></i>
+          {checking.checkIfHolder() ? <i onClick={deleteCategoryProduct} className="fas fa-trash mr-3 text-md text-gray-200 bg-gray-800 rounded-lg p-2"></i> : null}
 
 
           <p
@@ -81,7 +81,9 @@ const deleteCategoryProduct = (e) =>{
           >
             {categ.name ? categ.name : "Add a category name"}
           </p>
-          {editName ? (
+
+
+          {editName && checking.checkIfHolder() ? (
             <i
               onClick={() => {
                 editContentEvent(categRef, "name", categ.id);
@@ -91,14 +93,16 @@ const deleteCategoryProduct = (e) =>{
             >
               {" "}
             </i>
-          ) : (
-            <i
-              onClick={() => {
-                setEditName(true);
-              }}
-              className="fas fa-edit ml-3 mr-3 hover:text-gray-400"
-            ></i>
-          )}
+          ) : null }
+
+            {!editName && checking.checkIfHolder() ?
+          <i
+            onClick={() => {
+              setEditName(true);
+            }}
+            className="fas fa-edit ml-3 mr-3 hover:text-gray-400"
+          ></i> : null }
+
         </div>
       </AccordionHeader>
       <AccordionBody>
@@ -112,33 +116,35 @@ const deleteCategoryProduct = (e) =>{
           />
         ))}
 
-        <div className = "w-full flex justify-center">
-        <button
-          className="w-11/12 justify-center inline-flex items-center  text-white bg-gradient-to-r from-yellow-400 via-yellow-500 to-yellow-600 hover:bg-gradient-to-br focus:ring-4 focus:outline-none focus:ring-yellow-300 dark:focus:ring-yellow-800 shadow-lg shadow-yellow-500/50 dark:shadow-lg dark:shadow-yellow-800/80 font-medium rounded-lg text-sm px-5 py-2.5 text-center"
-          onClick={() => {
-            addNewProd(categ.id);
-          }}
-        >
 
-         <svg
-          xmlns="http://www.w3.org/2000/svg"
-          width={20}
-          height={20}
-          viewBox="0 0 24 24"
-          fill="none"
-          stroke={"white"}
-          strokeWidth="4"
-          strokeLinecap="round"
-          strokeLinejoin="round"
-          className = "mx-2"
-        >
-          <line x1="12" y1="5" x2="12" y2="19"></line>
-          <line x1="5" y1="12" x2="19" y2="12"></line>
-        </svg>
-          <span>Add a product(ex. Smoothie)</span>
-        </button>
-        </div>
-       
+        {checking.checkIfHolder() ?
+          <div className="w-full flex justify-center">
+            <button
+              className="w-11/12 justify-center inline-flex items-center  text-white bg-gradient-to-r from-yellow-400 via-yellow-500 to-yellow-600 hover:bg-gradient-to-br focus:ring-4 focus:outline-none focus:ring-yellow-300 dark:focus:ring-yellow-800 shadow-lg shadow-yellow-500/50 dark:shadow-lg dark:shadow-yellow-800/80 font-medium rounded-lg text-sm px-5 py-2.5 text-center"
+              onClick={() => {
+                addNewProd(categ.id);
+              }}
+            >
+
+              <svg
+                xmlns="http://www.w3.org/2000/svg"
+                width={20}
+                height={20}
+                viewBox="0 0 24 24"
+                fill="none"
+                stroke={"white"}
+                strokeWidth="4"
+                strokeLinecap="round"
+                strokeLinejoin="round"
+                className="mx-2"
+              >
+                <line x1="12" y1="5" x2="12" y2="19"></line>
+                <line x1="5" y1="12" x2="19" y2="12"></line>
+              </svg>
+              <span>Add a product(ex. Smoothie)</span>
+            </button>
+          </div> : null}
+
 
       </AccordionBody>
     </Accordion>

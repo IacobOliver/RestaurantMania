@@ -1,6 +1,7 @@
 import React from "react";
 import { useState } from "react";
 import { useRef } from "react";
+import { checking } from "../Utils";
 
 export default function ProductCard({ product, prodId, categId, editProduct }) {
   const imgRef = useRef(null);
@@ -29,7 +30,7 @@ export default function ProductCard({ product, prodId, categId, editProduct }) {
   const EditButton = ({ edit, setEdit, field, elRef }) => {
     return (
       <>
-        {edit ? (
+        {edit && checking.checkIfHolder()? (
           <i
             onClick={() => {
               editProduct(elRef, field, categId, prodId);
@@ -37,57 +38,60 @@ export default function ProductCard({ product, prodId, categId, editProduct }) {
             }}
             className="fa fa-check ml-3 mr-3 text-gray-200 hover:text-gray-400"
           >
-            {" "}
+
           </i>
-        ) : (
+        ) : null}
+
+        {!edit && checking.checkIfHolder() ?
           <i
             onClick={() => {
               setEdit(true);
             }}
             className="fas fa-edit ml-3 mr-3 text-gray-200 hover:text-gray-400"
-          ></i>
-        )}
+          ></i> : null}
       </>
     );
   };
 
-  const deleteProductEvent = (e) =>{
+  const deleteProductEvent = (e) => {
     e.target.parentElement.parentElement.parentElement.parentElement.remove()
     console.log(prodId)
-        fetch(`http://localhost:8080/product/delete/${prodId}`, {
-          method : "DELETE",
-          headers : {
-            "Content-Type" : "application/json",
-          },
+    fetch(`http://localhost:8080/product/delete/${prodId}`, {
+      method: "DELETE",
+      headers: {
+        "Content-Type": "application/json",
+      },
 
-        }).then(res => res.json())
-        .catch(err => console.log("Error del product " + err))
+    }).then(res => res.json())
+      .catch(err => console.log("Error del product " + err))
   }
 
   return (
     <div className="h-40 mb-2 mx-1 w-full flex rounded-lg bg-gray-800 flex-row">
       <div>
-      <label htmlFor={"fileInput" + prodId}>
-        <img
-          draggable={false}
-          ref={imgRef}
-          id="editableImage"
-          className="h-full w-32 min-w-28 md:h-36 md:w-40 rounded object-cover"
-          src={
-            product.image?.imageUrl
-              ? product.image.imageUrl
-              : "https://icon-library.com/images/add-image-icon-png/add-image-icon-png-15.jpg"
-          }
-        />
-      </label>
-      <input
-        disabled={false}
-        type="file"
-        id={"fileInput" + prodId}
-        className="hidden"
-        accept="image/*"
-        onChange={(e) => handleImageChange(e, imgRef)}
-      />
+        <label htmlFor={"fileInput" + prodId}>
+          <img
+            draggable={false}
+            ref={imgRef}
+            id="editableImage"
+            className="h-full w-32 min-w-28 md:h-36 md:w-40 rounded object-cover"
+            src={
+              product.image?.imageUrl
+                ? product.image.imageUrl
+                : "https://icon-library.com/images/add-image-icon-png/add-image-icon-png-15.jpg"
+            }
+          />
+        </label>
+
+        {checking.checkIfHolder() ?
+        <input
+          disabled={false}
+          type="file"
+          id={"fileInput" + prodId}
+          className="hidden"
+          accept="image/*"
+          onChange={(e) => handleImageChange(e, imgRef)}
+        /> : null}
       </div>
 
 
@@ -95,26 +99,27 @@ export default function ProductCard({ product, prodId, categId, editProduct }) {
 
         <div>
           <div className="flex items-center justify-between mb-2">
-            <div className = " flex items-center">
-            <h5
-              contentEditable={editName}
-              ref={nameRef}
-              className={
-                `${editName ? "border border-white rounded-lg" : ""}` +
-                "mb-0 text-base md:text-xl font-bold text-gray-200 "
-              }
-            >
-              {product.name ? product.name : "Product Name"}
-            </h5>
-            <EditButton
-              edit={editName}
-              setEdit={setEditName}
-              field={"name"}
-              elRef={nameRef}
-            />
+            <div className=" flex items-center">
+              <h5
+                contentEditable={editName}
+                ref={nameRef}
+                className={
+                  `${editName ? "border border-white rounded-lg" : ""}` +
+                  "mb-0 text-base md:text-xl font-bold text-gray-200 "
+                }
+              >
+                {product.name ? product.name : "Product Name"}
+              </h5>
+              <EditButton
+                edit={editName}
+                setEdit={setEditName}
+                field={"name"}
+                elRef={nameRef}
+              />
             </div>
-
-            <i onClick={deleteProductEvent} className="fas fa-trash mr-3 text-md text-gray-200 bg-gray-800 rounded-lg p-2"></i>
+            
+            {checking.checkIfHolder() ?   <i onClick={deleteProductEvent} className="fas fa-trash mr-3 text-md text-gray-200 bg-gray-800 rounded-lg p-2"></i> : null}
+          
           </div>
 
           <div className="flex items-center">
@@ -139,7 +144,8 @@ export default function ProductCard({ product, prodId, categId, editProduct }) {
           </div>
         </div>
 
-        <div className=" flex items-center justify-end">
+        <div className=" flex items-center justify-end mr-5 ">
+          <div className = " flex items-center ">
           <p
             contentEditable={editPrice}
             ref={priceRef}
@@ -149,7 +155,10 @@ export default function ProductCard({ product, prodId, categId, editProduct }) {
             }
           >
             {product.price ? product.price : 0}
-          </p> <p className=" mb-0 text-xl text-neutral-200">‎ Ron</p>
+          </p>
+          <p className=" mb-0 text-xl text-neutral-200">‎ Ron</p>
+          </div>
+
           <EditButton
             edit={editPrice}
             setEdit={setEditPrice}

@@ -1,12 +1,14 @@
 import React from "react";
 import { useRef } from "react";
 import { useState } from "react";
-
-export default function RestaurantName({thisRestaurant,editContentEvent}) {
+import { useAtom } from "jotai";
+import state from "../AtomStates";
+import { checking } from "../Utils";
+import { useParams } from "react-router-dom";
+export default function RestaurantName({ thisRestaurant, editContentEvent }) {
   const [editName, setEditName] = useState(false);
   const contentRef = useRef(null);
 
-    
 
   return (
     <div
@@ -22,7 +24,9 @@ export default function RestaurantName({thisRestaurant,editContentEvent}) {
         {thisRestaurant?.name ? thisRestaurant.name : "RESTAURANT NAME"}
       </p>
 
-      {editName ? (
+
+
+      {editName && checking.checkIfHolder() ? (
         <i
           onClick={() => {
             editContentEvent(contentRef, "name");
@@ -30,16 +34,19 @@ export default function RestaurantName({thisRestaurant,editContentEvent}) {
           }}
           className="fa fa-check ml-3 mr-3 hover:text-gray-400"
         >
-          {" "}
         </i>
-      ) : (
+      ) : null}
+
+      {!editName && checking.checkIfHolder() ?
+
         <i
           onClick={() => {
-           setEditName(true)
+            setEditName(true)
           }}
           className="fas fa-edit ml-3 mr-3 hover:text-gray-400"
-        ></i>
-      )}
+        ></i> : null}
+
+
     </div>
   );
 }

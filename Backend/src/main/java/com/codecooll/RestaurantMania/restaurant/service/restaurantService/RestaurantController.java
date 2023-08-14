@@ -64,6 +64,11 @@ public class RestaurantController {
         restaurantService.updateRestaurantDescription(restaurantId,newDescription);
     }
 
+    @PatchMapping(path = "/activate/{restaurant_id}")
+    public void setActive(@PathVariable Long restaurant_id, @RequestBody Boolean value){
+        restaurantService.setActive(restaurant_id, value);
+    }
+
     @DeleteMapping(path = "/delete/{restaurantId}")
     public void deleteRestaurantById(@PathVariable Long restaurantId) {
         restaurantService.deleteById(restaurantId);

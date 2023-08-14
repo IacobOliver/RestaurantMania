@@ -84,4 +84,10 @@ public class RestaurantService {
         restaurantRepository.save(restaurant);
     }
 
+    public void setActive(Long restaurant_id, Boolean value){
+        Restaurant restaurant = restaurantRepository.findById(restaurant_id).orElse(null);
+        restaurant.setActive(value);
+        restaurantRepository.save(restaurant);
+    }
+
 }

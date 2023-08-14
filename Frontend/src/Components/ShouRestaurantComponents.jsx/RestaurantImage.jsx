@@ -1,4 +1,5 @@
 import React from "react";
+import { checking } from "../Utils";
 
 export default function RestaurantImage({ thisRestaurant, handleImageChange }) {
   return (
@@ -14,14 +15,18 @@ export default function RestaurantImage({ thisRestaurant, handleImageChange }) {
             className="relative h-auto max-h-72 rounded-xl"
           />
         </label>
-        <input
-          disabled={false}
-          type="file"
-          id="fileInput"
-          className="hidden"
-          accept="image/*"
-          onChange={(e) => handleImageChange(e)}
-        />
+
+
+        {checking.checkIfHolder() ?
+          <input
+            disabled={false}
+            type="file"
+            id="fileInput"
+            className="hidden"
+            accept="image/*"
+            onChange={(e) => handleImageChange(e)}
+          /> : null }
+        
       </div>
     </div>
   );

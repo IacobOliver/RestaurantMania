@@ -88,6 +88,26 @@ export default function MyRestaurant() {
         });
     };
 
+    const setRestaurantActive = (bool) =>{ 
+        fetch(
+            `http://localhost:8080/restaurant/activate/${thisRestaurant.id}`,
+            {
+                method: "PATCH",
+                headers : {
+                    "Content-Type" : "application/json",
+                },
+                body: bool ,
+            }
+        )
+            .then((response) => {
+                console.log(response);
+                return response.json();
+            })
+            .catch((error) => {
+                console.error("Error while uploading image:", error);
+            });
+    }
+
     const Divider = () => {
         return (
             <div className="flex flex-col w-full bg-gradient-to-r from-gray-900 via-gray-800 to-gray-900">
@@ -144,13 +164,15 @@ export default function MyRestaurant() {
                 </div>
             </div>
            
-
+            {thisRestaurant && thisRestaurant.active == false ?
             <button
                 type="button"
+                onClick = {() => setRestaurantActive(true)}
                 className="fixed right-14 bottom-10 text-white bg-gradient-to-r from-yellow-400 via-yellow-500 to-yellow-600 hover:bg-gradient-to-br focus:ring-4 focus:outline-none focus:ring-yellow-300 dark:focus:ring-yellow-800 shadow-lg shadow-yellow-500/50 dark:shadow-lg dark:shadow-yellow-800/80 font-medium rounded-lg text-sm px-5 py-2.5 text-center mr-2 mb-2"
             >
                 ACTIVATE
-            </button>
+            </button> : null }
+            
         </div>
     );
 }

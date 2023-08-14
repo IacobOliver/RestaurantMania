@@ -28,6 +28,7 @@ public class Restaurant {
     private String name;
     private String address;
     private double rating = 0;
+    private boolean active = false;
 
     @Column(length = 1000)
     private String description;
