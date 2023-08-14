@@ -28,6 +28,8 @@ public class Restaurant {
     private String name;
     private String address;
     private double rating = 0;
+
+    @Column(length = 1000)
     private String description;
 
     @OneToOne(cascade = CascadeType.ALL, orphanRemoval = true)

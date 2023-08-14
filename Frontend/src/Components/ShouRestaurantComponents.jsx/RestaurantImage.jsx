@@ -2,7 +2,7 @@ import React from "react";
 
 export default function RestaurantImage({ thisRestaurant, handleImageChange }) {
   return (
-    <div className="mt-0">
+    <div className="mt-0 flex justify-center">
       <div className="p-3">
         <label htmlFor="fileInput">
           <img
