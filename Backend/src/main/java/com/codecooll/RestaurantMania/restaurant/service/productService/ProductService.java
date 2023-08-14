@@ -1,7 +1,10 @@
 package com.codecooll.RestaurantMania.restaurant.service.productService;
 
 import com.codecooll.RestaurantMania.restaurant.model.CategoryProduct;
+import com.codecooll.RestaurantMania.restaurant.model.Image;
 import com.codecooll.RestaurantMania.restaurant.model.Product;
+import com.codecooll.RestaurantMania.restaurant.model.Restaurant;
+import com.codecooll.RestaurantMania.restaurant.service.amazon.AwsS3Service;
 import com.codecooll.RestaurantMania.restaurant.service.categoryProductService.CategoryProductRepository;
 import jakarta.transaction.Transactional;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -14,11 +17,14 @@ public class ProductService {
 
     private final ProductRepository productRepository;
     private final CategoryProductRepository categoryProductRepository;
+    private final AwsS3Service awsS3Service;
+
 
     @Autowired
-    public ProductService(ProductRepository productRepository, CategoryProductRepository categoryProductRepository) {
+    public ProductService(ProductRepository productRepository, CategoryProductRepository categoryProductRepository,AwsS3Service awsS3Service) {
         this.categoryProductRepository = categoryProductRepository;
         this.productRepository = productRepository;
+        this.awsS3Service =awsS3Service;
     }
 
     public Product addNewProduct(Long categ_id, Product product) {
@@ -40,6 +46,16 @@ public class ProductService {
         if(key == "name") product.setName(value);
         else if( key == "description") product.setProductDescription(value);
         else if( key == "price") product.setPrice(Integer.parseInt( value.replaceAll("[^\\d]", "")));
+        productRepository.save(product);
+    }
+
+    public void setRestaurantImageUrl(Long product_id, Image image) {
+        Product product = productRepository.getById(product_id);
+        if (product.getImage() != null) {
+            String url = product.getImage().getImageUrl();
+            awsS3Service.deleteImageByUrl(url);
+        }
+        product.setImage(image);
         productRepository.save(product);
     }
 
