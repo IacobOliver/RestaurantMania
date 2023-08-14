@@ -7,6 +7,7 @@ import RestaurantName from "../Components/ShouRestaurantComponents.jsx/Restauran
 import RestaurantDescription from "../Components/ShouRestaurantComponents.jsx/RestaurantDescription";
 import RestaurantImage from "../Components/ShouRestaurantComponents.jsx/RestaurantImage";
 import RestaurantMenu from "../Components/ShouRestaurantComponents.jsx/RestaurantMenu";
+import { checking } from "../Components/Utils";
 //x
 export default function MyRestaurant() {
     const [thisRestaurant, setThisRestaurant] = useState(null);
@@ -89,25 +90,9 @@ export default function MyRestaurant() {
         });
     };
 
-    const setRestaurantActive = (bool) =>{ 
-        // fetch(
-        //     `http://localhost:8080/restaurant/activate/${thisRestaurant.id}`,
-        //     {
-        //         method: "PATCH",
-        //         headers : {
-        //             "Content-Type" : "application/json",
-        //         },
-        //         body: bool ,
-        //     }
-        // )
-        //     .then((response) => {
-        //         console.log(response);
-        //         return response.json();
-        //     })
-        //     .catch((error) => {
-        //         console.error("Error while uploading image:", error);
-        //     });
-        navigate(`/activate/restaurant/${thisRestaurant.restaurantId}`)
+    const setRestaurantActive = () =>{ 
+        navigate(`/activate/restaurant/${thisRestaurant.id}`)
+       
 
     }
 
@@ -167,10 +152,10 @@ export default function MyRestaurant() {
                 </div>
             </div>
            
-            {thisRestaurant && thisRestaurant.active == false ?
+            {thisRestaurant && thisRestaurant.active == false  ?
             <button
                 type="button"
-                onClick = {() => setRestaurantActive(true)}
+                onClick = {() => setRestaurantActive()}
                 className="fixed right-14 bottom-10 text-white bg-gradient-to-r from-yellow-400 via-yellow-500 to-yellow-600 hover:bg-gradient-to-br focus:ring-4 focus:outline-none focus:ring-yellow-300 dark:focus:ring-yellow-800 shadow-lg shadow-yellow-500/50 dark:shadow-lg dark:shadow-yellow-800/80 font-medium rounded-lg text-sm px-5 py-2.5 text-center mr-2 mb-2"
             >
                 ACTIVATE
