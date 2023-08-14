@@ -23,8 +23,18 @@ public class ProductController {
     }
 
     @PatchMapping(path = "update/name/{product_id}")
-    public void updateProductName(@PathVariable Long product_id, @RequestBody String newProductName){
-        
+    public void updateProductName(@PathVariable Long product_id, @RequestBody String value){
+        productService.updateProduct(product_id, value, "name");
+    }
+
+    @PatchMapping(path = "update/productDescription/{product_id}")
+    public void updateProductDescription(@PathVariable Long product_id, @RequestBody String value){
+        productService.updateProduct(product_id, value, "description");
+    }
+
+    @PatchMapping(path = "update/price/{product_id}")
+    public void updateProductPrice(@PathVariable Long product_id, @RequestBody String value){
+        productService.updateProduct(product_id, value, "price");
     }
 
 }
