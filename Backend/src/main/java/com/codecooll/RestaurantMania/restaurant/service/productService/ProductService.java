@@ -3,8 +3,6 @@ package com.codecooll.RestaurantMania.restaurant.service.productService;
 import com.codecooll.RestaurantMania.restaurant.model.CategoryProduct;
 import com.codecooll.RestaurantMania.restaurant.model.Image;
 import com.codecooll.RestaurantMania.restaurant.model.Product;
-import com.codecooll.RestaurantMania.restaurant.model.Restaurant;
-import com.codecooll.RestaurantMania.restaurant.service.amazon.AwsS3Service;
 import com.codecooll.RestaurantMania.restaurant.service.categoryProductService.CategoryProductRepository;
 import jakarta.transaction.Transactional;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -17,14 +15,12 @@ public class ProductService {
 
     private final ProductRepository productRepository;
     private final CategoryProductRepository categoryProductRepository;
-    private final AwsS3Service awsS3Service;
 
 
     @Autowired
-    public ProductService(ProductRepository productRepository, CategoryProductRepository categoryProductRepository,AwsS3Service awsS3Service) {
+    public ProductService(ProductRepository productRepository, CategoryProductRepository categoryProductRepository) {
         this.categoryProductRepository = categoryProductRepository;
         this.productRepository = productRepository;
-        this.awsS3Service =awsS3Service;
     }
 
     public Product addNewProduct(Long categ_id, Product product) {
@@ -53,7 +49,7 @@ public class ProductService {
         Product product = productRepository.getById(product_id);
         if (product.getImage() != null) {
             String url = product.getImage().getImageUrl();
-            awsS3Service.deleteImageByUrl(url);
+//            awsS3Service.deleteImageByUrl(url);
         }
         product.setImage(image);
         productRepository.save(product);

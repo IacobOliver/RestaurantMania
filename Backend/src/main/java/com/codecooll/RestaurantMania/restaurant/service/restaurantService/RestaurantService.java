@@ -5,12 +5,9 @@ import com.codecooll.RestaurantMania.accounts.service.AccountRepository;
 import com.codecooll.RestaurantMania.restaurant.model.Image;
 import com.codecooll.RestaurantMania.restaurant.model.Menu;
 import com.codecooll.RestaurantMania.restaurant.model.Restaurant;
-import com.codecooll.RestaurantMania.restaurant.service.amazon.AwsS3Service;
 import jakarta.transaction.Transactional;
 import org.springframework.beans.factory.annotation.Autowired;
-
 import org.springframework.stereotype.Service;
-
 
 import java.util.List;
 
@@ -19,13 +16,11 @@ import java.util.List;
 public class RestaurantService {
     private final RestaurantRepository restaurantRepository;
     private final AccountRepository accountRepository;
-    private final AwsS3Service awsS3Service;
 
     @Autowired
-    public RestaurantService(RestaurantRepository restaurantRepository, AccountRepository accountRepository, AwsS3Service awsS3Service) {
+    public RestaurantService(RestaurantRepository restaurantRepository, AccountRepository accountRepository) {
         this.restaurantRepository = restaurantRepository;
         this.accountRepository = accountRepository;
-        this.awsS3Service = awsS3Service;
 
     }
 
@@ -63,11 +58,11 @@ public class RestaurantService {
 
     public void setRestaurantImageUrl(Long restaurantId, Image image) {
         Restaurant restaurant = restaurantRepository.getById(restaurantId);
-        if (restaurant.getImage() != null) {
-            String url = restaurant.getImage().getImageUrl();
-            System.out.println("image url to delete :" + url);
-            awsS3Service.deleteImageByUrl(url);
-        }
+//        if (restaurant.getImage() != null) {
+//            String url = restaurant.getImage().getImageUrl();
+//            System.out.println("image url to delete :" + url);
+//            awsS3Service.deleteImageByUrl(url);
+//        }
         restaurant.setImage(image);
         restaurantRepository.save(restaurant);
     }
