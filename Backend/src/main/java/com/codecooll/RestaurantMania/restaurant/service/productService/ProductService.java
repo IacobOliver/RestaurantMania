@@ -3,9 +3,8 @@ package com.codecooll.RestaurantMania.restaurant.service.productService;
 import com.codecooll.RestaurantMania.restaurant.model.CategoryProduct;
 import com.codecooll.RestaurantMania.restaurant.model.Image;
 import com.codecooll.RestaurantMania.restaurant.model.Product;
-import com.codecooll.RestaurantMania.restaurant.model.Restaurant;
-import com.codecooll.RestaurantMania.restaurant.service.amazon.AwsS3Service;
 import com.codecooll.RestaurantMania.restaurant.service.categoryProductService.CategoryProductRepository;
+import com.codecooll.RestaurantMania.restaurant.service.cloudStorage.ImageService;
 import jakarta.transaction.Transactional;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -17,14 +16,14 @@ public class ProductService {
 
     private final ProductRepository productRepository;
     private final CategoryProductRepository categoryProductRepository;
-    private final AwsS3Service awsS3Service;
+    private final ImageService imageService;
 
 
     @Autowired
-    public ProductService(ProductRepository productRepository, CategoryProductRepository categoryProductRepository,AwsS3Service awsS3Service) {
+    public ProductService(ProductRepository productRepository, CategoryProductRepository categoryProductRepository, ImageService imageService) {
         this.categoryProductRepository = categoryProductRepository;
         this.productRepository = productRepository;
-        this.awsS3Service =awsS3Service;
+        this.imageService = imageService;
     }
 
     public Product addNewProduct(Long categ_id, Product product) {
@@ -41,26 +40,26 @@ public class ProductService {
         return product;
     }
 
-    public void updateProduct(Long product_id, String value, String key){
+    public void updateProduct(Long product_id, String value, String key) {
         Product product = productRepository.findById(product_id).orElse(null);
-        if(key == "name") product.setName(value);
-        else if( key == "description") product.setProductDescription(value);
-        else if( key == "price") product.setPrice(Integer.parseInt( value.replaceAll("[^\\d]", "")));
+        if (key == "name") product.setName(value);
+        else if (key == "description") product.setProductDescription(value);
+        else if (key == "price") product.setPrice(Integer.parseInt(value.replaceAll("[^\\d]", "")));
         productRepository.save(product);
     }
 
-    public void setRestaurantImageUrl(Long product_id, Image image) {
+    public void setProductImageUrl(Long product_id, Image image) {
         Product product = productRepository.getById(product_id);
         if (product.getImage() != null) {
             String url = product.getImage().getImageUrl();
-            awsS3Service.deleteImageByUrl(url);
+            imageService.deleteImageByUrl(url);
         }
         product.setImage(image);
         productRepository.save(product);
     }
 
     @Transactional
-    public void deleteProductById(Long product_id){
+    public void deleteProductById(Long product_id) {
         Product product = productRepository.findById(product_id).orElse(null);
         product.getCategoryProduct().removeProduct(product);
         productRepository.deleteById(product_id);

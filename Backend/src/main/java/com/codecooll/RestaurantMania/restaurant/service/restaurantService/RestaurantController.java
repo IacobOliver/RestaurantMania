@@ -2,7 +2,7 @@ package com.codecooll.RestaurantMania.restaurant.service.restaurantService;
 
 import com.codecooll.RestaurantMania.restaurant.model.Image;
 import com.codecooll.RestaurantMania.restaurant.model.Restaurant;
-import com.codecooll.RestaurantMania.restaurant.service.amazon.AwsS3Service;
+import com.codecooll.RestaurantMania.restaurant.service.cloudStorage.ImageService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
@@ -18,12 +18,12 @@ import java.util.List;
 @CrossOrigin(origins = {"http://localhost:5174/", "http://192.168.42.192:5174", "*"})
 public class RestaurantController {
     private final RestaurantService restaurantService;
-    private final AwsS3Service awsS3Service;
+    private final ImageService imageService;
 
     @Autowired
-    public RestaurantController(RestaurantService restaurantService, AwsS3Service awsS3Service) {
+    public RestaurantController(RestaurantService restaurantService, ImageService imageService) {
         this.restaurantService = restaurantService;
-        this.awsS3Service = awsS3Service;
+        this.imageService = imageService;
     }
 
     @PostMapping(path = "/addRestaurant/{client_id}")
@@ -45,9 +45,9 @@ public class RestaurantController {
     @PostMapping(path = "/uploadProfileImage/{restaurantId}")
     public ResponseEntity<Image> uploadProfileImage(@PathVariable Long restaurantId, @RequestBody MultipartFile image) {
         try {
-            Image imageUrl = awsS3Service.uploadImage(image);
-            restaurantService.setRestaurantImageUrl(restaurantId, imageUrl);
-            return ResponseEntity.ok(imageUrl);
+            Image imageObj = imageService.uploadImage(image);
+            restaurantService.setRestaurantImageUrl(restaurantId, imageObj);
+            return ResponseEntity.ok(imageObj);
         } catch (IOException e) {
             return ResponseEntity.status(HttpStatus.INTERNAL_SERVER_ERROR).body(null);
         }

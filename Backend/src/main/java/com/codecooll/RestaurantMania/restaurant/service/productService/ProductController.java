@@ -2,8 +2,7 @@ package com.codecooll.RestaurantMania.restaurant.service.productService;
 
 import com.codecooll.RestaurantMania.restaurant.model.Image;
 import com.codecooll.RestaurantMania.restaurant.model.Product;
-import com.codecooll.RestaurantMania.restaurant.service.amazon.AwsS3Service;
-import com.codecooll.RestaurantMania.restaurant.service.restaurantService.RestaurantService;
+import com.codecooll.RestaurantMania.restaurant.service.cloudStorage.ImageService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
@@ -18,12 +17,12 @@ import java.io.IOException;
 @CrossOrigin(origins = "*")
 public class ProductController {
     private final ProductService productService;
-    private final AwsS3Service awsS3Service;
+    private final ImageService imageService;
 
     @Autowired
-    public ProductController( ProductService productService, AwsS3Service awsS3Service) {
+    public ProductController( ProductService productService,ImageService imageService) {
         this.productService = productService;
-        this.awsS3Service = awsS3Service;
+        this.imageService = imageService;
     }
     @PostMapping(path = "post/new/product/{categ_id}")
     public ResponseEntity<Product> postNewProduct(@PathVariable Long categ_id, @RequestBody Product product) {
@@ -47,9 +46,9 @@ public class ProductController {
     @PostMapping(path = "update/image/{product_id}")
     public ResponseEntity<Image> updateProductImage(@PathVariable Long product_id, @RequestBody MultipartFile image){
         try {
-            Image imageUrl = awsS3Service.uploadImage(image);
-            productService.setRestaurantImageUrl(product_id, imageUrl);
-            return ResponseEntity.ok(imageUrl);
+            Image imageObj = imageService.uploadImage(image);
+            productService.setProductImageUrl(product_id, imageObj);
+            return ResponseEntity.ok(imageObj);
         } catch (IOException e) {
             return ResponseEntity.status(HttpStatus.INTERNAL_SERVER_ERROR).body(null);
         }
