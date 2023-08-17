@@ -5,6 +5,7 @@ import com.codecooll.RestaurantMania.accounts.service.AccountRepository;
 import com.codecooll.RestaurantMania.restaurant.model.Image;
 import com.codecooll.RestaurantMania.restaurant.model.Menu;
 import com.codecooll.RestaurantMania.restaurant.model.Restaurant;
+import com.codecooll.RestaurantMania.restaurant.service.cloudStorage.ImageService;
 import jakarta.transaction.Transactional;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -16,12 +17,13 @@ import java.util.List;
 public class RestaurantService {
     private final RestaurantRepository restaurantRepository;
     private final AccountRepository accountRepository;
+    private final ImageService imageService;
 
     @Autowired
-    public RestaurantService(RestaurantRepository restaurantRepository, AccountRepository accountRepository) {
+    public RestaurantService(RestaurantRepository restaurantRepository, AccountRepository accountRepository, ImageService imageService) {
         this.restaurantRepository = restaurantRepository;
         this.accountRepository = accountRepository;
-
+        this.imageService = imageService;
     }
 
     public Restaurant addNewRestaurant(Long client_id, Restaurant newRestaurant) {
@@ -58,11 +60,12 @@ public class RestaurantService {
 
     public void setRestaurantImageUrl(Long restaurantId, Image image) {
         Restaurant restaurant = restaurantRepository.getById(restaurantId);
-//        if (restaurant.getImage() != null) {
-//            String url = restaurant.getImage().getImageUrl();
-//            System.out.println("image url to delete :" + url);
-//            awsS3Service.deleteImageByUrl(url);
-//        }
+
+        if (restaurant.getImage() != null) {
+            String url = restaurant.getImage().getImageUrl();
+            imageService.deleteImageByUrl(url);
+        }
+
         restaurant.setImage(image);
         restaurantRepository.save(restaurant);
     }
@@ -79,7 +82,7 @@ public class RestaurantService {
         restaurantRepository.save(restaurant);
     }
 
-    public void setActive(Long restaurant_id, Boolean value){
+    public void setActive(Long restaurant_id, Boolean value) {
         Restaurant restaurant = restaurantRepository.findById(restaurant_id).orElse(null);
         restaurant.setActive(value);
         restaurantRepository.save(restaurant);

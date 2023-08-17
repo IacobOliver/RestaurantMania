@@ -22,12 +22,19 @@ public class ImageService {
     private final String BUCKET_NAME = "restaurant-mania"; // Replace with your bucket name
     private final String CREDENTIALS_PATH = "Backend/src/main/resources/linear-range-375117-a874aad140b4.json"; // Replace with the actual path
 
+    private final Storage storage = StorageOptions.newBuilder()
+            .setCredentials(GoogleCredentials.fromStream(new FileInputStream(CREDENTIALS_PATH)))
+            .build()
+            .getService();
+
+    public ImageService() throws IOException {
+    }
+
     public Image uploadImage(MultipartFile file) throws IOException {
-        System.out.println(new FileInputStream(CREDENTIALS_PATH));
-        Storage storage = StorageOptions.newBuilder()
-                .setCredentials(GoogleCredentials.fromStream(new FileInputStream(CREDENTIALS_PATH)))
-                .build()
-                .getService();
+//        Storage storage = StorageOptions.newBuilder()
+//                .setCredentials(GoogleCredentials.fromStream(new FileInputStream(CREDENTIALS_PATH)))
+//                .build()
+//                .getService();
 
         String fileName = UUID.randomUUID() + "_" + file.getOriginalFilename();
         BlobId blobId = BlobId.of(BUCKET_NAME, fileName);
@@ -39,5 +46,22 @@ public class ImageService {
         image.setImageUrl("https://storage.googleapis.com/" + BUCKET_NAME + "/" + fileName);
         imageUrlRepository.save(image);
         return image;
+    }
+
+    public boolean deleteImageByUrl(String imageUrl) {
+
+        String imageName = imageUrl.substring(imageUrl.lastIndexOf("/") + 1);
+
+        BlobId blobId = BlobId.of(BUCKET_NAME, imageName);
+
+        boolean deleted = storage.delete(blobId);
+
+        if (deleted) {
+            System.out.println("Image '" + imageName + "' deleted successfully.");
+        } else {
+            System.out.println("Image '" + imageName + "' deletion failed.");
+        }
+
+        return false;
     }
 }

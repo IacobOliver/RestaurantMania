@@ -6,6 +6,7 @@ import lombok.AllArgsConstructor;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
+import org.hibernate.annotations.Proxy;
 
 @Entity
 @Table(name = "restaurantRatings")
@@ -13,9 +14,8 @@ import lombok.Setter;
 @Setter
 @NoArgsConstructor
 @AllArgsConstructor
-//@Proxy(lazy = false)
+@Proxy(lazy = false)
 public class RestaurantRating extends Rating {
-
     @JsonIgnore
     @ManyToOne
     @JoinColumn(name = "restaurant_id", nullable = false)

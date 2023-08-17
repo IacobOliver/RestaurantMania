@@ -17,6 +17,9 @@ import org.hibernate.annotations.Proxy;
 @Proxy(lazy = false)
 public class ProductRating extends Rating {
 
+//    @OneToMany(mappedBy = "", cascade = CascadeType.ALL, orphanRemoval = true, fetch = FetchType.EAGER)
+//    private List<Image> images;
+
     @OneToOne(cascade = CascadeType.ALL, orphanRemoval = true)
     private Image image;
 
