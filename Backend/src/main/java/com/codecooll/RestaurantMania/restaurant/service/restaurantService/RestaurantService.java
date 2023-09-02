@@ -8,6 +8,7 @@ import com.codecooll.RestaurantMania.restaurant.model.Restaurant;
 import com.codecooll.RestaurantMania.restaurant.service.cloudStorage.ImageService;
 import jakarta.transaction.Transactional;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.data.jpa.repository.Modifying;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
@@ -48,6 +49,7 @@ public class RestaurantService {
     }
 
     @Transactional
+    @Modifying
     public void deleteById(Long restaurantId) {
         Restaurant restaurant = restaurantRepository.getById(restaurantId);
 

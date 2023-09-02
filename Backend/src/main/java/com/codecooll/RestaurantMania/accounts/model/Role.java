@@ -1,7 +1,6 @@
 package com.codecooll.RestaurantMania.accounts.model;
 
-public enum AccountType {
+public enum Role {
     ADMIN,
-    CLIENT,
     USER
 }

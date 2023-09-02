@@ -7,6 +7,7 @@ import com.codecooll.RestaurantMania.restaurant.service.categoryProductService.C
 import com.codecooll.RestaurantMania.restaurant.service.cloudStorage.ImageService;
 import jakarta.transaction.Transactional;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.data.jpa.repository.Modifying;
 import org.springframework.stereotype.Service;
 
 import java.util.Optional;
@@ -59,6 +60,7 @@ public class ProductService {
     }
 
     @Transactional
+    @Modifying
     public void deleteProductById(Long product_id) {
         Product product = productRepository.findById(product_id).orElse(null);
         product.getCategoryProduct().removeProduct(product);
