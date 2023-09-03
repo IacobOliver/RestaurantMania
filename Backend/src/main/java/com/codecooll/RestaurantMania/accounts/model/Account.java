@@ -1,17 +1,13 @@
 package com.codecooll.RestaurantMania.accounts.model;
 
 import jakarta.persistence.*;
-import lombok.AllArgsConstructor;
-import lombok.Getter;
-import lombok.NoArgsConstructor;
-import lombok.Setter;
+import lombok.*;
 import org.springframework.security.core.userdetails.UserDetails;
 
 @Entity
 @Table(name = "accounts")
 @Inheritance(strategy = InheritanceType.JOINED)
-@Getter
-@Setter
+@Data
 @NoArgsConstructor
 @AllArgsConstructor
 public abstract class Account implements UserDetails{
@@ -27,4 +23,11 @@ public abstract class Account implements UserDetails{
     protected Role role;
 
 
+    public Account(String firstName, String lastName, String email, String password, Role role) {
+        this.firstName = firstName;
+        this.lastName = lastName;
+        this.email = email;
+        this.password = password;
+        this.role = role;
+    }
 }

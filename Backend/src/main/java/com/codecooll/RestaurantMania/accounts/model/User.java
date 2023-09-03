@@ -3,10 +3,8 @@ package com.codecooll.RestaurantMania.accounts.model;
 import com.codecooll.RestaurantMania.restaurant.model.Rating;
 import com.codecooll.RestaurantMania.restaurant.model.Restaurant;
 import jakarta.persistence.*;
-import lombok.AllArgsConstructor;
-import lombok.Getter;
-import lombok.NoArgsConstructor;
-import lombok.Setter;
+import lombok.*;
+import lombok.experimental.SuperBuilder;
 import org.hibernate.annotations.Proxy;
 import org.springframework.security.core.GrantedAuthority;
 import org.springframework.security.core.authority.SimpleGrantedAuthority;
@@ -18,8 +16,7 @@ import java.util.List;
 
 @Entity
 @Table(name = "users")
-@Getter
-@Setter
+@Data
 @NoArgsConstructor
 @AllArgsConstructor
 @Proxy(lazy = false)
@@ -43,15 +40,14 @@ public class User extends Account {
         restaurant.setUser(null);
     }
 
-    @Override
-    public String toString() {
-        return "User{" +
-                "firstName='" + firstName + '\'' +
-                ", lastName='" + lastName + '\'' +
-                ", email='" + email + '\'' +
-                ", password='" + password + '\'' +
-                '}';
+    @Builder
+    public User( String firstName, String lastName, String email,String password, Role role ){
+        super(firstName, lastName, email, password, role);
     }
+
+
+
+
 
     @Override
     public Collection<? extends GrantedAuthority> getAuthorities() {
