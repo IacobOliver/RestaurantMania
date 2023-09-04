@@ -26,7 +26,7 @@ public class SecurityConfig {
 
          return http
                .csrf( csrf -> csrf.disable())
-               .authorizeHttpRequests(auth -> auth.requestMatchers("api/v1/auth/register","restaurant/**")
+               .authorizeHttpRequests(auth -> auth.requestMatchers("api/v1/auth/**")
                                                     .permitAll()
                                                      .anyRequest()
                                                     .authenticated())
@@ -34,8 +34,6 @@ public class SecurityConfig {
                .authenticationProvider(authenticationProvider)
                .addFilterBefore(jwtAuthFilter, UsernamePasswordAuthenticationFilter.class)
                  .build();
-
-
 
     }
 

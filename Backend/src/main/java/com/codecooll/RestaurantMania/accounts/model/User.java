@@ -46,9 +46,6 @@ public class User extends Account {
     }
 
 
-
-
-
     @Override
     public Collection<? extends GrantedAuthority> getAuthorities() {
         return List.of(new SimpleGrantedAuthority(role.name()));

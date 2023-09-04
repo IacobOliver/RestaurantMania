@@ -5,14 +5,31 @@ import { useState, useEffect } from "react";
 export default function RestaurantsList() {
   const [restaurants, setRestaurants] = useState(null);
 
+
   useEffect(() => {
-    fetch("http://localhost:8080/restaurant/getAll")
+    fetch("http://localhost:8080/restaurant/getAll", {
+  method : "GET",
+  headers : {
+    "Content-Type" : "application/json",
+    "Authorization" : "Bearer eyJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJoZWxsbyIsImlhdCI6MTY5Mzg0MTE1MiwiZXhwIjoyNDM5MTMxMjU5NDMyOTYwfQ.dvDhwFSJd_gfFBNI0FBiUuTkuwqgiemthcc9WaM4NlQ"
+  }
+    })
       .then((res) => res.json())
       .then((data) => {
         console.log("Restaurants was fetched again!");
         setRestaurants(data);
       });
   }, []);
+
+  // useEffect(() => {
+  //   fetch("http://localhost:8080/restaurant/getAll")
+  //     .then((res) => res.json())
+  //     .then((data) => {
+  //       console.log("Restaurants was fetched again!");
+  //       setRestaurants(data);
+  //     });
+  // }, []);
+
 
   return (
     <div className=" z-10 min-h-screen bg-gray-700 flex justify-center items-center py-20">
