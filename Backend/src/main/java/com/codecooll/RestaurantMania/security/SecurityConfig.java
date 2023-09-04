@@ -24,25 +24,19 @@ public class SecurityConfig {
     @Bean
     public SecurityFilterChain securityFilterChain(HttpSecurity http) throws Exception{
 
-        http
-               .csrf()
-                .disable()
-               .authorizeHttpRequests()
-               .requestMatchers("api/v1/auth/**")
-               .permitAll()
-               .anyRequest()
-               .authenticated()
-               .and()
-               .sessionManagement()
-               .sessionCreationPolicy(SessionCreationPolicy.STATELESS)
-               .and()
+         return http
+               .csrf( csrf -> csrf.disable())
+               .authorizeHttpRequests(auth -> auth.requestMatchers("api/v1/auth/register","restaurant/**")
+                                                    .permitAll()
+                                                     .anyRequest()
+                                                    .authenticated())
+               .sessionManagement( sess -> sess.sessionCreationPolicy(SessionCreationPolicy.STATELESS))
                .authenticationProvider(authenticationProvider)
-               .addFilterBefore(jwtAuthFilter, UsernamePasswordAuthenticationFilter.class);
+               .addFilterBefore(jwtAuthFilter, UsernamePasswordAuthenticationFilter.class)
+                 .build();
 
 
 
-
-        return http.build();
     }
 
 }
