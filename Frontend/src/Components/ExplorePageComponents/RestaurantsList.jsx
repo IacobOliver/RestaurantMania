@@ -8,10 +8,17 @@ export default function RestaurantsList() {
 
   useEffect(() => {
     fetch("http://localhost:8080/restaurant/getAll", {
-  method : "GET",
+  // method : "GET",
+  // withCredentials: "true",    
+  // crossorigin: "true",   
   headers : {
+    // "Authorization" : "Bearer eyJhbGciOiJub25lIn0.eyJzdWIiOiJoZWxsbyIsImlhdCI6MTY5MzkwMzcwMiwiZXhwIjoyNDM5MjIxMzMxOTMyNjQwfQ.",
     "Content-Type" : "application/json",
-    "Authorization" : "Bearer eyJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJoZWxsbyIsImlhdCI6MTY5Mzg0MTE1MiwiZXhwIjoyNDM5MTMxMjU5NDMyOTYwfQ.dvDhwFSJd_gfFBNI0FBiUuTkuwqgiemthcc9WaM4NlQ"
+    // "Access-Control-Allow-Origin" : "*",
+    // "Access-Control-Allow-Credentials" : "true",
+    // 'Accept': 'application/json',
+    // 'Access-Control-Allow-Headers': 'Origin, X-Requested-With, Content-Type, Accept, Authorization',
+    // 'Access-Control-Request-Method': 'GET'
   }
     })
       .then((res) => res.json())

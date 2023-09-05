@@ -15,7 +15,7 @@ import java.util.List;
 
 @Controller
 @RequestMapping(path = "/restaurant")
-@CrossOrigin(origins = {"http://localhost:5174/", "http://192.168.42.192:5174", "*"})
+//@CrossOrigin(origins ="*")
 public class RestaurantController {
     private final RestaurantService restaurantService;
     private final ImageService imageService;
@@ -32,12 +32,13 @@ public class RestaurantController {
         return ResponseEntity.ok(createdRestaurant);
     }
 
-    @GetMapping(path = "getAll")
+    @CrossOrigin(origins ="*")
+    @GetMapping(path = "/getAll")
     public ResponseEntity<List<Restaurant>> getAllRestaurants() {
         return ResponseEntity.ok(restaurantService.getAll());
     }
 
-    @GetMapping(path = "getById/{restaurantId}")
+    @GetMapping(path = "/getById/{restaurantId}")
     public ResponseEntity<Restaurant> getRestaurantByID(@PathVariable Long restaurantId) {
         return ResponseEntity.ok(restaurantService.getById(restaurantId));
     }
