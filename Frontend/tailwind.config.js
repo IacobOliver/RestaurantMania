@@ -5,7 +5,7 @@ export default {
     extend: {
       colors:{
       tc1: "#111315",
-      tc2:"#DC9623",
+      tc2:"#EE6C23",
       // tc2:"#226BBF",
       tc2_2:"#FCD064",
       // tc2_2:"#4BC0F5",

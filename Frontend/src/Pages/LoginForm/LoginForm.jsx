@@ -46,33 +46,54 @@ function LoginForm({ setIsLogin, isLogin }) {
       lastNameRef.current.checkValidity() &&
       passwordRef.current.checkValidity()
     ) {
-      fetch(
-        `http://localhost:8080/account/getUserByEmail/${emailRef.current.value}`
-      )
+      // fetch(
+      //   `http://localhost:8080/account/getUserByEmail/${emailRef.current.value}`
+      // )
+      //   .then((res) => res.json())
+      //   .then((user) => {
+      //     checking.userExist(emailRef.current);
+      //   })
+      //   .catch(() => {
+      fetch("http://localhost:8080/api/v1/auth/register", {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify(formValue),
+      })
         .then((res) => res.json())
-        .then((user) => {
-          checking.userExist(emailRef.current);
+        .then((data) => {
+          //save the token in local storage
+          localStorage.setItem("token", data.token);
+          const storedValue = localStorage.getItem("token");
+          console.log("Stored value: ", storedValue);
+          alert("Account created!");
+          //auto log in  with the received token
+          autoLogInWithToken();
         })
-        .catch(() => {
-          fetch("http://localhost:8080/account/post_user", {
-            method: "POST",
-            headers: { "Content-Type": "application/json" },
-            body: JSON.stringify(formValue),
-          })
-            .then((res) => res.json())
-            .then((data) => {
-              console.log(data);
-              if (data.verify) alert(data.verify);
-              else {
-                alert("Account created!");
-                handleLogInSubmit();
-              }
-            })
-            .catch((err) => {
-              console.log("ERROR AT POST : " + err);
-            });
+        .catch((err) => {
+          checking.userExist(emailRef.current);
         });
+      // });
     }
+  };
+
+  const autoLogInWithToken = () => {
+    fetch("http://localhost:8080/account/getUserWithToken", {
+      method: "GET",
+      headers: {
+        "Authorization": `Bearer ${localStorage.getItem("token")}`,
+        "Content-Type": "application/json",
+        // "Access-Control-Allow-Origin" : "*",
+    // "Access-Control-Allow-Credentials" : "true",
+    // 'Accept': 'application/json',
+    // 'Access-Control-Allow-Headers': 'Origin, X-Requested-With, Content-Type, Accept, Authorization',
+    // 'Access-Control-Request-Method': 'GET'
+      },
+    })
+      .then((res) => res.json())
+      .then((data) => console.log(data))
+      .catch((err) => {
+        console.error(err);
+      });
   };
 
   const handleLogInSubmit = () => {

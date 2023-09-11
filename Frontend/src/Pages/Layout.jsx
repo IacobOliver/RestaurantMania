@@ -326,13 +326,10 @@ export default function Layout() {
                   className="flex items-center hover:bg-gray-900 p-2 rounded-xl"
                 >
                   <img
-                    className="w-10 "
-                    src="../../images/colibri.png"
+                    className="w-60"
+                    src="../../images/restaurantManiaLogo.png"
                     draggable="false"
                   />
-                  <button className="text-tc2 text-xl font-bold hover:text-tc2_2 clm">
-                    RestaurantMania
-                  </button>
                 </div>
 
                 {/* <ThreeLinesMenu handleEvent={threeLinesMenuEvent} /> */}
