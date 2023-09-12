@@ -2,10 +2,7 @@ package com.codecooll.RestaurantMania.restaurant.model;
 
 import com.fasterxml.jackson.annotation.JsonIgnore;
 import jakarta.persistence.*;
-import lombok.AllArgsConstructor;
-import lombok.Getter;
-import lombok.NoArgsConstructor;
-import lombok.Setter;
+import lombok.*;
 import org.hibernate.annotations.Proxy;
 
 import java.time.LocalDate;
@@ -14,8 +11,8 @@ import java.util.List;
 
 @Entity
 @Table(name = "menues")
-@Getter
-@Setter
+@Data
+@Builder
 @NoArgsConstructor
 @AllArgsConstructor
 @Proxy(lazy = false)
