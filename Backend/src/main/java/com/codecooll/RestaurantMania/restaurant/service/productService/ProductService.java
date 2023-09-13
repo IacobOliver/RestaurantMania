@@ -31,8 +31,8 @@ public class ProductService {
         Optional<CategoryProduct> categoryProductOptional = categoryProductRepository.findById(categ_id);
 
         if (categoryProductOptional.isPresent()) {
+            product.setCategoryProduct(categoryProductOptional.get());
             CategoryProduct categoryProduct = categoryProductOptional.get();
-            product.setCategoryProduct(categoryProduct);
             categoryProduct.getProducts().add(product);
             productRepository.save(product);
             categoryProductRepository.save(categoryProduct);

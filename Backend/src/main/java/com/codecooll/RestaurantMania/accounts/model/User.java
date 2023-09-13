@@ -16,10 +16,11 @@ import java.util.List;
 
 @Entity
 @Table(name = "users")
-@Data
+//@Data
+@Setter
 @NoArgsConstructor
 @AllArgsConstructor
-@Proxy(lazy = false)
+//@Proxy(lazy = false)
 public class User extends Account {
 
 

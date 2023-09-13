@@ -22,18 +22,17 @@ public class SecurityConfig {
     private final AuthenticationProvider authenticationProvider;
 
     @Bean
-    public SecurityFilterChain securityFilterChain(HttpSecurity http) throws Exception{
-
-         return http
-               .csrf( csrf -> csrf.disable())
-               .authorizeHttpRequests(auth -> auth.requestMatchers("api/v1/auth/**", "restaurant/**")
-                                                    .permitAll()
-                                                     .anyRequest()
-                                                    .authenticated())
-               .sessionManagement( sess -> sess.sessionCreationPolicy(SessionCreationPolicy.STATELESS))
-               .authenticationProvider(authenticationProvider)
-               .addFilterBefore(jwtAuthFilter, UsernamePasswordAuthenticationFilter.class)
-                 .build();
+    public SecurityFilterChain securityFilterChain(HttpSecurity http) throws Exception {
+        return http
+                .csrf(csrf -> csrf.disable())
+                .authorizeHttpRequests(auth -> auth.requestMatchers("api/v1/auth/**", "restaurant/**")
+                        .permitAll()
+                        .anyRequest()
+                        .authenticated())
+                .sessionManagement(sess -> sess.sessionCreationPolicy(SessionCreationPolicy.STATELESS))
+                .authenticationProvider(authenticationProvider)
+                .addFilterBefore(jwtAuthFilter, UsernamePasswordAuthenticationFilter.class)
+                .build();
 
     }
 

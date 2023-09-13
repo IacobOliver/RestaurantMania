@@ -6,6 +6,8 @@ import com.codecooll.RestaurantMania.restaurant.model.CategoryProduct;
 import com.codecooll.RestaurantMania.restaurant.model.Menu;
 import com.codecooll.RestaurantMania.restaurant.model.Product;
 import com.codecooll.RestaurantMania.restaurant.model.Restaurant;
+import com.codecooll.RestaurantMania.restaurant.service.categoryProductService.CategoryProductService;
+import com.codecooll.RestaurantMania.restaurant.service.productService.ProductService;
 import com.codecooll.RestaurantMania.restaurant.service.restaurantService.RestaurantService;
 import org.json.simple.JSONArray;
 import org.json.simple.JSONObject;
@@ -20,34 +22,33 @@ import java.io.FileReader;
 import java.io.IOException;
 import java.util.*;
 
-@Component
 public class Populate {
+    private RestaurantService restaurantService;
+    private AccountService accountService;
+    private CategoryProductService categoryProductService;
+    private ProductService productService;
 
-    @Autowired
-    private static AccountService accountService;
-    @Autowired
-    private static RestaurantService restaurantService;
-
-
-
-    public static void main(String[] args) {
-        String jsonPath = "C:\\Users\\valib\\OneDrive\\Desktop\\MyProjects\\RestaurantMania\\Backend\\src\\main\\resources\\restaurant.json";
-        List<Restaurant> restaurantList = getRestaurantsFromJsonFile(jsonPath);
-        Long adminId = createAdmin("Valentin", "Vali", "papuci@slapi.com", "kebab");
-
-        for (Restaurant restaurant : restaurantList) {
-            Long restaurantId = restaurantService.addNewRestaurant(adminId,restaurant).getId();
-        }
-
+    public Populate(RestaurantService restaurantService, AccountService accountService, CategoryProductService categoryProductService, ProductService productService) {
+        this.restaurantService = restaurantService;
+        this.accountService = accountService;
+        this.categoryProductService = categoryProductService;
+        this.productService = productService;
     }
 
-    private static Long createAdmin(String firstName, String lastName, String email, String password) {
+    public void populate() {
+        String jsonPath = "C:\\Users\\valib\\OneDrive\\Desktop\\MyProjects\\RestaurantMania\\Backend\\src\\main\\resources\\restaurant.json";
+        Long adminId = createAdmin("Valentin", "Vali", "papuci@slapi.com", "kebab");
+
+        saveRestaurantsFromJsonFile(jsonPath, adminId);
+    }
+
+    private Long createAdmin(String firstName, String lastName, String email, String password) {
         accountService.addNewUser(User.builder().firstName(firstName).lastName(lastName).email(email).password(password).build());
         return accountService.getAccountByEmail(email).getId();
     }
 
-    public static List<Restaurant> getRestaurantsFromJsonFile(String jsonPath) {
-        List<Restaurant> restaurantList = new ArrayList<>();
+    public void saveRestaurantsFromJsonFile(String jsonPath, Long adminId) {
+
         JSONParser jsonParserObj = new JSONParser();
         try {
             JSONObject jsonObj = (JSONObject) jsonParserObj.parse(new FileReader(jsonPath));
@@ -57,64 +58,58 @@ public class Populate {
             while (iteratorObj.hasNext()) {
                 JSONObject restaurantJson = iteratorObj.next();
                 Restaurant restaurant = restaurantFromJsonObject(restaurantJson);
-                restaurantList.add(restaurant);
+
+                Long menuId = restaurantService.addNewRestaurant(adminId, restaurant).getMenu().getId();
+                JSONArray menuJSON = (JSONArray) restaurantJson.get("menu");
+                menuFromJsonObject(menuJSON,menuId);
+
             }
         } catch (IOException | ParseException ex) {
             ex.printStackTrace();
         }
-        return restaurantList;
     }
 
-    public static Restaurant restaurantFromJsonObject(JSONObject json) {
+    public Restaurant restaurantFromJsonObject(JSONObject json) {
         String name = (String) json.get("name");
-        String address = (String) json.get("adress");
+        String address = (String) json.get("address");
         String description = (String) json.get("description");
-        JSONArray menuJSON = (JSONArray) json.get("menu"); // Extract the "menu" object
-
-        // Create a Menu object from the "menu" JSON
-        Menu menu = menuFromJsonObject(menuJSON);
-
         return Restaurant.builder()
                 .name(name)
                 .address(address)
                 .description(description)
-                .menu(menu)
                 .build();
     }
 
-    public static Menu menuFromJsonObject(JSONArray menuJson) {
+    public void menuFromJsonObject(JSONArray menuJson, Long menuId) {
         Iterator<JSONObject> iteratorObj = menuJson.iterator();
-        List<CategoryProduct> categoryProductList = new ArrayList<>();
 
         while (iteratorObj.hasNext()) {
             JSONObject categoryProductJson = iteratorObj.next();
-            CategoryProduct categoryProduct = categoryProductFromJsonObject(categoryProductJson);
-            categoryProductList.add(categoryProduct);
+            categoryProductFromJsonObject(categoryProductJson, menuId);
         }
-        return Menu.builder().categoryProducts(categoryProductList).build();
     }
 
 
-    public static CategoryProduct categoryProductFromJsonObject(JSONObject categoryProductJson) {
+    public void categoryProductFromJsonObject(JSONObject categoryProductJson,Long menuId) {
         String name = (String) categoryProductJson.get("name");
-        JSONArray productsJson = (JSONArray) categoryProductJson.get("products");
+        Long categoryId = categoryProductService.addNewProductCategory(menuId, CategoryProduct.builder().name(name).build()).getId();
 
-        List<Product> productList = new ArrayList<>();
+        JSONArray productsJson = (JSONArray) categoryProductJson.get("products");
         Iterator<JSONObject> iteratorObj = productsJson.iterator();
 
         while (iteratorObj.hasNext()) {
-            Product product = productFromJsonObject(iteratorObj.next());
-            productList.add(product);
+            JSONObject productJson = iteratorObj.next();
+
+             productFromJsonObject(productJson,categoryId);
         }
-        return CategoryProduct.builder().name(name).products(productList).build();
     }
 
-    public static Product productFromJsonObject(JSONObject productJson) {
+    public void productFromJsonObject(JSONObject productJson,Long categoryId) {
         String name = (String) productJson.get("name");
         double price = (double) productJson.get("price");
         String description = (String) productJson.get("productDescription");
 
-        return Product.builder().name(name).price(price).productDescription(description).build();
+        productService.addNewProduct(categoryId,Product.builder().name(name).price(price).productDescription(description).build());
     }
 
 }
