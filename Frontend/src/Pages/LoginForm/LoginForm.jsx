@@ -16,8 +16,13 @@ import { checking } from "../../Components/Utils";
 import { useAtom } from "jotai";
 import state from "../../Components/AtomStates";
 
-function LoginForm({ setIsLogin, isLogin }) {
-  const [justifyActive, setJustifyActive] = useState(isLogin ? "tab1" : "tab2");
+function LoginForm() {
+  const [user, setUser] = useAtom(state.user);
+  const [isLoggedIn, setisLoggedIn] = useAtom(state.isLoggedIn);
+  const [modalShow, setModalShow] = useAtom(state.modalShow);
+  const [justifyActive, setJustifyActive] = useState(
+    isLoggedIn ? "tab1" : "tab2"
+  );
   const [formValue, setFormValue] = useState({
     email: "valentin@gmail.com",
     password: "parolaparola",
@@ -35,10 +40,6 @@ function LoginForm({ setIsLogin, isLogin }) {
   const emailLoginRef = useRef(null);
   const passwordLoginRef = useRef(null);
 
-  const [user, setUser] = useAtom(state.user);
-  const [isLoggedIn, setisLoggedIn] = useAtom(state.isLoggedIn);
-  const [modalShow, setModalShow] = useAtom(state.modalShow);
-
   const handleSignInSubmit = () => {
     if (
       emailRef.current.checkValidity() &&
@@ -46,14 +47,6 @@ function LoginForm({ setIsLogin, isLogin }) {
       lastNameRef.current.checkValidity() &&
       passwordRef.current.checkValidity()
     ) {
-      // fetch(
-      //   `http://localhost:8080/account/getUserByEmail/${emailRef.current.value}`
-      // )
-      //   .then((res) => res.json())
-      //   .then((user) => {
-      //     checking.userExist(emailRef.current);
-      //   })
-      //   .catch(() => {
       fetch("http://localhost:8080/api/v1/auth/register", {
         method: "POST",
         headers: { "Content-Type": "application/json" },
@@ -61,60 +54,63 @@ function LoginForm({ setIsLogin, isLogin }) {
       })
         .then((res) => res.json())
         .then((data) => {
-          //save the token in local storage
           localStorage.setItem("token", data.token);
           const storedValue = localStorage.getItem("token");
           console.log("Stored value: ", storedValue);
           alert("Account created!");
-          //auto log in  with the received token
-          autoLogInWithToken();
+
+          checking.autoLogInWithToken({ setModalShow, setUser, setisLoggedIn });
         })
         .catch((err) => {
-          checking.userExist(emailRef.current);
+          console.error(err);
+          checking.wrongInput(emailRef.current);
+          alert("Email addres allready registered! Please try again!");
         });
-      // });
     }
   };
 
-  const autoLogInWithToken = () => {
-    fetch("http://localhost:8080/account/getUserWithToken", {
-      method: "GET",
-      headers: {
-        "Authorization": `Bearer ${localStorage.getItem("token")}`,
-        "Content-Type": "application/json",
-        // "Access-Control-Allow-Origin" : "*",
-    // "Access-Control-Allow-Credentials" : "true",
-    // 'Accept': 'application/json',
-    // 'Access-Control-Allow-Headers': 'Origin, X-Requested-With, Content-Type, Accept, Authorization',
-    // 'Access-Control-Request-Method': 'GET'
-      },
+  // const handleLogInSubmit = () => {
+  //   fetch(
+  //     `http://localhost:8080/account/getUserByEmail/${emailRef.current.value}`
+  //   )
+  //     .then((res) => res.json())
+  //     .then((data) => {
+  //       setUser(data);
+  //       if (password === data.password) {
+  //         setisLoggedIn(true);
+  //         setModalShow(false);
+  //       } else {
+  //         alert("Incorect password");
+  //         checking.wrongPass(passwordLoginRef.current);
+  //       }
+  //     })
+  //     .catch((err) => {
+  //       alert("User does not exist");
+  //       console.error("User not exist " + err);
+  //       checking.userNotExist(emailLoginRef.current);
+  //     });
+  // };
+  const handleLogInSubmit = () => {
+    fetch("http://localhost:8080/api/v1/auth/authenticate", {
+      method: "POST",
+      headers: { "Content-Type": "application/json" },
+      body: JSON.stringify({ email, password }),
     })
       .then((res) => res.json())
-      .then((data) => console.log(data))
-      .catch((err) => {
-        console.error(err);
-      });
-  };
-
-  const handleLogInSubmit = () => {
-    fetch(
-      `http://localhost:8080/account/getUserByEmail/${emailRef.current.value}`
-    )
-      .then((res) => res.json())
       .then((data) => {
-        setUser(data);
-        if (password === data.password) {
-          setisLoggedIn(true);
-          setModalShow(false);
+        if (data.token == "Account  doesn't exists") {
+          checking.wrongInput(emailLoginRef.current);
+          alert("Account  doesn't exists");
         } else {
-          alert("Incorect password");
-          checking.wrongPass(passwordLoginRef.current);
+          localStorage.setItem("token", data.token);
+          alert("Account Loggedin!");
+          checking.autoLogInWithToken({ setModalShow, setUser, setisLoggedIn });
         }
       })
       .catch((err) => {
-        alert("User does not exist");
-        console.error("User not exist " + err);
-        checking.userNotExist(emailLoginRef.current);
+        checking.wrongInput(passwordLoginRef.current);
+        alert("Incorect Password");
+        console.error(err);
       });
   };
 
@@ -128,7 +124,7 @@ function LoginForm({ setIsLogin, isLogin }) {
       return;
     }
     setJustifyActive(value);
-    setIsLogin((prev) => !prev);
+    setisLoggedIn((prev) => !prev);
   };
 
   return (

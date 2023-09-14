@@ -6,7 +6,7 @@ import state from "../../Components/AtomStates";
 
 import LoginForm from "./LoginForm";
 
-export default function ModalForm({ show, onHide, isLogin, setIsLogin, handleModalButton }) {
+export default function ModalForm({ show, onHide, handleModalButton }) {
   const [modalShow, setModalShow] = useAtom(state.modalShow)
 
   return (
@@ -33,7 +33,7 @@ export default function ModalForm({ show, onHide, isLogin, setIsLogin, handleMod
             >
               <i className="fa fa-close"></i>
             </div>
-            <LoginForm setIsLogin={setIsLogin} isLogin={isLogin} />
+            <LoginForm />
           </div>
 
         </Modal.Body>

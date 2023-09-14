@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useEffect } from "react";
 import { Button, Container, Form, Nav, Navbar } from "react-bootstrap";
 import { useState, useRef } from "react";
 import { useAtom } from "jotai";
@@ -8,22 +8,29 @@ import { Navigate } from "react-router-dom";
 import ModalForm from "./LoginForm/ModalForm";
 import ModalMyRestaurants from "../Components/MyRestaurants/ModalMyRestaurants";
 import { useNavigate } from "react-router-dom";
+import {checking } from "../Components/Utils";
 
 export default function Layout() {
-  const [modalShow, setModalShow] = useAtom(state.modalShow);
   const [showMyRestaurants, setShowMyRestaurants] = useAtom(
     state.showMyRestaurants
   );
   const [user, setUser] = useAtom(state.user);
   const [isLoggedIn, setisLoggedIn] = useAtom(state.isLoggedIn);
+  const [modalShow, setModalShow] = useAtom(state.modalShow);
 
   const [sideMenuSmallScreen, setSideMenuSmallScreen] = useState(false);
 
   const avatarImageRef = useRef(null);
   const accountInfoRef = useRef(null);
 
+
+
   let avatarToggle = true;
   const navigate = useNavigate();
+  
+  useEffect(()=>{
+    checking.autoLogInWithToken({setModalShow,setUser,setisLoggedIn})
+  },[])
 
 
   const handleLoginClick = () => {
@@ -381,8 +388,6 @@ export default function Layout() {
       <ModalForm
         show={modalShow}
         onHide={() => setModalShow(false)}
-        isLoggedIn={isLoggedIn}
-        setisLoggedIn={setisLoggedIn}
       />
 
       <ModalMyRestaurants
