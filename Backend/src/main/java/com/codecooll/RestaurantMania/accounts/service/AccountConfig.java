@@ -4,6 +4,7 @@ import com.codecooll.RestaurantMania.accounts.model.Account;
 import com.codecooll.RestaurantMania.accounts.model.User;
 import org.springframework.boot.CommandLineRunner;
 import org.springframework.context.annotation.Bean;
+import org.springframework.context.annotation.Configuration;
 
 import java.util.Optional;
 
