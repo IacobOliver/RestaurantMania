@@ -16,6 +16,7 @@ export default function RestaurantMenu({ thisRestaurant, setThisRestaurant }) {
         method: "POST",
         headers: {
           "Content-Type": "application/json",
+          "Authorization" : `Bearer ${localStorage.getItem("token")}`
         },
         body: JSON.stringify({}),
       }
@@ -43,6 +44,7 @@ export default function RestaurantMenu({ thisRestaurant, setThisRestaurant }) {
       method: "POST",
       headers: {
         "Content-Type": "application/json",
+        "Authorization" : `Bearer ${localStorage.getItem("token")}`
       },
       body: JSON.stringify({}),
     })
@@ -71,6 +73,7 @@ export default function RestaurantMenu({ thisRestaurant, setThisRestaurant }) {
       method: "PATCH",
       headers: {
         "Content-Type" : "application/json",
+        "Authorization" : `Bearer ${localStorage.getItem("token")}`
       },
       body: contentRef.current.textContent,
     }).then(res => res.json())
@@ -97,6 +100,7 @@ export default function RestaurantMenu({ thisRestaurant, setThisRestaurant }) {
       method : "PATCH",
       headers: {
         "Content-Type" : "application/json",
+        "Authorization" : `Bearer ${localStorage.getItem("token")}`
       },
       body: contentRef.current.textContent
     })

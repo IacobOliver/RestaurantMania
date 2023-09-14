@@ -20,6 +20,9 @@ export default function ProductCard({ product, prodId, categId, editProduct }) {
 
     fetch(`http://localhost:8080/product/update/image/${product.id}`, {
       method: "POST",
+      headers:{
+        "Authorization" : `Bearer ${localStorage.getItem("token")}`
+      },
       body: formData,
     })
       .then((response) => {
@@ -68,6 +71,7 @@ export default function ProductCard({ product, prodId, categId, editProduct }) {
       method: "DELETE",
       headers: {
         "Content-Type": "application/json",
+        "Authorization" : `Bearer ${localStorage.getItem("token")}`
       },
     })
       .then((res) => res.json())

@@ -8,7 +8,6 @@ import org.springframework.web.bind.annotation.*;
 
 @Controller
 @RequestMapping(path = "/categoryProduct")
-@CrossOrigin(origins = "*")
 public class CategoryProductController {
     private CategoryProductService categoryProductService;
 
@@ -17,17 +16,20 @@ public class CategoryProductController {
         this.categoryProductService = categoryProductService;
     }
 
+    @CrossOrigin(origins = "*")
     @PostMapping(path = "post/new/category/{menu_id}")
     public ResponseEntity<CategoryProduct> postNewCategory(@PathVariable Long menu_id, @RequestBody CategoryProduct categoryProduct) {
 
         return ResponseEntity.ok( categoryProductService.addNewProductCategory(menu_id, categoryProduct));
     }
 
+    @CrossOrigin(origins = "*")
     @PatchMapping(path = "update/name/{category_Id}")
     public void updateCategoryName(@PathVariable Long category_Id, @RequestBody String newCategoryName){
         categoryProductService.updateCategoryName( category_Id,  newCategoryName);
     }
 
+    @CrossOrigin(origins = "*")
     @DeleteMapping(path = "delete/{categ_id}")
     public ResponseEntity<String> deleteCategById(@PathVariable Long categ_id){
         categoryProductService.deleteCategById(categ_id);

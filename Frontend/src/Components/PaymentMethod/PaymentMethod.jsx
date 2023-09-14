@@ -13,6 +13,7 @@ export default function PaymentMethod(){
             method: "PATCH",
             headers : {
                 "Content-Type" : "application/json",
+                "Authorization" : `Bearer ${localStorage.getItem("token")}`
             },
             body: bool ,
         }

@@ -52,6 +52,7 @@ export default function CategoryAccordeon({
       method: "DELETE",
       headers: {
         "Content-Type": "application/json",
+        "Authorization" : `Bearer ${localStorage.getItem("token")}`
       },
 
     }).then(res => res.json())

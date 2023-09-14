@@ -90,6 +90,7 @@ export default function Layout() {
     setSideMenuSmallScreen(false);
     accountInfoRef.current.style.left = "-1000px";
     avatarToggle = true;
+    localStorage.setItem("token", null)
   };
 
   const AvatarIcon = () => {

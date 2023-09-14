@@ -11,7 +11,6 @@ import org.springframework.web.bind.annotation.RequestMapping;
 
 @Controller
 @RequestMapping(path = "/menu")
-@CrossOrigin(origins = "*")
 public class MenuController {
     private MenuService menuService;
 
@@ -20,6 +19,7 @@ public class MenuController {
         this.menuService = menuService;
     }
 
+    @CrossOrigin(origins = "*")
     @DeleteMapping(path = "/delete/{menuId}")
     public ResponseEntity<Menu> deleteMenuById(@PathVariable Long menuId){
        return ResponseEntity.ok( menuService.deleteById(menuId));

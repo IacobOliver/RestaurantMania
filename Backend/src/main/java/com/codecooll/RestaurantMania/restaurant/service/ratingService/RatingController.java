@@ -11,7 +11,6 @@ import java.util.List;
 
 @Controller
 @RequestMapping(path = "/rating")
-@CrossOrigin(origins = "*")
 public class RatingController {
     private RatingService ratingService;
 
@@ -20,11 +19,12 @@ public class RatingController {
         this.ratingService = ratingService;
     }
 
+    @CrossOrigin(origins = "*")
     @GetMapping(path = "/getRestaurantRatings")
     public ResponseEntity<List<Rating>> getALlRatings(){
        return ResponseEntity.ok(  ratingService.getRestaurantRatings());
     }
-
+    @CrossOrigin(origins = "*")
     @PostMapping(path = "/post/restaurantRating/{restaurant_id}")
     public ResponseEntity<RestaurantRating> postRestaurantRating(@PathVariable Long restaurant_id,@RequestBody RestaurantRating restaurantRating){
         return ResponseEntity.ok(ratingService.addNewRestaurantRating(restaurant_id,restaurantRating));

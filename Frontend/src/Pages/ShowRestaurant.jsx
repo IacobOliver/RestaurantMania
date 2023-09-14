@@ -47,6 +47,9 @@ export default function MyRestaurant() {
       `http://localhost:8080/restaurant/uploadProfileImage/${thisRestaurant.id}`,
       {
         method: "POST",
+        headers:{
+          "Authorization" : `Bearer ${localStorage.getItem("token")}`
+        },
         body: formData,
       }
     )
@@ -75,6 +78,7 @@ export default function MyRestaurant() {
         method: "PATCH",
         headers: {
           "Content-Type": "application/json",
+          "Authorization" : `Bearer ${localStorage.getItem("token")}`
         },
         body: contentRef.current.textContent,
       }

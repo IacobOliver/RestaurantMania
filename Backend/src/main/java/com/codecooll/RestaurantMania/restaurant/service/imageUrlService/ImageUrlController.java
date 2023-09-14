@@ -7,7 +7,6 @@ import org.springframework.web.bind.annotation.RequestMapping;
 
 @Controller
 @RequestMapping(path = "/image")
-@CrossOrigin(origins = "*")
 public class ImageUrlController {
     private ImageUrlService imageUrlService;
 
