@@ -23,12 +23,12 @@ import java.util.List;
 public class User extends Account {
 
 
-    @OneToMany(mappedBy = "user", cascade = CascadeType.ALL, orphanRemoval = true,fetch = FetchType.EAGER)
+    @OneToMany(mappedBy = "user", cascade = CascadeType.ALL, orphanRemoval = true, fetch = FetchType.EAGER)
     private List<Restaurant> restaurants = new ArrayList<>();
 
     private int accountFee = 0;
 
-    @OneToMany(mappedBy = "user",cascade = CascadeType.ALL,orphanRemoval = true,fetch = FetchType.EAGER)
+    @OneToMany(mappedBy = "user", cascade = CascadeType.ALL, orphanRemoval = true, fetch = FetchType.EAGER)
     private List<Rating> ratings = new ArrayList<>();
 
     public void addNewRestaurant(Restaurant newRestaurant) {
@@ -41,8 +41,12 @@ public class User extends Account {
     }
 
     @Builder
-    public User( String firstName, String lastName, String email,String password, Role role ){
+    public User(String firstName, String lastName, String email, String password, Role role) {
         super(firstName, lastName, email, password, role);
+    }
+
+    public User(Long id, String firstName, String lastName, String email, Role role) {
+        super(id, firstName, lastName, email, role);
     }
 
 
