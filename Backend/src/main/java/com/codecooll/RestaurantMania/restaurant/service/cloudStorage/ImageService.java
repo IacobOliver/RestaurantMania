@@ -20,7 +20,7 @@ public class ImageService {
     @Autowired
     private ImageUrlRepository imageUrlRepository;
     private final String BUCKET_NAME = "restaurant-mania"; // Replace with your bucket name
-    private final String CREDENTIALS_PATH = "C:\\Users\\Oli\\OneDrive\\Desktop\\CodeCool\\Modul4Java\\RestaurantMania\\Backend\\src\\main\\resources\\linear-range-375117-a874aad140b4.json"; // Replace with the actual path
+    private final String CREDENTIALS_PATH = "C:\\Users\\valib\\OneDrive\\Desktop\\MyProjects\\RestaurantMania\\Backend\\src\\main\\resources\\linear-range-375117-a874aad140b4.json"; // Replace with the actual path
 
     private final Storage storage = StorageOptions.newBuilder()
             .setCredentials(GoogleCredentials.fromStream(new FileInputStream(CREDENTIALS_PATH)))

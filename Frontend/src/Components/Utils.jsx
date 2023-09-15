@@ -34,7 +34,8 @@ export const checking = {
     const [user, setuser] = useAtom(state.user);
     const params = useParams();
     if (user) {
-      return user.restaurants.reduce(
+      console.log(user);
+      return user.restaurants?.reduce(
         (acc, cur) => (cur.id == params.restaurantId ? true : acc),
         false
       );
