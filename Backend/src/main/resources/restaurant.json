@@ -1,6 +1,1986 @@
 {
 "Restaurants":[
   {
+    "address": "",
+    "description": "",
+    "name": "Moon Bistro",
+    "image": {
+      "imageUrl": "https://tazzcdn.akamaized.net/uploads/cover/X_366.jpg"
+    },
+    "menu": [
+      {
+        "products": [
+          {
+            "productDescription": "Piept de pui/file porc, bechamel, panko200 g",
+            "name": "Șnițel de pui",
+            "price": 25.2,
+            "image": {
+              "imageUrl": "https://tazzcdn.akamaized.net/uploads/menu/17462/Snitzel_pui.jpg"
+            }
+          },
+          {
+            "productDescription": "Pâine de casă, bacon, cașcaval, salată verde, șuncă, roșii, ou fiert, cartofi prăjițI",
+            "name": "Sandwich Club",
+            "price": 27.3,
+            "image": {
+              "imageUrl": "https://tazzcdn.akamaized.net/uploads/menu/17462/19586396-sandwich-club.bfe4a80.jpg"
+            }
+          },
+          {
+            "productDescription": "400 g",
+            "name": "Aripioare prăjite",
+            "price": 24.5,
+            "image": {
+              "imageUrl": "https://tazzcdn.akamaized.net/uploads/menu/17462/Aripioare_cu_mujdei.jpg"
+            }
+          },
+          {
+            "productDescription": "Ulei măsline, usturoi, ardei iute, pătrunjel400 g",
+            "name": "Aglio, olio, pepperoncini",
+            "price": 24.5,
+            "image": {
+              "imageUrl": "https://tazzcdn.akamaized.net/uploads/menu/17462/Aop.jpg"
+            }
+          },
+          {
+            "productDescription": "Pui, sos roșii, cremă de gătit, măsline, ardei gras, ciuperci, ceapă650 g",
+            "name": "Siciliene cu pui",
+            "price": 31.5,
+            "image": {
+              "imageUrl": "https://tazzcdn.akamaized.net/uploads/menu/17462/Siciliene_cu_pui.jpg"
+            }
+          },
+          {
+            "productDescription": "Cremă de gătit, sos roșii, șuncă, ciuperci, mozzarella800 g",
+            "name": "Moon Bistro al forno",
+            "price": 38.5,
+            "image": {
+              "imageUrl": "https://tazzcdn.akamaized.net/uploads/menu/17462/Moon_bistro_al_forno.jpg"
+            }
+          },
+          {
+            "productDescription": "",
+            "name": "Crispy pui + cartofi prăjiți + sos calipso",
+            "price": 33.6,
+            "image": {
+              "imageUrl": "https://tazzcdn.akamaized.net/uploads/menu/17462/19586410-crispy-pui-cartofi-prajiti-sos-calipso.9898d35.jpg"
+            }
+          },
+          {
+            "productDescription": "",
+            "name": "Somon la grătar",
+            "price": 47.6,
+            "image": {
+              "imageUrl": "https://tazzcdn.akamaized.net/uploads/menu/17462/19586413-somon-la-gratar.853b007.jpg"
+            }
+          },
+          {
+            "productDescription": "250 g",
+            "name": "Ceafă de porc",
+            "price": 22.4,
+            "image": {
+              "imageUrl": "https://tazzcdn.akamaized.net/uploads/menu/17462/Ceafa.jpg"
+            }
+          },
+          {
+            "productDescription": "",
+            "name": "Burger clasic",
+            "price": 32.2,
+            "image": {
+              "imageUrl": "https://tazzcdn.akamaized.net/uploads/menu/17462/19586429-burger-clasic.a874035.jpg"
+            }
+          },
+          {
+            "productDescription": "",
+            "name": "Burger vegan cu halloumi",
+            "price": 32.2,
+            "image": {
+              "imageUrl": "https://tazzcdn.akamaized.net/uploads/menu/17462/19586430-burger-vegan-cu-halloumi.4f67bc5.jpg"
+            }
+          },
+          {
+            "productDescription": "",
+            "name": "Quesadilla pui",
+            "price": 35.7,
+            "image": {
+              "imageUrl": "https://tazzcdn.akamaized.net/uploads/menu/17462/Quesadilla.jpg"
+            }
+          },
+          {
+            "productDescription": "Sos roșii, mozzarella, șuncă, chorizo, bacon, ciuperci, ardei, porumb550 g",
+            "name": "Moon Bistro",
+            "price": 31.5,
+            "image": {
+              "imageUrl": "https://tazzcdn.akamaized.net/uploads/menu/17462/Pizza_moon.jpg"
+            }
+          },
+          {
+            "productDescription": "Sos roșii, mozzarella, busuioc fresh550 g",
+            "name": "Margherita",
+            "price": 24.5,
+            "image": {
+              "imageUrl": "https://tazzcdn.akamaized.net/uploads/menu/17462/Margherita.jpg"
+            }
+          },
+          {
+            "productDescription": "Vită, urechi de lemn, ardei kapia, ceapă, dovlecel, sos soia, ciuperci, noodles, kimchi400 g",
+            "name": "Wok de vită",
+            "price": 50.4,
+            "image": {
+              "imageUrl": "https://tazzcdn.akamaized.net/uploads/menu/17462/Wok_vita.jpg"
+            }
+          },
+          {
+            "productDescription": "Vită la tigaie, sos soia, kimchi, orez, unt400 g",
+            "name": "Vită pe plită cu orez",
+            "price": 45.5,
+            "image": {
+              "imageUrl": "https://tazzcdn.akamaized.net/uploads/menu/17462/Vita_la_plitI_cu_orez.jpg"
+            }
+          },
+          {
+            "productDescription": "60 g",
+            "name": "Lava Cake cu înghețată",
+            "price": 23.1,
+            "image": {
+              "imageUrl": "https://tazzcdn.akamaized.net/uploads/menu/17462/lava_cake.jpg"
+            }
+          },
+          {
+            "productDescription": "Roșii, castraveți, ardei gras, ceapă, telemea, măsline, oregano400 g",
+            "name": "Salată grecească",
+            "price": 0.0,
+            "image": {
+              "imageUrl": "https://tazzcdn.akamaized.net/uploads/menu/17462/Salata_greceascI.jpg"
+            }
+          },
+          {
+            "productDescription": "4 buc.",
+            "name": "Mici cu cartofi prăjiți",
+            "price": 0.0,
+            "image": {
+              "imageUrl": "https://tazzcdn.akamaized.net/uploads/menu/17462/Meniu_mici.jpg"
+            }
+          },
+          {
+            "productDescription": "Cartofi, bacon, smântână, verdeață500 g",
+            "name": "Cartof copt cu bacon si smântână",
+            "price": 0.0,
+            "image": {
+              "imageUrl": "https://tazzcdn.akamaized.net/uploads/menu/17462/Cartof.jpg"
+            }
+          },
+          {
+            "productDescription": "1 buc.150 g",
+            "name": "Papanași cu smântână și dulceață",
+            "price": 0.0,
+            "image": {
+              "imageUrl": "https://tazzcdn.akamaized.net/uploads/menu/17462/Papanasi.jpg"
+            }
+          },
+          {
+            "productDescription": "Cartofi prăjiți, sos cheddar, mozzarella, salsa de roșii, sos alb450 g",
+            "name": "Cheese fries",
+            "price": 28,
+            "image": {}
+          },
+          {
+            "productDescription": "3 ouă, parmezan, telemea, akadia, cartofi prăjiți450 g",
+            "name": "Cartofi MOON BISTRO",
+            "price": 28,
+            "image": {}
+          },
+          {
+            "productDescription": "200 g",
+            "name": "Cașcaval pane",
+            "price": 28,
+            "image": {}
+          },
+          {
+            "productDescription": "5 felii pâine, roșii, usturoi, busuioc, ulei măsline350 g",
+            "name": "Bruschete cu roșii",
+            "price": 0.0,
+            "image": {}
+          },
+          {
+            "productDescription": "5 felii pâine, ton, maioneză, măsline, ceapă350 g",
+            "name": "Bruschete cu ton",
+            "price": 0.0,
+            "image": {}
+          },
+          {
+            "productDescription": "Cartofi, bacon, smântână, verdeață500 g",
+            "name": "Cartof copt cu bacon si smântână",
+            "price": 0.0,
+            "image": {
+              "imageUrl": "https://tazzcdn.akamaized.net/uploads/menu/17462/Cartof.jpg"
+            }
+          },
+          {
+            "productDescription": "Sos roșii, mozzarella, șuncă, chorizo, bacon, ciuperci, ardei, porumb550 g",
+            "name": "Moon Bistro",
+            "price": 31.5,
+            "image": {
+              "imageUrl": "https://tazzcdn.akamaized.net/uploads/menu/17462/Pizza_moon.jpg"
+            }
+          },
+          {
+            "productDescription": "Sos roșii, mozzarella, șuncă, chorizo, bacon, piept pui550 g",
+            "name": "Carnivora",
+            "price": 31.5,
+            "image": {
+              "imageUrl": "https://tazz-images.akamaized.net/product/20165581/ed645c36/carnivora.webp"
+            }
+          },
+          {
+            "productDescription": "Sos roșii, mozzarella, șuncă, ciuperci, măsline, anghinare550 g",
+            "name": "Capriciosa",
+            "price": 28.7,
+            "image": {
+              "imageUrl": "https://tazz-images.akamaized.net/product/20165582/b03a57ca/capriciosa.webp"
+            }
+          },
+          {
+            "productDescription": "Sos roșii, mozzarella, șuncă, chorizo, ciuperci, măsline550 g",
+            "name": "Quattro stagioni",
+            "price": 30.1,
+            "image": {
+              "imageUrl": "https://tazz-images.akamaized.net/product/20165583/381fc804/quattro-stagioni.webp"
+            }
+          },
+          {
+            "productDescription": "Sos roșii, mozzarella, șuncă, chorizo, gorgonzola550 g",
+            "name": "Specială",
+            "price": 30.8,
+            "image": {}
+          },
+          {
+            "productDescription": "Sos roșii, mozzarella, busuioc fresh550 g",
+            "name": "Margherita",
+            "price": 24.5,
+            "image": {
+              "imageUrl": "https://tazzcdn.akamaized.net/uploads/menu/17462/Margherita.jpg"
+            }
+          },
+          {
+            "productDescription": "Cucina, mozzarella, gorgonzola, parmezan, brie550 g",
+            "name": "Pizza Quattro formaggi",
+            "price": 30.8,
+            "image": {
+              "imageUrl": "https://tazz-images.akamaized.net/product/20165586/7612d7e6/pizza-quattro-formaggi.webp"
+            }
+          },
+          {
+            "productDescription": "Sos roșii, mozzarella, șuncă, ciuperci550 g",
+            "name": "Prociutto e funghi",
+            "price": 28.7,
+            "image": {
+              "imageUrl": "https://tazz-images.akamaized.net/product/20165587/f1eb70ae/prociutto-e-funghi.webp"
+            }
+          },
+          {
+            "productDescription": "Sos roșii, mozzarella, piept pui, porumb, ciuperci550 g",
+            "name": "Pollo",
+            "price": 30.1,
+            "image": {
+              "imageUrl": "https://tazz-images.akamaized.net/product/20165588/d21f7e51/pollo.webp"
+            }
+          },
+          {
+            "productDescription": "Sos roșii, mozzarella, ton, ceapă, porumb550 g",
+            "name": "Tonno e Cipola",
+            "price": 31.5,
+            "image": {
+              "imageUrl": "https://tazz-images.akamaized.net/product/20165589/7a86f7ba/tonno-e-cipola.webp"
+            }
+          },
+          {
+            "productDescription": "Sos roșii, mozzarella, prosciuto crudo, rucola, roșii cherry, parmezan550 g",
+            "name": "Prosciutto crudo e rucola",
+            "price": 33.6,
+            "image": {
+              "imageUrl": "https://tazz-images.akamaized.net/product/20165591/b554e80c/prosciutto-crudo-e-rucola.webp"
+            }
+          },
+          {
+            "productDescription": "Sos roșii, mozzarella, chorizo, peperoncino550 g",
+            "name": "Diavola",
+            "price": 30.8,
+            "image": {
+              "imageUrl": "https://tazz-images.akamaized.net/product/20165592/ff9049c8/diavola.webp"
+            }
+          },
+          {
+            "productDescription": "Sos roșii, mozzarella, bacon, ceapă, cârnați, ardei, telemea550 g",
+            "name": "Țărănească",
+            "price": 31.5,
+            "image": {
+              "imageUrl": "https://tazz-images.akamaized.net/product/20165593/b90ba837/taraneasca.webp"
+            }
+          },
+          {
+            "productDescription": "Sos roșii, mozzarella, ciuperci, măsline, ardei, ceapă, porumb550 g",
+            "name": "Vegetariană",
+            "price": 26.6,
+            "image": {
+              "imageUrl": "https://tazz-images.akamaized.net/product/20165594/e610a770/vegetariana.webp"
+            }
+          },
+          {
+            "productDescription": "Cucina, mozzarella, bacon, gorgonzola, roșii fresh, parmezan, brie550 g",
+            "name": "Quattro formaggi con bacon",
+            "price": 33.6,
+            "image": {}
+          },
+          {
+            "productDescription": "200 g",
+            "name": "Focaccia parmezan",
+            "price": 14,
+            "image": {}
+          },
+          {
+            "productDescription": "200 g",
+            "name": "Focaccia cu ulei de măsline și oregano",
+            "price": 11.9,
+            "image": {}
+          },
+          {
+            "productDescription": "200 g",
+            "name": "Focaccia cu usturoi",
+            "price": 11.2,
+            "image": {}
+          },
+          {
+            "productDescription": "",
+            "name": "Sos dulce",
+            "price": 2.1,
+            "image": {}
+          },
+          {
+            "productDescription": "",
+            "name": "Sos picant",
+            "price": 2.1,
+            "image": {}
+          },
+          {
+            "productDescription": "",
+            "name": "Ulei picant",
+            "price": 2.1,
+            "image": {}
+          },
+          {
+            "productDescription": "sos roșii, mozzarella, chorizo, gorgonzola, roșii fresh, parmezan, brie",
+            "name": "Sorpresa",
+            "price": 29.4,
+            "image": {}
+          },
+          {
+            "productDescription": "Sos roșii, mozzarella, bacon, ceapă, ardei, porumb, ou550 g",
+            "name": "Rustică",
+            "price": 0.0,
+            "image": {
+              "imageUrl": "https://tazz-images.akamaized.net/product/20165590/cfd14fd0/rustica.webp"
+            }
+          },
+          {
+            "productDescription": "Sos roșii, mozzarella fresh, busuioc fresh550 g",
+            "name": "Margherita fresca",
+            "price": 0.0,
+            "image": {}
+          },
+          {
+            "productDescription": "Chifla, iceberg, ceapă, roșii, bacon, castraveți acri, cheddar, sos, cartofi prăjiți400 g",
+            "name": "Chesseburger de vită clasic",
+            "price": 35.7,
+            "image": {
+              "imageUrl": "https://tazz-images.akamaized.net/product/20165604/5b2b4844/chesseburger-de-vita-clasic.webp"
+            }
+          },
+          {
+            "productDescription": "Chiflă, ou, iceberg, roșii, bacon, castraveți acri, cheddar, ceapă, sos , cartofi prăjiți400 g",
+            "name": "Burger American",
+            "price": 36.4,
+            "image": {
+              "imageUrl": "https://tazz-images.akamaized.net/product/20165605/f6d6b6a8/burger-american.webp"
+            }
+          },
+          {
+            "productDescription": "Chiflă, piept de pui, roșii, bacon, ceapă, castraveți acri, cheddar, sos, iceberg, cartofi prăjiți400 g",
+            "name": "Burger crocant de pui și sos de parmezan",
+            "price": 33.6,
+            "image": {
+              "imageUrl": "https://tazz-images.akamaized.net/product/20165606/7fc3cfc5/burger-crocant-de-pui-si-sos-de-parmezan.webp"
+            }
+          },
+          {
+            "productDescription": "Chiflă, halloumi, roșii, ceapă, castraveți acri, cheddar, sos, iceberg, cartofi prăjiți400 g",
+            "name": "Burger Halloumi",
+            "price": 32.9,
+            "image": {
+              "imageUrl": "https://tazz-images.akamaized.net/product/20165607/4d90e0ec/burger-halloumi.webp"
+            }
+          },
+          {
+            "productDescription": "chiflă, salată iceberg, ceapă, roșii, bacon, castraveți acri, cheddar, ardei jalapeno, sos, cartofi prăjiți.400g",
+            "name": "Burger Picant cu ardei",
+            "price": 35.7,
+            "image": {}
+          },
+          {
+            "productDescription": "Pâine de casă, bacon, cașcaval, salată verde, șuncă, roșii, ou fiert, cartofi prăjiți",
+            "name": "Sandwich Club",
+            "price": 28.7,
+            "image": {
+              "imageUrl": "https://tazz-images.akamaized.net/product/20483915/289062a4/sandwich-club.webp"
+            }
+          },
+          {
+            "productDescription": "pâine de casă, șuncă, cașcaval, salată verde, cartofi prăjiți",
+            "name": "Sandwich Moon",
+            "price": 28.7,
+            "image": {}
+          },
+          {
+            "productDescription": "pâine de casă, piept de pui, roșii, salată verde, cașcaval, maioneză, cartofi prăjiți",
+            "name": "Sandwich Pollo",
+            "price": 28.7,
+            "image": {}
+          },
+          {
+            "productDescription": "Ulei măsline, usturoi, ardei iute, pătrunjel400 g",
+            "name": "Aglio, olio, pepperoncini",
+            "price": 24.5,
+            "image": {
+              "imageUrl": "https://tazzcdn.akamaized.net/uploads/menu/17462/Aop.jpg"
+            }
+          },
+          {
+            "productDescription": "Cremă de gătit, bacon, ou, parmazan500 g",
+            "name": "Carbonara",
+            "price": 30.1,
+            "image": {}
+          },
+          {
+            "productDescription": "Pui, sos roșii, cremă de gătit, măsline, ardei gras, ciuperci, ceapă650 g",
+            "name": "Siciliene cu pui",
+            "price": 31.5,
+            "image": {
+              "imageUrl": "https://tazzcdn.akamaized.net/uploads/menu/17462/Siciliene_cu_pui.jpg"
+            }
+          },
+          {
+            "productDescription": "Sos roșii, roșii cherry, usturoi500 g",
+            "name": "Pomodorino fresco",
+            "price": 24.5,
+            "image": {}
+          },
+          {
+            "productDescription": "Cremă de gătit, sos roșii, șuncă, ciuperci, mozzarella800 g",
+            "name": "Moon Bistro al forno",
+            "price": 38.5,
+            "image": {
+              "imageUrl": "https://tazzcdn.akamaized.net/uploads/menu/17462/Moon_bistro_al_forno.jpg"
+            }
+          },
+          {
+            "productDescription": "Sos roșu, ardei iute, usturoi400 g",
+            "name": "Paste arabiata",
+            "price": 24.5,
+            "image": {}
+          },
+          {
+            "productDescription": "Cremă de gătit, pui, smantana, ciuperci, usturoi, parmezan500 g",
+            "name": "Paste cu pui, smântână și ciuperci",
+            "price": 30.1,
+            "image": {}
+          },
+          {
+            "productDescription": "Cremă de gătit, parmezan, gorgonzola, mozzarella500 g",
+            "name": "Paste Quatro formaggi",
+            "price": 0.0,
+            "image": {}
+          },
+          {
+            "productDescription": "Piept de pui/file porc, bechamel, panko200 g",
+            "name": "Șnițel de pui",
+            "price": 25.2,
+            "image": {
+              "imageUrl": "https://tazzcdn.akamaized.net/uploads/menu/17462/Snitzel_pui.jpg"
+            }
+          },
+          {
+            "productDescription": "Piept de pui/ file porc, bechamel, panko 200 g",
+            "name": "Șnitel de porc",
+            "price": 25.2,
+            "image": {}
+          },
+          {
+            "productDescription": "Piept de pui, bechamel, panko200 g",
+            "name": "Crochete de pui",
+            "price": 25.2,
+            "image": {}
+          },
+          {
+            "productDescription": "400 g",
+            "name": "Aripioare prăjite",
+            "price": 24.5,
+            "image": {
+              "imageUrl": "https://tazzcdn.akamaized.net/uploads/menu/17462/Aripioare_cu_mujdei.jpg"
+            }
+          },
+          {
+            "productDescription": "Piept de pui, dovlecei, ceapă, ciuperci, ardei gras, tortillias, mozzarella, cartofi prăjiți, sos calypso350 / 200 g",
+            "name": "Quesadilla de pui",
+            "price": 35.7,
+            "image": {
+              "imageUrl": "https://tazzcdn.akamaized.net/uploads/menu/17462/Quesadilla_1.jpg"
+            }
+          },
+          {
+            "productDescription": "Aripioare, crochete, cașcaval, cartofi prăjiti, sos calypso800 g",
+            "name": "Platou pane (2 persoane)",
+            "price": 117.6,
+            "image": {}
+          },
+          {
+            "productDescription": "dovlecei, ceapă, ciuperci, ardei gras, tortillias, mozzarella, cartofi prăjiți, sos calypso350 / 200 g",
+            "name": "Quesadilla vegetariană",
+            "price": 35.7,
+            "image": {}
+          },
+          {
+            "productDescription": "Aripioare, bechamel, panko, chilli, mujdei400 g",
+            "name": "Aripioare picante",
+            "price": 0.0,
+            "image": {}
+          },
+          {
+            "productDescription": "250 g",
+            "name": "Mușchi de vită",
+            "price": 68.6,
+            "image": {}
+          },
+          {
+            "productDescription": "250 g",
+            "name": "Piept de pui",
+            "price": 22.4,
+            "image": {}
+          },
+          {
+            "productDescription": "250 g",
+            "name": "Pulpe de pui",
+            "price": 22.4,
+            "image": {}
+          },
+          {
+            "productDescription": "250 g",
+            "name": "Piept de curcan",
+            "price": 28,
+            "image": {}
+          },
+          {
+            "productDescription": "250 g",
+            "name": "Ceafă de porc",
+            "price": 22.4,
+            "image": {
+              "imageUrl": "https://tazzcdn.akamaized.net/uploads/menu/17462/Ceafa.jpg"
+            }
+          },
+          {
+            "productDescription": "4 buc.",
+            "name": "Cârnați de casă",
+            "price": 21,
+            "image": {}
+          },
+          {
+            "productDescription": "Mici, file porc, ceafă porc, pulpă pui, cârnați casă, cartofi prăjiți, muștar, castraveți acri950 g",
+            "name": "Platou grill",
+            "price": 117.6,
+            "image": {}
+          },
+          {
+            "productDescription": "4 buc.",
+            "name": "Mici cu cartofi prăjiți",
+            "price": 0.0,
+            "image": {
+              "imageUrl": "https://tazzcdn.akamaized.net/uploads/menu/17462/Meniu_mici.jpg"
+            }
+          },
+          {
+            "productDescription": "Vită, urechi de lemn, ardei kapia, ceapă, dovlecel, sos soia, ciuperci, noodles, kimchi400 g",
+            "name": "Wok de vită",
+            "price": 50.4,
+            "image": {
+              "imageUrl": "https://tazzcdn.akamaized.net/uploads/menu/17462/Wok_vita.jpg"
+            }
+          },
+          {
+            "productDescription": "Pui, urechi de lemn, ardei kapia, ceapă, dovlecel, sos soia, ciuperci, noodles, kimchi400 g",
+            "name": "Wok de pui",
+            "price": 37.8,
+            "image": {}
+          },
+          {
+            "productDescription": "Urechi de lemn, ardei kapia, ceapă, dovlecel, sos soia, ciuperci, noodles, kimchi400 g",
+            "name": "Wok de legume",
+            "price": 36.4,
+            "image": {}
+          },
+          {
+            "productDescription": "Vită la tigaie, sos soia, kimchi, orez, unt400 g",
+            "name": "Vită pe plită cu orez",
+            "price": 45.5,
+            "image": {
+              "imageUrl": "https://tazzcdn.akamaized.net/uploads/menu/17462/Vita_la_plitI_cu_orez.jpg"
+            }
+          },
+          {
+            "productDescription": "200 g",
+            "name": "Orez cu ou",
+            "price": 18.9,
+            "image": {}
+          },
+          {
+            "productDescription": "Rucola, roșii cherry, vită, dressing, nuci, brânză de capră400 g",
+            "name": "Salată MOON BISTRO",
+            "price": 35,
+            "image": {}
+          },
+          {
+            "productDescription": "Iceberg, pui, crutoane, parmezan, anchoa, dressing400 g",
+            "name": "Salată Caesar",
+            "price": 31.5,
+            "image": {}
+          },
+          {
+            "productDescription": "Iceberg, ton, ceapă, porumb, roșii cherry400 g",
+            "name": "Salată cu ton",
+            "price": 28,
+            "image": {}
+          },
+          {
+            "productDescription": "Iceberg, piept de pui, ardei capia, castravete, ciuperci, ou, dressing400 g",
+            "name": "Salată New York",
+            "price": 31.5,
+            "image": {}
+          },
+          {
+            "productDescription": "Roșii, castraveți, ardei gras, ceapă, telemea, măsline, oregano400 g",
+            "name": "Salată grecească",
+            "price": 0.0,
+            "image": {
+              "imageUrl": "https://tazzcdn.akamaized.net/uploads/menu/17462/Salata_greceascI.jpg"
+            }
+          },
+          {
+            "productDescription": "2 buc.150 g",
+            "name": "Clătite cu ciocolată",
+            "price": 16.8,
+            "image": {
+              "imageUrl": "https://tazz-images.akamaized.net/product/20165631/a306842f/clatite-cu-ciocolata.webp"
+            }
+          },
+          {
+            "productDescription": "2 buc.150 g",
+            "name": "Clătite cu dulceață",
+            "price": 16.8,
+            "image": {
+              "imageUrl": "https://tazz-images.akamaized.net/product/20165632/28bded85/clatite-cu-dulceata.webp"
+            }
+          },
+          {
+            "productDescription": "60 g",
+            "name": "Lava Cake cu înghețată",
+            "price": 23.1,
+            "image": {
+              "imageUrl": "https://tazzcdn.akamaized.net/uploads/menu/17462/lava_cake.jpg"
+            }
+          },
+          {
+            "productDescription": "1 buc.150 g",
+            "name": "Papanași cu smântână și dulceață",
+            "price": 0.0,
+            "image": {
+              "imageUrl": "https://tazzcdn.akamaized.net/uploads/menu/17462/Papanasi.jpg"
+            }
+          },
+          {
+            "productDescription": "250 g",
+            "name": "Cartofi prăjiți",
+            "price": 10.5,
+            "image": {}
+          },
+          {
+            "productDescription": "250 g",
+            "name": "Cartofi la cuptor cu usturoi și rozmarin",
+            "price": 10.5,
+            "image": {}
+          },
+          {
+            "productDescription": "Cartofi, bacon, ceapă, mărar250 g",
+            "name": "Cartofi țărănești",
+            "price": 14,
+            "image": {}
+          },
+          {
+            "productDescription": "Cartofi, unt, lapte250 g",
+            "name": "Piure de cartofi",
+            "price": 11.2,
+            "image": {}
+          },
+          {
+            "productDescription": "Orez, unt250 g",
+            "name": "Orez simplu",
+            "price": 10.5,
+            "image": {}
+          },
+          {
+            "productDescription": "Ciuperci, ceapă, ardei gras, dovlecei250 g",
+            "name": "Orez cu legume",
+            "price": 12.6,
+            "image": {}
+          },
+          {
+            "productDescription": "Dovlecei, vinete, ciuperci, ceapă, roșii, ardei, usturoi, aceto250 g",
+            "name": "Legume la grătar",
+            "price": 14,
+            "image": {}
+          },
+          {
+            "productDescription": "500 ml",
+            "name": "Limonadă cu miere",
+            "price": 0.0,
+            "image": {}
+          },
+          {
+            "productDescription": "330ml",
+            "name": "Apa minerală 330ml",
+            "price": 0.0,
+            "image": {
+              "imageUrl": "https://tazzcdn.akamaized.net/uploads/menu/17462/WhatsApp_Image_2023-06-16_at_11.37.27.jpeg"
+            }
+          },
+          {
+            "productDescription": "750 ml",
+            "name": "Apă plată",
+            "price": 0.0,
+            "image": {
+              "imageUrl": "https://tazzcdn.akamaized.net/uploads/menu/17462/WhatsApp_Image_2023-06-16_at_11.37.27_1.jpeg"
+            }
+          },
+          {
+            "productDescription": "250 ml",
+            "name": "Pepsi",
+            "price": 0.0,
+            "image": {
+              "imageUrl": "https://tazzcdn.akamaized.net/uploads/menu/17462/WhatsApp_Image_2023-06-16_at_11.37.26_3.jpeg"
+            }
+          },
+          {
+            "productDescription": "250 ml",
+            "name": "Mirinda",
+            "price": 0.0,
+            "image": {
+              "imageUrl": "https://tazzcdn.akamaized.net/uploads/menu/17462/WhatsApp_Image_2023-06-16_at_11.37.26_2.jpeg"
+            }
+          },
+          {
+            "productDescription": "250 ml",
+            "name": "7Up",
+            "price": 0.0,
+            "image": {
+              "imageUrl": "https://tazzcdn.akamaized.net/uploads/menu/17462/WhatsApp_Image_2023-06-16_at_11.37.26_4.jpeg"
+            }
+          },
+          {
+            "productDescription": "250 ml",
+            "name": "Evervess",
+            "price": 0.0,
+            "image": {
+              "imageUrl": "https://tazzcdn.akamaized.net/uploads/menu/17462/WhatsApp_Image_2023-06-16_at_11.37.26_5.jpeg"
+            }
+          },
+          {
+            "productDescription": "250 ml",
+            "name": "Prigat",
+            "price": 0.0,
+            "image": {
+              "imageUrl": "https://tazzcdn.akamaized.net/uploads/menu/17462/WhatsApp_Image_2023-06-16_at_11.37.26_6.jpeg"
+            }
+          },
+          {
+            "productDescription": "250 ml",
+            "name": "Energizant",
+            "price": 0.0,
+            "image": {}
+          },
+          {
+            "productDescription": "330ml",
+            "name": "Apă plată",
+            "price": 0.0,
+            "image": {
+              "imageUrl": "https://tazzcdn.akamaized.net/uploads/menu/17462/WhatsApp_Image_2023-06-16_at_11.37.26_7.jpeg"
+            }
+          },
+          {
+            "productDescription": "750ml",
+            "name": "Apă minerală",
+            "price": 0.0,
+            "image": {
+              "imageUrl": "https://tazzcdn.akamaized.net/uploads/menu/17462/WhatsApp_Image_2023-06-16_at_11.37.27_2.jpeg"
+            }
+          },
+          {
+            "productDescription": "5% alcool - 0.33ml",
+            "name": "Heineken",
+            "price": 0.0,
+            "image": {
+              "imageUrl": "https://tazzcdn.akamaized.net/uploads/menu/17462/WhatsApp_Image_2023-06-16_at_11.37.25.jpeg"
+            }
+          },
+          {
+            "productDescription": "0.33ml - 0% alcool",
+            "name": "Heineken 0",
+            "price": 0.0,
+            "image": {
+              "imageUrl": "https://tazzcdn.akamaized.net/uploads/menu/17462/WhatsApp_Image_2023-06-16_at_11.37.25_1.jpeg"
+            }
+          },
+          {
+            "productDescription": "5% alcool",
+            "name": "Ciuc Premium",
+            "price": 0.0,
+            "image": {
+              "imageUrl": "https://tazzcdn.akamaized.net/uploads/menu/17462/WhatsApp_Image_2023-06-16_at_11.37.25_2.jpeg"
+            }
+          },
+          {
+            "productDescription": "150 g",
+            "name": "Salată de varză albă",
+            "price": 10.5,
+            "image": {}
+          },
+          {
+            "productDescription": "150 g",
+            "name": "Salată de castraveți acri",
+            "price": 10.5,
+            "image": {}
+          },
+          {
+            "productDescription": "150 g",
+            "name": "Salată de roșii cu brânză rasă",
+            "price": 11.9,
+            "image": {}
+          },
+          {
+            "productDescription": "Roșii, castraveți, ceapă, ardei150 g",
+            "name": "Salată mixtă",
+            "price": 0.0,
+            "image": {}
+          },
+          {
+            "productDescription": "",
+            "name": "Maioneză cu usturoi",
+            "price": 0.0,
+            "image": {
+              "imageUrl": "https://tazz-images.akamaized.net/product/20165624/2c75a2fd/maioneza-cu-usturoi.webp"
+            }
+          },
+          {
+            "productDescription": "",
+            "name": "Smântână cu usturoi",
+            "price": 0.0,
+            "image": {
+              "imageUrl": "https://tazzcdn.akamaized.net/uploads/menu/17462/Sos_usturoi_smantana_maioneza_1.png"
+            }
+          },
+          {
+            "productDescription": "",
+            "name": "Mujdei",
+            "price": 0.0,
+            "image": {}
+          },
+          {
+            "productDescription": "",
+            "name": "Ketchup Dulce",
+            "price": 0.0,
+            "image": {
+              "imageUrl": "https://tazz-images.akamaized.net/product/20165627/c7ee2f65/ketchup-dulce.webp"
+            }
+          },
+          {
+            "productDescription": "",
+            "name": "Sos calypso",
+            "price": 0.0,
+            "image": {
+              "imageUrl": "https://tazz-images.akamaized.net/product/20165628/3799c749/sos-calypso.webp"
+            }
+          },
+          {
+            "productDescription": "",
+            "name": "Sos BBQ",
+            "price": 0.0,
+            "image": {
+              "imageUrl": "https://tazz-images.akamaized.net/product/20165629/3e987cc0/sos-bbq.webp"
+            }
+          },
+          {
+            "productDescription": "",
+            "name": "Sos roșii dulce",
+            "price": 0.0,
+            "image": {}
+          },
+          {
+            "productDescription": "",
+            "name": "Sos rosii picant",
+            "price": 0.0,
+            "image": {}
+          },
+          {
+            "productDescription": "",
+            "name": "Ketchup Picant",
+            "price": 0.0,
+            "image": {
+              "imageUrl": "https://tazz-images.akamaized.net/product/20171197/c7ee2f65/ketchup-picant.webp"
+            }
+          },
+          {
+            "productDescription": "",
+            "name": "Ceai",
+            "price": 0.0,
+            "image": {}
+          }
+        ],
+        "name": "Cele mai populare"
+      },
+      {
+        "products": [
+          {
+            "productDescription": "Piept de pui/file porc, bechamel, panko200 g",
+            "name": "Șnițel de pui",
+            "price": 25.2,
+            "image": {
+              "imageUrl": "https://tazzcdn.akamaized.net/uploads/menu/17462/Snitzel_pui.jpg"
+            }
+          },
+          {
+            "productDescription": "Pâine de casă, bacon, cașcaval, salată verde, șuncă, roșii, ou fiert, cartofi prăjițI",
+            "name": "Sandwich Club",
+            "price": 27.3,
+            "image": {
+              "imageUrl": "https://tazzcdn.akamaized.net/uploads/menu/17462/19586396-sandwich-club.bfe4a80.jpg"
+            }
+          },
+          {
+            "productDescription": "400 g",
+            "name": "Aripioare prăjite",
+            "price": 24.5,
+            "image": {
+              "imageUrl": "https://tazzcdn.akamaized.net/uploads/menu/17462/Aripioare_cu_mujdei.jpg"
+            }
+          },
+          {
+            "productDescription": "Ulei măsline, usturoi, ardei iute, pătrunjel400 g",
+            "name": "Aglio, olio, pepperoncini",
+            "price": 24.5,
+            "image": {
+              "imageUrl": "https://tazzcdn.akamaized.net/uploads/menu/17462/Aop.jpg"
+            }
+          },
+          {
+            "productDescription": "Pui, sos roșii, cremă de gătit, măsline, ardei gras, ciuperci, ceapă650 g",
+            "name": "Siciliene cu pui",
+            "price": 31.5,
+            "image": {
+              "imageUrl": "https://tazzcdn.akamaized.net/uploads/menu/17462/Siciliene_cu_pui.jpg"
+            }
+          },
+          {
+            "productDescription": "Cremă de gătit, sos roșii, șuncă, ciuperci, mozzarella800 g",
+            "name": "Moon Bistro al forno",
+            "price": 38.5,
+            "image": {
+              "imageUrl": "https://tazzcdn.akamaized.net/uploads/menu/17462/Moon_bistro_al_forno.jpg"
+            }
+          },
+          {
+            "productDescription": "",
+            "name": "Crispy pui + cartofi prăjiți + sos calipso",
+            "price": 33.6,
+            "image": {
+              "imageUrl": "https://tazzcdn.akamaized.net/uploads/menu/17462/19586410-crispy-pui-cartofi-prajiti-sos-calipso.9898d35.jpg"
+            }
+          },
+          {
+            "productDescription": "",
+            "name": "Somon la grătar",
+            "price": 47.6,
+            "image": {
+              "imageUrl": "https://tazzcdn.akamaized.net/uploads/menu/17462/19586413-somon-la-gratar.853b007.jpg"
+            }
+          },
+          {
+            "productDescription": "250 g",
+            "name": "Ceafă de porc",
+            "price": 22.4,
+            "image": {
+              "imageUrl": "https://tazzcdn.akamaized.net/uploads/menu/17462/Ceafa.jpg"
+            }
+          },
+          {
+            "productDescription": "",
+            "name": "Burger clasic",
+            "price": 32.2,
+            "image": {
+              "imageUrl": "https://tazzcdn.akamaized.net/uploads/menu/17462/19586429-burger-clasic.a874035.jpg"
+            }
+          },
+          {
+            "productDescription": "",
+            "name": "Burger vegan cu halloumi",
+            "price": 32.2,
+            "image": {
+              "imageUrl": "https://tazzcdn.akamaized.net/uploads/menu/17462/19586430-burger-vegan-cu-halloumi.4f67bc5.jpg"
+            }
+          },
+          {
+            "productDescription": "",
+            "name": "Quesadilla pui",
+            "price": 35.7,
+            "image": {
+              "imageUrl": "https://tazzcdn.akamaized.net/uploads/menu/17462/Quesadilla.jpg"
+            }
+          },
+          {
+            "productDescription": "Sos roșii, mozzarella, șuncă, chorizo, bacon, ciuperci, ardei, porumb550 g",
+            "name": "Moon Bistro",
+            "price": 31.5,
+            "image": {
+              "imageUrl": "https://tazzcdn.akamaized.net/uploads/menu/17462/Pizza_moon.jpg"
+            }
+          },
+          {
+            "productDescription": "Sos roșii, mozzarella, busuioc fresh550 g",
+            "name": "Margherita",
+            "price": 24.5,
+            "image": {
+              "imageUrl": "https://tazzcdn.akamaized.net/uploads/menu/17462/Margherita.jpg"
+            }
+          },
+          {
+            "productDescription": "Vită, urechi de lemn, ardei kapia, ceapă, dovlecel, sos soia, ciuperci, noodles, kimchi400 g",
+            "name": "Wok de vită",
+            "price": 50.4,
+            "image": {
+              "imageUrl": "https://tazzcdn.akamaized.net/uploads/menu/17462/Wok_vita.jpg"
+            }
+          },
+          {
+            "productDescription": "Vită la tigaie, sos soia, kimchi, orez, unt400 g",
+            "name": "Vită pe plită cu orez",
+            "price": 45.5,
+            "image": {
+              "imageUrl": "https://tazzcdn.akamaized.net/uploads/menu/17462/Vita_la_plitI_cu_orez.jpg"
+            }
+          },
+          {
+            "productDescription": "60 g",
+            "name": "Lava Cake cu înghețată",
+            "price": 23.1,
+            "image": {
+              "imageUrl": "https://tazzcdn.akamaized.net/uploads/menu/17462/lava_cake.jpg"
+            }
+          },
+          {
+            "productDescription": "Roșii, castraveți, ardei gras, ceapă, telemea, măsline, oregano400 g",
+            "name": "Salată grecească",
+            "price": 0.0,
+            "image": {
+              "imageUrl": "https://tazzcdn.akamaized.net/uploads/menu/17462/Salata_greceascI.jpg"
+            }
+          },
+          {
+            "productDescription": "4 buc.",
+            "name": "Mici cu cartofi prăjiți",
+            "price": 0.0,
+            "image": {
+              "imageUrl": "https://tazzcdn.akamaized.net/uploads/menu/17462/Meniu_mici.jpg"
+            }
+          },
+          {
+            "productDescription": "Cartofi, bacon, smântână, verdeață500 g",
+            "name": "Cartof copt cu bacon si smântână",
+            "price": 0.0,
+            "image": {
+              "imageUrl": "https://tazzcdn.akamaized.net/uploads/menu/17462/Cartof.jpg"
+            }
+          },
+          {
+            "productDescription": "1 buc.150 g",
+            "name": "Papanași cu smântână și dulceață",
+            "price": 0.0,
+            "image": {
+              "imageUrl": "https://tazzcdn.akamaized.net/uploads/menu/17462/Papanasi.jpg"
+            }
+          }
+        ],
+        "name": "Cele mai populare"
+      },
+      {
+        "products": [
+          {
+            "productDescription": "Cartofi prăjiți, sos cheddar, mozzarella, salsa de roșii, sos alb450 g",
+            "name": "Cheese fries",
+            "price": 28,
+            "image": {}
+          },
+          {
+            "productDescription": "3 ouă, parmezan, telemea, akadia, cartofi prăjiți450 g",
+            "name": "Cartofi MOON BISTRO",
+            "price": 28,
+            "image": {}
+          },
+          {
+            "productDescription": "200 g",
+            "name": "Cașcaval pane",
+            "price": 28,
+            "image": {}
+          },
+          {
+            "productDescription": "5 felii pâine, roșii, usturoi, busuioc, ulei măsline350 g",
+            "name": "Bruschete cu roșii",
+            "price": 0.0,
+            "image": {}
+          },
+          {
+            "productDescription": "5 felii pâine, ton, maioneză, măsline, ceapă350 g",
+            "name": "Bruschete cu ton",
+            "price": 0.0,
+            "image": {}
+          },
+          {
+            "productDescription": "Cartofi, bacon, smântână, verdeață500 g",
+            "name": "Cartof copt cu bacon si smântână",
+            "price": 0.0,
+            "image": {
+              "imageUrl": "https://tazzcdn.akamaized.net/uploads/menu/17462/Cartof.jpg"
+            }
+          }
+        ],
+        "name": "Gustări reci / calde"
+      },
+      {
+        "products": [
+          {
+            "productDescription": "Sos roșii, mozzarella, șuncă, chorizo, bacon, ciuperci, ardei, porumb550 g",
+            "name": "Moon Bistro",
+            "price": 31.5,
+            "image": {
+              "imageUrl": "https://tazzcdn.akamaized.net/uploads/menu/17462/Pizza_moon.jpg"
+            }
+          },
+          {
+            "productDescription": "Sos roșii, mozzarella, șuncă, chorizo, bacon, piept pui550 g",
+            "name": "Carnivora",
+            "price": 31.5,
+            "image": {
+              "imageUrl": "https://tazz-images.akamaized.net/product/20165581/ed645c36/carnivora.webp"
+            }
+          },
+          {
+            "productDescription": "Sos roșii, mozzarella, șuncă, ciuperci, măsline, anghinare550 g",
+            "name": "Capriciosa",
+            "price": 28.7,
+            "image": {
+              "imageUrl": "https://tazz-images.akamaized.net/product/20165582/b03a57ca/capriciosa.webp"
+            }
+          },
+          {
+            "productDescription": "Sos roșii, mozzarella, șuncă, chorizo, ciuperci, măsline550 g",
+            "name": "Quattro stagioni",
+            "price": 30.1,
+            "image": {
+              "imageUrl": "https://tazz-images.akamaized.net/product/20165583/381fc804/quattro-stagioni.webp"
+            }
+          },
+          {
+            "productDescription": "Sos roșii, mozzarella, șuncă, chorizo, gorgonzola550 g",
+            "name": "Specială",
+            "price": 30.8,
+            "image": {}
+          },
+          {
+            "productDescription": "Sos roșii, mozzarella, busuioc fresh550 g",
+            "name": "Margherita",
+            "price": 24.5,
+            "image": {
+              "imageUrl": "https://tazzcdn.akamaized.net/uploads/menu/17462/Margherita.jpg"
+            }
+          },
+          {
+            "productDescription": "Cucina, mozzarella, gorgonzola, parmezan, brie550 g",
+            "name": "Pizza Quattro formaggi",
+            "price": 30.8,
+            "image": {
+              "imageUrl": "https://tazz-images.akamaized.net/product/20165586/7612d7e6/pizza-quattro-formaggi.webp"
+            }
+          },
+          {
+            "productDescription": "Sos roșii, mozzarella, șuncă, ciuperci550 g",
+            "name": "Prociutto e funghi",
+            "price": 28.7,
+            "image": {
+              "imageUrl": "https://tazz-images.akamaized.net/product/20165587/f1eb70ae/prociutto-e-funghi.webp"
+            }
+          },
+          {
+            "productDescription": "Sos roșii, mozzarella, piept pui, porumb, ciuperci550 g",
+            "name": "Pollo",
+            "price": 30.1,
+            "image": {
+              "imageUrl": "https://tazz-images.akamaized.net/product/20165588/d21f7e51/pollo.webp"
+            }
+          },
+          {
+            "productDescription": "Sos roșii, mozzarella, ton, ceapă, porumb550 g",
+            "name": "Tonno e Cipola",
+            "price": 31.5,
+            "image": {
+              "imageUrl": "https://tazz-images.akamaized.net/product/20165589/7a86f7ba/tonno-e-cipola.webp"
+            }
+          },
+          {
+            "productDescription": "Sos roșii, mozzarella, prosciuto crudo, rucola, roșii cherry, parmezan550 g",
+            "name": "Prosciutto crudo e rucola",
+            "price": 33.6,
+            "image": {
+              "imageUrl": "https://tazz-images.akamaized.net/product/20165591/b554e80c/prosciutto-crudo-e-rucola.webp"
+            }
+          },
+          {
+            "productDescription": "Sos roșii, mozzarella, chorizo, peperoncino550 g",
+            "name": "Diavola",
+            "price": 30.8,
+            "image": {
+              "imageUrl": "https://tazz-images.akamaized.net/product/20165592/ff9049c8/diavola.webp"
+            }
+          },
+          {
+            "productDescription": "Sos roșii, mozzarella, bacon, ceapă, cârnați, ardei, telemea550 g",
+            "name": "Țărănească",
+            "price": 31.5,
+            "image": {
+              "imageUrl": "https://tazz-images.akamaized.net/product/20165593/b90ba837/taraneasca.webp"
+            }
+          },
+          {
+            "productDescription": "Sos roșii, mozzarella, ciuperci, măsline, ardei, ceapă, porumb550 g",
+            "name": "Vegetariană",
+            "price": 26.6,
+            "image": {
+              "imageUrl": "https://tazz-images.akamaized.net/product/20165594/e610a770/vegetariana.webp"
+            }
+          },
+          {
+            "productDescription": "Cucina, mozzarella, bacon, gorgonzola, roșii fresh, parmezan, brie550 g",
+            "name": "Quattro formaggi con bacon",
+            "price": 33.6,
+            "image": {}
+          },
+          {
+            "productDescription": "200 g",
+            "name": "Focaccia parmezan",
+            "price": 14,
+            "image": {}
+          },
+          {
+            "productDescription": "200 g",
+            "name": "Focaccia cu ulei de măsline și oregano",
+            "price": 11.9,
+            "image": {}
+          },
+          {
+            "productDescription": "200 g",
+            "name": "Focaccia cu usturoi",
+            "price": 11.2,
+            "image": {}
+          },
+          {
+            "productDescription": "",
+            "name": "Sos dulce",
+            "price": 2.1,
+            "image": {}
+          },
+          {
+            "productDescription": "",
+            "name": "Sos picant",
+            "price": 2.1,
+            "image": {}
+          },
+          {
+            "productDescription": "",
+            "name": "Ulei picant",
+            "price": 2.1,
+            "image": {}
+          },
+          {
+            "productDescription": "sos roșii, mozzarella, chorizo, gorgonzola, roșii fresh, parmezan, brie",
+            "name": "Sorpresa",
+            "price": 29.4,
+            "image": {}
+          },
+          {
+            "productDescription": "Sos roșii, mozzarella, bacon, ceapă, ardei, porumb, ou550 g",
+            "name": "Rustică",
+            "price": 0.0,
+            "image": {
+              "imageUrl": "https://tazz-images.akamaized.net/product/20165590/cfd14fd0/rustica.webp"
+            }
+          },
+          {
+            "productDescription": "Sos roșii, mozzarella fresh, busuioc fresh550 g",
+            "name": "Margherita fresca",
+            "price": 0.0,
+            "image": {}
+          }
+        ],
+        "name": "Pizza 32cm"
+      },
+      {
+        "products": [
+          {
+            "productDescription": "Chifla, iceberg, ceapă, roșii, bacon, castraveți acri, cheddar, sos, cartofi prăjiți400 g",
+            "name": "Chesseburger de vită clasic",
+            "price": 35.7,
+            "image": {
+              "imageUrl": "https://tazz-images.akamaized.net/product/20165604/5b2b4844/chesseburger-de-vita-clasic.webp"
+            }
+          },
+          {
+            "productDescription": "Chiflă, ou, iceberg, roșii, bacon, castraveți acri, cheddar, ceapă, sos , cartofi prăjiți400 g",
+            "name": "Burger American",
+            "price": 36.4,
+            "image": {
+              "imageUrl": "https://tazz-images.akamaized.net/product/20165605/f6d6b6a8/burger-american.webp"
+            }
+          },
+          {
+            "productDescription": "Chiflă, piept de pui, roșii, bacon, ceapă, castraveți acri, cheddar, sos, iceberg, cartofi prăjiți400 g",
+            "name": "Burger crocant de pui și sos de parmezan",
+            "price": 33.6,
+            "image": {
+              "imageUrl": "https://tazz-images.akamaized.net/product/20165606/7fc3cfc5/burger-crocant-de-pui-si-sos-de-parmezan.webp"
+            }
+          },
+          {
+            "productDescription": "Chiflă, halloumi, roșii, ceapă, castraveți acri, cheddar, sos, iceberg, cartofi prăjiți400 g",
+            "name": "Burger Halloumi",
+            "price": 32.9,
+            "image": {
+              "imageUrl": "https://tazz-images.akamaized.net/product/20165607/4d90e0ec/burger-halloumi.webp"
+            }
+          },
+          {
+            "productDescription": "chiflă, salată iceberg, ceapă, roșii, bacon, castraveți acri, cheddar, ardei jalapeno, sos, cartofi prăjiți.400g",
+            "name": "Burger Picant cu ardei",
+            "price": 35.7,
+            "image": {}
+          }
+        ],
+        "name": "Burger"
+      },
+      {
+        "products": [
+          {
+            "productDescription": "Pâine de casă, bacon, cașcaval, salată verde, șuncă, roșii, ou fiert, cartofi prăjiți",
+            "name": "Sandwich Club",
+            "price": 28.7,
+            "image": {
+              "imageUrl": "https://tazz-images.akamaized.net/product/20483915/289062a4/sandwich-club.webp"
+            }
+          },
+          {
+            "productDescription": "pâine de casă, șuncă, cașcaval, salată verde, cartofi prăjiți",
+            "name": "Sandwich Moon",
+            "price": 28.7,
+            "image": {}
+          },
+          {
+            "productDescription": "pâine de casă, piept de pui, roșii, salată verde, cașcaval, maioneză, cartofi prăjiți",
+            "name": "Sandwich Pollo",
+            "price": 28.7,
+            "image": {}
+          }
+        ],
+        "name": "Sandwich-uri"
+      },
+      {
+        "products": [
+          {
+            "productDescription": "Ulei măsline, usturoi, ardei iute, pătrunjel400 g",
+            "name": "Aglio, olio, pepperoncini",
+            "price": 24.5,
+            "image": {
+              "imageUrl": "https://tazzcdn.akamaized.net/uploads/menu/17462/Aop.jpg"
+            }
+          },
+          {
+            "productDescription": "Cremă de gătit, bacon, ou, parmazan500 g",
+            "name": "Carbonara",
+            "price": 30.1,
+            "image": {}
+          },
+          {
+            "productDescription": "Pui, sos roșii, cremă de gătit, măsline, ardei gras, ciuperci, ceapă650 g",
+            "name": "Siciliene cu pui",
+            "price": 31.5,
+            "image": {
+              "imageUrl": "https://tazzcdn.akamaized.net/uploads/menu/17462/Siciliene_cu_pui.jpg"
+            }
+          },
+          {
+            "productDescription": "Sos roșii, roșii cherry, usturoi500 g",
+            "name": "Pomodorino fresco",
+            "price": 24.5,
+            "image": {}
+          },
+          {
+            "productDescription": "Cremă de gătit, sos roșii, șuncă, ciuperci, mozzarella800 g",
+            "name": "Moon Bistro al forno",
+            "price": 38.5,
+            "image": {
+              "imageUrl": "https://tazzcdn.akamaized.net/uploads/menu/17462/Moon_bistro_al_forno.jpg"
+            }
+          },
+          {
+            "productDescription": "Sos roșu, ardei iute, usturoi400 g",
+            "name": "Paste arabiata",
+            "price": 24.5,
+            "image": {}
+          },
+          {
+            "productDescription": "Cremă de gătit, pui, smantana, ciuperci, usturoi, parmezan500 g",
+            "name": "Paste cu pui, smântână și ciuperci",
+            "price": 30.1,
+            "image": {}
+          },
+          {
+            "productDescription": "Cremă de gătit, parmezan, gorgonzola, mozzarella500 g",
+            "name": "Paste Quatro formaggi",
+            "price": 0.0,
+            "image": {}
+          }
+        ],
+        "name": "Paste de casă"
+      },
+      {
+        "products": [
+          {
+            "productDescription": "Piept de pui/file porc, bechamel, panko200 g",
+            "name": "Șnițel de pui",
+            "price": 25.2,
+            "image": {
+              "imageUrl": "https://tazzcdn.akamaized.net/uploads/menu/17462/Snitzel_pui.jpg"
+            }
+          },
+          {
+            "productDescription": "Piept de pui/ file porc, bechamel, panko 200 g",
+            "name": "Șnitel de porc",
+            "price": 25.2,
+            "image": {}
+          },
+          {
+            "productDescription": "Piept de pui, bechamel, panko200 g",
+            "name": "Crochete de pui",
+            "price": 25.2,
+            "image": {}
+          },
+          {
+            "productDescription": "400 g",
+            "name": "Aripioare prăjite",
+            "price": 24.5,
+            "image": {
+              "imageUrl": "https://tazzcdn.akamaized.net/uploads/menu/17462/Aripioare_cu_mujdei.jpg"
+            }
+          },
+          {
+            "productDescription": "Piept de pui, dovlecei, ceapă, ciuperci, ardei gras, tortillias, mozzarella, cartofi prăjiți, sos calypso350 / 200 g",
+            "name": "Quesadilla de pui",
+            "price": 35.7,
+            "image": {
+              "imageUrl": "https://tazzcdn.akamaized.net/uploads/menu/17462/Quesadilla_1.jpg"
+            }
+          },
+          {
+            "productDescription": "Aripioare, crochete, cașcaval, cartofi prăjiti, sos calypso800 g",
+            "name": "Platou pane (2 persoane)",
+            "price": 117.6,
+            "image": {}
+          },
+          {
+            "productDescription": "dovlecei, ceapă, ciuperci, ardei gras, tortillias, mozzarella, cartofi prăjiți, sos calypso350 / 200 g",
+            "name": "Quesadilla vegetariană",
+            "price": 35.7,
+            "image": {}
+          },
+          {
+            "productDescription": "Aripioare, bechamel, panko, chilli, mujdei400 g",
+            "name": "Aripioare picante",
+            "price": 0.0,
+            "image": {}
+          }
+        ],
+        "name": "Preparate din carne"
+      },
+      {
+        "products": [
+          {
+            "productDescription": "250 g",
+            "name": "Mușchi de vită",
+            "price": 68.6,
+            "image": {}
+          },
+          {
+            "productDescription": "250 g",
+            "name": "Piept de pui",
+            "price": 22.4,
+            "image": {}
+          },
+          {
+            "productDescription": "250 g",
+            "name": "Pulpe de pui",
+            "price": 22.4,
+            "image": {}
+          },
+          {
+            "productDescription": "250 g",
+            "name": "Piept de curcan",
+            "price": 28,
+            "image": {}
+          },
+          {
+            "productDescription": "250 g",
+            "name": "Ceafă de porc",
+            "price": 22.4,
+            "image": {
+              "imageUrl": "https://tazzcdn.akamaized.net/uploads/menu/17462/Ceafa.jpg"
+            }
+          },
+          {
+            "productDescription": "4 buc.",
+            "name": "Cârnați de casă",
+            "price": 21,
+            "image": {}
+          },
+          {
+            "productDescription": "Mici, file porc, ceafă porc, pulpă pui, cârnați casă, cartofi prăjiți, muștar, castraveți acri950 g",
+            "name": "Platou grill",
+            "price": 117.6,
+            "image": {}
+          },
+          {
+            "productDescription": "4 buc.",
+            "name": "Mici cu cartofi prăjiți",
+            "price": 0.0,
+            "image": {
+              "imageUrl": "https://tazzcdn.akamaized.net/uploads/menu/17462/Meniu_mici.jpg"
+            }
+          }
+        ],
+        "name": "Preparate la grătar / plită"
+      },
+      {
+        "products": [
+          {
+            "productDescription": "Vită, urechi de lemn, ardei kapia, ceapă, dovlecel, sos soia, ciuperci, noodles, kimchi400 g",
+            "name": "Wok de vită",
+            "price": 50.4,
+            "image": {
+              "imageUrl": "https://tazzcdn.akamaized.net/uploads/menu/17462/Wok_vita.jpg"
+            }
+          },
+          {
+            "productDescription": "Pui, urechi de lemn, ardei kapia, ceapă, dovlecel, sos soia, ciuperci, noodles, kimchi400 g",
+            "name": "Wok de pui",
+            "price": 37.8,
+            "image": {}
+          },
+          {
+            "productDescription": "Urechi de lemn, ardei kapia, ceapă, dovlecel, sos soia, ciuperci, noodles, kimchi400 g",
+            "name": "Wok de legume",
+            "price": 36.4,
+            "image": {}
+          },
+          {
+            "productDescription": "Vită la tigaie, sos soia, kimchi, orez, unt400 g",
+            "name": "Vită pe plită cu orez",
+            "price": 45.5,
+            "image": {
+              "imageUrl": "https://tazzcdn.akamaized.net/uploads/menu/17462/Vita_la_plitI_cu_orez.jpg"
+            }
+          },
+          {
+            "productDescription": "200 g",
+            "name": "Orez cu ou",
+            "price": 18.9,
+            "image": {}
+          }
+        ],
+        "name": "Specialități chinezești"
+      },
+      {
+        "products": [
+          {
+            "productDescription": "Rucola, roșii cherry, vită, dressing, nuci, brânză de capră400 g",
+            "name": "Salată MOON BISTRO",
+            "price": 35,
+            "image": {}
+          },
+          {
+            "productDescription": "Iceberg, pui, crutoane, parmezan, anchoa, dressing400 g",
+            "name": "Salată Caesar",
+            "price": 31.5,
+            "image": {}
+          },
+          {
+            "productDescription": "Iceberg, ton, ceapă, porumb, roșii cherry400 g",
+            "name": "Salată cu ton",
+            "price": 28,
+            "image": {}
+          },
+          {
+            "productDescription": "Iceberg, piept de pui, ardei capia, castravete, ciuperci, ou, dressing400 g",
+            "name": "Salată New York",
+            "price": 31.5,
+            "image": {}
+          },
+          {
+            "productDescription": "Roșii, castraveți, ardei gras, ceapă, telemea, măsline, oregano400 g",
+            "name": "Salată grecească",
+            "price": 0.0,
+            "image": {
+              "imageUrl": "https://tazzcdn.akamaized.net/uploads/menu/17462/Salata_greceascI.jpg"
+            }
+          }
+        ],
+        "name": "Salate"
+      },
+      {
+        "products": [
+          {
+            "productDescription": "2 buc.150 g",
+            "name": "Clătite cu ciocolată",
+            "price": 16.8,
+            "image": {
+              "imageUrl": "https://tazz-images.akamaized.net/product/20165631/a306842f/clatite-cu-ciocolata.webp"
+            }
+          },
+          {
+            "productDescription": "2 buc.150 g",
+            "name": "Clătite cu dulceață",
+            "price": 16.8,
+            "image": {
+              "imageUrl": "https://tazz-images.akamaized.net/product/20165632/28bded85/clatite-cu-dulceata.webp"
+            }
+          },
+          {
+            "productDescription": "60 g",
+            "name": "Lava Cake cu înghețată",
+            "price": 23.1,
+            "image": {
+              "imageUrl": "https://tazzcdn.akamaized.net/uploads/menu/17462/lava_cake.jpg"
+            }
+          },
+          {
+            "productDescription": "1 buc.150 g",
+            "name": "Papanași cu smântână și dulceață",
+            "price": 0.0,
+            "image": {
+              "imageUrl": "https://tazzcdn.akamaized.net/uploads/menu/17462/Papanasi.jpg"
+            }
+          }
+        ],
+        "name": "Deserturi"
+      },
+      {
+        "products": [
+          {
+            "productDescription": "250 g",
+            "name": "Cartofi prăjiți",
+            "price": 10.5,
+            "image": {}
+          },
+          {
+            "productDescription": "250 g",
+            "name": "Cartofi la cuptor cu usturoi și rozmarin",
+            "price": 10.5,
+            "image": {}
+          },
+          {
+            "productDescription": "Cartofi, bacon, ceapă, mărar250 g",
+            "name": "Cartofi țărănești",
+            "price": 14,
+            "image": {}
+          },
+          {
+            "productDescription": "Cartofi, unt, lapte250 g",
+            "name": "Piure de cartofi",
+            "price": 11.2,
+            "image": {}
+          },
+          {
+            "productDescription": "Orez, unt250 g",
+            "name": "Orez simplu",
+            "price": 10.5,
+            "image": {}
+          },
+          {
+            "productDescription": "Ciuperci, ceapă, ardei gras, dovlecei250 g",
+            "name": "Orez cu legume",
+            "price": 12.6,
+            "image": {}
+          },
+          {
+            "productDescription": "Dovlecei, vinete, ciuperci, ceapă, roșii, ardei, usturoi, aceto250 g",
+            "name": "Legume la grătar",
+            "price": 14,
+            "image": {}
+          }
+        ],
+        "name": "Garnituri"
+      },
+      {
+        "products": [
+          {
+            "productDescription": "500 ml",
+            "name": "Limonadă cu miere",
+            "price": 0.0,
+            "image": {}
+          },
+          {
+            "productDescription": "330ml",
+            "name": "Apa minerală 330ml",
+            "price": 0.0,
+            "image": {
+              "imageUrl": "https://tazzcdn.akamaized.net/uploads/menu/17462/WhatsApp_Image_2023-06-16_at_11.37.27.jpeg"
+            }
+          },
+          {
+            "productDescription": "750 ml",
+            "name": "Apă plată",
+            "price": 0.0,
+            "image": {
+              "imageUrl": "https://tazzcdn.akamaized.net/uploads/menu/17462/WhatsApp_Image_2023-06-16_at_11.37.27_1.jpeg"
+            }
+          },
+          {
+            "productDescription": "250 ml",
+            "name": "Pepsi",
+            "price": 0.0,
+            "image": {
+              "imageUrl": "https://tazzcdn.akamaized.net/uploads/menu/17462/WhatsApp_Image_2023-06-16_at_11.37.26_3.jpeg"
+            }
+          },
+          {
+            "productDescription": "250 ml",
+            "name": "Mirinda",
+            "price": 0.0,
+            "image": {
+              "imageUrl": "https://tazzcdn.akamaized.net/uploads/menu/17462/WhatsApp_Image_2023-06-16_at_11.37.26_2.jpeg"
+            }
+          },
+          {
+            "productDescription": "250 ml",
+            "name": "7Up",
+            "price": 0.0,
+            "image": {
+              "imageUrl": "https://tazzcdn.akamaized.net/uploads/menu/17462/WhatsApp_Image_2023-06-16_at_11.37.26_4.jpeg"
+            }
+          },
+          {
+            "productDescription": "250 ml",
+            "name": "Evervess",
+            "price": 0.0,
+            "image": {
+              "imageUrl": "https://tazzcdn.akamaized.net/uploads/menu/17462/WhatsApp_Image_2023-06-16_at_11.37.26_5.jpeg"
+            }
+          },
+          {
+            "productDescription": "250 ml",
+            "name": "Prigat",
+            "price": 0.0,
+            "image": {
+              "imageUrl": "https://tazzcdn.akamaized.net/uploads/menu/17462/WhatsApp_Image_2023-06-16_at_11.37.26_6.jpeg"
+            }
+          },
+          {
+            "productDescription": "250 ml",
+            "name": "Energizant",
+            "price": 0.0,
+            "image": {}
+          },
+          {
+            "productDescription": "330ml",
+            "name": "Apă plată",
+            "price": 0.0,
+            "image": {
+              "imageUrl": "https://tazzcdn.akamaized.net/uploads/menu/17462/WhatsApp_Image_2023-06-16_at_11.37.26_7.jpeg"
+            }
+          },
+          {
+            "productDescription": "750ml",
+            "name": "Apă minerală",
+            "price": 0.0,
+            "image": {
+              "imageUrl": "https://tazzcdn.akamaized.net/uploads/menu/17462/WhatsApp_Image_2023-06-16_at_11.37.27_2.jpeg"
+            }
+          }
+        ],
+        "name": "Răcoritoare"
+      },
+      {
+        "products": [
+          {
+            "productDescription": "5% alcool - 0.33ml",
+            "name": "Heineken",
+            "price": 0.0,
+            "image": {
+              "imageUrl": "https://tazzcdn.akamaized.net/uploads/menu/17462/WhatsApp_Image_2023-06-16_at_11.37.25.jpeg"
+            }
+          },
+          {
+            "productDescription": "0.33ml - 0% alcool",
+            "name": "Heineken 0",
+            "price": 0.0,
+            "image": {
+              "imageUrl": "https://tazzcdn.akamaized.net/uploads/menu/17462/WhatsApp_Image_2023-06-16_at_11.37.25_1.jpeg"
+            }
+          },
+          {
+            "productDescription": "5% alcool",
+            "name": "Ciuc Premium",
+            "price": 0.0,
+            "image": {
+              "imageUrl": "https://tazzcdn.akamaized.net/uploads/menu/17462/WhatsApp_Image_2023-06-16_at_11.37.25_2.jpeg"
+            }
+          }
+        ],
+        "name": "Bere"
+      },
+      {
+        "products": [
+          {
+            "productDescription": "150 g",
+            "name": "Salată de varză albă",
+            "price": 10.5,
+            "image": {}
+          },
+          {
+            "productDescription": "150 g",
+            "name": "Salată de castraveți acri",
+            "price": 10.5,
+            "image": {}
+          },
+          {
+            "productDescription": "150 g",
+            "name": "Salată de roșii cu brânză rasă",
+            "price": 11.9,
+            "image": {}
+          },
+          {
+            "productDescription": "Roșii, castraveți, ceapă, ardei150 g",
+            "name": "Salată mixtă",
+            "price": 0.0,
+            "image": {}
+          }
+        ],
+        "name": "Salate garnituri"
+      },
+      {
+        "products": [
+          {
+            "productDescription": "",
+            "name": "Maioneză cu usturoi",
+            "price": 0.0,
+            "image": {
+              "imageUrl": "https://tazz-images.akamaized.net/product/20165624/2c75a2fd/maioneza-cu-usturoi.webp"
+            }
+          },
+          {
+            "productDescription": "",
+            "name": "Smântână cu usturoi",
+            "price": 0.0,
+            "image": {
+              "imageUrl": "https://tazzcdn.akamaized.net/uploads/menu/17462/Sos_usturoi_smantana_maioneza_1.png"
+            }
+          },
+          {
+            "productDescription": "",
+            "name": "Mujdei",
+            "price": 0.0,
+            "image": {}
+          },
+          {
+            "productDescription": "",
+            "name": "Ketchup Dulce",
+            "price": 0.0,
+            "image": {
+              "imageUrl": "https://tazz-images.akamaized.net/product/20165627/c7ee2f65/ketchup-dulce.webp"
+            }
+          },
+          {
+            "productDescription": "",
+            "name": "Sos calypso",
+            "price": 0.0,
+            "image": {
+              "imageUrl": "https://tazz-images.akamaized.net/product/20165628/3799c749/sos-calypso.webp"
+            }
+          },
+          {
+            "productDescription": "",
+            "name": "Sos BBQ",
+            "price": 0.0,
+            "image": {
+              "imageUrl": "https://tazz-images.akamaized.net/product/20165629/3e987cc0/sos-bbq.webp"
+            }
+          },
+          {
+            "productDescription": "",
+            "name": "Sos roșii dulce",
+            "price": 0.0,
+            "image": {}
+          },
+          {
+            "productDescription": "",
+            "name": "Sos rosii picant",
+            "price": 0.0,
+            "image": {}
+          },
+          {
+            "productDescription": "",
+            "name": "Ketchup Picant",
+            "price": 0.0,
+            "image": {
+              "imageUrl": "https://tazz-images.akamaized.net/product/20171197/c7ee2f65/ketchup-picant.webp"
+            }
+          }
+        ],
+        "name": "Sosuri"
+      },
+      {
+        "products": [
+          {
+            "productDescription": "",
+            "name": "Ceai",
+            "price": 0.0,
+            "image": {}
+          }
+        ],
+        "name": "Cafea"
+      }
+    ]
+  },
+  {
     "name": "Casa Bella",
     "address": "123 Main Street, Anytown, CA 12345",
     "description": "Casa Bella is a cozy Italian restaurant known for its delicious pasta dishes and warm ambiance.",

@@ -2,10 +2,7 @@ package com.codecooll.RestaurantMania;
 
 import com.codecooll.RestaurantMania.accounts.model.User;
 import com.codecooll.RestaurantMania.accounts.service.AccountService;
-import com.codecooll.RestaurantMania.restaurant.model.CategoryProduct;
-import com.codecooll.RestaurantMania.restaurant.model.Menu;
-import com.codecooll.RestaurantMania.restaurant.model.Product;
-import com.codecooll.RestaurantMania.restaurant.model.Restaurant;
+import com.codecooll.RestaurantMania.restaurant.model.*;
 import com.codecooll.RestaurantMania.restaurant.service.categoryProductService.CategoryProductService;
 import com.codecooll.RestaurantMania.restaurant.service.productService.ProductService;
 import com.codecooll.RestaurantMania.restaurant.service.restaurantService.RestaurantService;
@@ -37,7 +34,7 @@ public class Populate {
 
     public void populate() {
         String jsonPath = "C:\\Users\\valib\\OneDrive\\Desktop\\MyProjects\\RestaurantMania\\Backend\\src\\main\\resources\\restaurant.json";
-        Long adminId = createAdmin("Valentin", "Vali", "papuci@slapi.com", "kebab");
+        Long adminId = createAdmin("Valentin", "Vali", "valentin@gmail.com", "parolaparola");
 
         saveRestaurantsFromJsonFile(jsonPath, adminId);
     }
@@ -61,7 +58,7 @@ public class Populate {
 
                 Long menuId = restaurantService.addNewRestaurant(adminId, restaurant).getMenu().getId();
                 JSONArray menuJSON = (JSONArray) restaurantJson.get("menu");
-                menuFromJsonObject(menuJSON,menuId);
+                menuFromJsonObject(menuJSON, menuId);
 
             }
         } catch (IOException | ParseException ex) {
@@ -73,11 +70,20 @@ public class Populate {
         String name = (String) json.get("name");
         String address = (String) json.get("address");
         String description = (String) json.get("description");
+        Image image = imageFromJsonObject((JSONObject) json.get("image"));
         return Restaurant.builder()
                 .name(name)
                 .address(address)
                 .description(description)
+                .image(image).active(true)
                 .build();
+    }
+
+    public Image imageFromJsonObject(JSONObject json) {
+        if (json != null) {
+            return Image.builder().imageUrl((String) json.get("imageUrl")).build();
+        }
+        return null;
     }
 
     public void menuFromJsonObject(JSONArray menuJson, Long menuId) {
@@ -90,7 +96,7 @@ public class Populate {
     }
 
 
-    public void categoryProductFromJsonObject(JSONObject categoryProductJson,Long menuId) {
+    public void categoryProductFromJsonObject(JSONObject categoryProductJson, Long menuId) {
         String name = (String) categoryProductJson.get("name");
         Long categoryId = categoryProductService.addNewProductCategory(menuId, CategoryProduct.builder().name(name).build()).getId();
 
@@ -100,16 +106,24 @@ public class Populate {
         while (iteratorObj.hasNext()) {
             JSONObject productJson = iteratorObj.next();
 
-             productFromJsonObject(productJson,categoryId);
+            productFromJsonObject(productJson, categoryId);
         }
     }
 
-    public void productFromJsonObject(JSONObject productJson,Long categoryId) {
+    public void productFromJsonObject(JSONObject productJson, Long categoryId) {
         String name = (String) productJson.get("name");
-        double price = (double) productJson.get("price");
+        double price = 0.0;
+        Object value = productJson.get("price");
+        Image image = imageFromJsonObject((JSONObject) productJson.get("image"));
+
+        if (value instanceof Long) {
+            price = ((Long) value).doubleValue();
+        } else if (value instanceof Double) {
+            price = (Double) value;
+        }
         String description = (String) productJson.get("productDescription");
 
-        productService.addNewProduct(categoryId,Product.builder().name(name).price(price).productDescription(description).build());
+        productService.addNewProduct(categoryId, Product.builder().name(name).price(price).productDescription(description).image(image).build());
     }
 
 }
