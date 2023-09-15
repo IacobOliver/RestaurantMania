@@ -37,7 +37,7 @@ public class AccountController {
     @CrossOrigin(origins = "http://localhost:5173")
     @GetMapping(path = "/getUserWithToken")
     public ResponseEntity<User> getUserWithToken(@RequestHeader("Authorization") String authorizationHeader) {
-        String token = "";
+        String token = null;
         if (authorizationHeader != null && authorizationHeader.startsWith("Bearer ")) {
             token = authorizationHeader.substring(7);
         }

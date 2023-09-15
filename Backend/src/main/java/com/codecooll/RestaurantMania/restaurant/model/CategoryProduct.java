@@ -14,7 +14,7 @@ import java.util.List;
 @Builder
 @NoArgsConstructor
 @AllArgsConstructor
-@Proxy(lazy = false)
+//@Proxy(lazy = false)
 public class CategoryProduct {
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
