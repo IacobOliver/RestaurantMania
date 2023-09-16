@@ -48,6 +48,11 @@ public class RestaurantService {
         return res;
     }
 
+    public List<Restaurant> getWithoutMenu() {
+        List<Restaurant> res = restaurantRepository.findAllRestaurantsWithNamesAndRatings();
+        return res;
+    }
+
     @Transactional
     @Modifying
     public void deleteById(Long restaurantId) {
