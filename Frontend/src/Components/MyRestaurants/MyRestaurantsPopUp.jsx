@@ -63,7 +63,7 @@ export default function MyRestaurantsPopUp() {
         console.log(restaurant);
         setUser({
           ...user,
-          restaurants: [...user.restaurants, restaurant],
+          restaurants: [...user.restaurants? user.restaurants : [], restaurant],
         });
         setLoading(false);
         setshowMyRestaurants(false);
@@ -87,7 +87,7 @@ export default function MyRestaurantsPopUp() {
       </h2>
       <div className="overflow-y-scroll max-h-4/5 rounded-xl scrollbar-hide text-gray-200">
         {user &&
-          user.restaurants.map((rest, index) => (
+          user.restaurants?.map((rest, index) => (
             <RestaurantItem
               key={index}
               restaurantName={rest.name}

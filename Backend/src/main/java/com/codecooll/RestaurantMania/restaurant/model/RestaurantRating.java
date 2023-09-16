@@ -14,7 +14,7 @@ import org.hibernate.annotations.Proxy;
 @Setter
 @NoArgsConstructor
 @AllArgsConstructor
-@Proxy(lazy = false)
+//@Proxy(lazy = false)
 public class RestaurantRating extends Rating {
     @JsonIgnore
     @ManyToOne

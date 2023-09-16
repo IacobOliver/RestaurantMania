@@ -15,7 +15,7 @@ import java.util.List;
 @Data
 @NoArgsConstructor
 @AllArgsConstructor
-@Proxy(lazy = false)
+//@Proxy(lazy = false)
 public class Product {
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
@@ -34,7 +34,7 @@ public class Product {
     @JoinColumn(name = "categoryProduct_id", nullable = false)
     private CategoryProduct categoryProduct;
 
-    @OneToMany(mappedBy = "product", cascade = CascadeType.ALL, orphanRemoval = true, fetch = FetchType.EAGER)
+    @OneToMany(mappedBy = "product", cascade = CascadeType.ALL, fetch = FetchType.EAGER)
     private List<ProductRating> productRatings = new ArrayList<>();
 
 }
