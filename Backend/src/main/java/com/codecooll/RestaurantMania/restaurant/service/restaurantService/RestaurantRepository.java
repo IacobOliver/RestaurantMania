@@ -8,7 +8,7 @@ import org.springframework.data.repository.query.Param;
 import java.util.List;
 
 public interface RestaurantRepository extends JpaRepository<Restaurant, Long> {
-    @Query("SELECT NEW com.codecooll.RestaurantMania.restaurant.model.Restaurant(r.name, r.rating, r.image, r.description) " +
+    @Query("SELECT NEW com.codecooll.RestaurantMania.restaurant.model.Restaurant(r.name, r.rating, r.image, r.description, r.active, r.id, r.address) " +
             "FROM Restaurant r LEFT JOIN r.image i")
     List<Restaurant> findAllRestaurantsWithNamesAndRatings();
 }

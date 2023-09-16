@@ -7,7 +7,7 @@ export default function RestaurantsList() {
 
 
   useEffect(() => {
-    fetch("http://localhost:8080/restaurant/getAll", {
+    fetch("http://localhost:8080/restaurant/getAll/withoutMenu", {
   // method : "GET",
   // withCredentials: "true",    
   // crossorigin: "true",   
@@ -24,6 +24,7 @@ export default function RestaurantsList() {
       .then((res) => res.json())
       .then((data) => {
         console.log("Restaurants was fetched again!");
+        console.log(data)
         setRestaurants(data);
       });
   }, []);

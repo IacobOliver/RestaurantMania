@@ -16,11 +16,10 @@ import java.util.List;
 
 @Entity
 @Table(name = "users")
-//@Data
-@Setter
+@Data
 @NoArgsConstructor
 @AllArgsConstructor
-//@Proxy(lazy = false)
+@Proxy(lazy = false)
 public class User extends Account {
 
 
@@ -56,10 +55,10 @@ public class User extends Account {
         return List.of(new SimpleGrantedAuthority(role.name()));
     }
 
-    @Override
-    public String getPassword() {
-        return password;
-    }
+//    @Override
+//    public String getPassword() {
+//        return password;
+//    }
 
     @Override
     public String getUsername() {
