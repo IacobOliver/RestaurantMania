@@ -1,6 +1,7 @@
 package com.codecooll.RestaurantMania.accounts.model;
 
 import com.fasterxml.jackson.annotation.JsonIgnore;
+import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 import jakarta.persistence.*;
 import lombok.*;
 import org.springframework.security.core.userdetails.UserDetails;
@@ -11,6 +12,7 @@ import org.springframework.security.core.userdetails.UserDetails;
 @Data
 @NoArgsConstructor
 @AllArgsConstructor
+
 public abstract class Account implements UserDetails{
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)

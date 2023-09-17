@@ -12,12 +12,14 @@ import java.util.Optional;
 @Service
 public class AccountService {
     private final AccountRepository accountRepository;
+    private final UserRepository userRepository;
     private final RestaurantRepository restaurantRepository;
     private final MenuRepository menuRepository;
 
     @Autowired
-    public AccountService(AccountRepository accountRepository, RestaurantRepository restaurantRepository, MenuRepository menuRepository) {
+    public AccountService(AccountRepository accountRepository, UserRepository userRepository, RestaurantRepository restaurantRepository, MenuRepository menuRepository) {
         this.accountRepository = accountRepository;
+        this.userRepository = userRepository;
         this.restaurantRepository = restaurantRepository;
         this.menuRepository = menuRepository;
     }
@@ -36,7 +38,9 @@ public class AccountService {
     }
 
     public User getAccountByEmail(String user_email){
-        return (User) accountRepository.findAccountByEmail(user_email).orElse(null);
+//        return (User) accountRepository.findAccountByEmail(user_email).orElse(null);
+        return userRepository.findUserByEmail(user_email).orElse(null);
+
     }
 
 }

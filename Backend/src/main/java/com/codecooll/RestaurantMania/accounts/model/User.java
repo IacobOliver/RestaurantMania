@@ -2,6 +2,7 @@ package com.codecooll.RestaurantMania.accounts.model;
 
 import com.codecooll.RestaurantMania.restaurant.model.Rating;
 import com.codecooll.RestaurantMania.restaurant.model.Restaurant;
+import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 import jakarta.persistence.*;
 import lombok.*;
 import lombok.experimental.SuperBuilder;
@@ -20,8 +21,8 @@ import java.util.List;
 @NoArgsConstructor
 @AllArgsConstructor
 @Proxy(lazy = false)
-public class User extends Account {
 
+public class User extends Account {
 
     @OneToMany(mappedBy = "user", cascade = CascadeType.ALL, orphanRemoval = true, fetch = FetchType.EAGER)
     private List<Restaurant> restaurants = new ArrayList<>();
