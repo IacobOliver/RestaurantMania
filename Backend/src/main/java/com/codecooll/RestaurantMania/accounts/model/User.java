@@ -47,7 +47,11 @@ public class User extends Account {
     }
 
     public User(Long id, String firstName, String lastName, String email, String password, Role role) {
-        super(id, firstName, lastName, email,password, role);
+        super(id, firstName, lastName, email, password, role);
+    }
+
+    public User(Long id, String firstName, String lastName, String email, Role role) {
+        super(id, firstName, lastName, email, role);
     }
 
 
