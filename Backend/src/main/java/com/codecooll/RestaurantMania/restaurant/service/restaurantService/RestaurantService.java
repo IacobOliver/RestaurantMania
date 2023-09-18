@@ -2,12 +2,18 @@ package com.codecooll.RestaurantMania.restaurant.service.restaurantService;
 
 import com.codecooll.RestaurantMania.accounts.model.User;
 import com.codecooll.RestaurantMania.accounts.service.AccountRepository;
+import com.codecooll.RestaurantMania.restaurant.model.CategoryProduct;
 import com.codecooll.RestaurantMania.restaurant.model.Image;
 import com.codecooll.RestaurantMania.restaurant.model.Menu;
 import com.codecooll.RestaurantMania.restaurant.model.Restaurant;
+import com.codecooll.RestaurantMania.restaurant.service.categoryProductService.CategoryProductRepository;
 import com.codecooll.RestaurantMania.restaurant.service.cloudStorage.ImageService;
+import com.codecooll.RestaurantMania.restaurant.service.menuService.MenuRepository;
 import jakarta.transaction.Transactional;
+import lombok.RequiredArgsConstructor;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.data.domain.PageRequest;
+import org.springframework.data.domain.Pageable;
 import org.springframework.data.jpa.repository.Modifying;
 import org.springframework.stereotype.Service;
 
@@ -15,17 +21,14 @@ import java.util.List;
 
 
 @Service
+@RequiredArgsConstructor
 public class RestaurantService {
     private final RestaurantRepository restaurantRepository;
     private final AccountRepository accountRepository;
     private final ImageService imageService;
+    private final CategoryProductRepository categoryProductRepository;
+    private final MenuRepository menuRepository;
 
-    @Autowired
-    public RestaurantService(RestaurantRepository restaurantRepository, AccountRepository accountRepository, ImageService imageService) {
-        this.restaurantRepository = restaurantRepository;
-        this.accountRepository = accountRepository;
-        this.imageService = imageService;
-    }
 
     public Restaurant addNewRestaurant(Long client_id, Restaurant newRestaurant) {
         User user = (User) accountRepository.findById(client_id).orElseThrow(() -> new IllegalArgumentException("User not found"));
@@ -44,7 +47,16 @@ public class RestaurantService {
     }
 
     public Restaurant getById(long restaurantID) {
-        Restaurant res = restaurantRepository.getById(restaurantID);
+        Restaurant res = restaurantRepository.findByIdWithoutMenu(restaurantID).orElse(null);
+
+        System.out.println("menu ++++++++++++++++++++++++++++++++++++++++++++++=");
+        Menu menu = menuRepository.getByRestaurantIdWithoutCategoryProducts(restaurantID).orElse(null);
+        System.out.println("first ++++++++++++++++++++++++++ " + menu.getCategoryProducts());
+        Pageable pageable = PageRequest.of(0, 5);
+
+        menu.setCategoryProducts(categoryProductRepository.getSomeOfMenu(menu.getId(), pageable));
+        System.out.println("second ++++++++++++++++++++++++++ " + menu.getCategoryProducts().size());
+        res.setMenu(menu);
         return res;
     }
 

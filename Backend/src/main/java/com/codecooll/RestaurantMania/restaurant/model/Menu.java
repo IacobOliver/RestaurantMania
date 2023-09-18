@@ -29,6 +29,11 @@ public class Menu {
     @OneToOne(mappedBy = "menu", cascade = CascadeType.ALL,orphanRemoval = true)
     private Restaurant restaurant;
 
+    public Menu(long id, String lastUpdated){
+        this.id = id;
+        this.lastUpdated = lastUpdated;
+    }
+
     @Override
     public String toString() {
         return "Menu{" +

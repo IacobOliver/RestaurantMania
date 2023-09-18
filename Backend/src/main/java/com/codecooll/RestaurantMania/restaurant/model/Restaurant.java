@@ -46,13 +46,13 @@ public class Restaurant {
     @OneToMany(mappedBy = "restaurant", cascade = CascadeType.ALL, orphanRemoval = true,fetch = FetchType.EAGER)
     private List<RestaurantRating> restaurantRatings = new ArrayList<>();
 
-    public Restaurant(String name, double rating, Image image, String description, boolean active, long id, String address) {
+    public Restaurant( long id,String name, double rating, Image image, String description, boolean active, String address) {
+        this.id = id;
         this.name = name;
         this.rating = rating;
         this.image = image;
         this.description = description;
         this.active = active;
-        this.id = id;
         this.address = address;
     }
 

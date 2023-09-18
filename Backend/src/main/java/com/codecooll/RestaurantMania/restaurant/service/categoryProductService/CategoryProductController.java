@@ -1,6 +1,7 @@
 package com.codecooll.RestaurantMania.restaurant.service.categoryProductService;
 
 import com.codecooll.RestaurantMania.restaurant.model.CategoryProduct;
+import lombok.RequiredArgsConstructor;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Controller;
@@ -8,13 +9,10 @@ import org.springframework.web.bind.annotation.*;
 
 @Controller
 @RequestMapping(path = "/categoryProduct")
+@RequiredArgsConstructor
 public class CategoryProductController {
-    private CategoryProductService categoryProductService;
+    private final CategoryProductService categoryProductService;
 
-    @Autowired
-    public CategoryProductController(CategoryProductService categoryProductService) {
-        this.categoryProductService = categoryProductService;
-    }
 
     @CrossOrigin(origins = "*")
     @PostMapping(path = "post/new/category/{menu_id}")
