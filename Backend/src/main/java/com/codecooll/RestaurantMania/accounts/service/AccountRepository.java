@@ -7,8 +7,11 @@ import org.springframework.data.jpa.repository.Query;
 import java.util.Optional;
 
 public interface AccountRepository extends JpaRepository<Account, Long> {
-//    @Query("SELECT NEW User(a.id,a.firstName,a.lastName,a.email,a.role) FROM Account a WHERE a.email = :email")
+
+    @Query("SELECT NEW User ( a.id,a.firstName,a.lastName,a.email,a.password,a.role) FROM User a WHERE a.email = :email")
     Optional<Account> findAccountByEmail(String email);
 
+    @Query("SELECT NEW User ( a.id,a.firstName,a.lastName,a.email,a.role) FROM User a  WHERE a.email = :email")
+    Optional<Account> findAccountByEmailForAutologin(String email);
 
 }

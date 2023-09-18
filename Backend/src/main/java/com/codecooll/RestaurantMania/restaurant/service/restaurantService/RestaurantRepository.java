@@ -11,4 +11,9 @@ public interface RestaurantRepository extends JpaRepository<Restaurant, Long> {
     @Query("SELECT NEW com.codecooll.RestaurantMania.restaurant.model.Restaurant(r.name, r.rating, r.image, r.description, r.active, r.id, r.address) " +
             "FROM Restaurant r LEFT JOIN r.image i")
     List<Restaurant> findAllRestaurantsWithNamesAndRatings();
+
+    @Query("SELECT NEW com.codecooll.RestaurantMania.restaurant.model.Restaurant(r.name, r.rating, r.image, r.description, r.active, r.id, r.address) " +
+            "FROM Restaurant r LEFT JOIN r.image i " +
+            "WHERE r.user.id = :user_id")
+    List<Restaurant> findAllRestaurantsOfUser(long user_id);
 }

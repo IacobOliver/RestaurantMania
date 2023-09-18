@@ -42,14 +42,14 @@ public class AccountController {
             token = authorizationHeader.substring(7);
         }
         String user_email = jwtService.extractUsername(token);
-        return ResponseEntity.ok(accountService.getAccountByEmail(user_email));
+        return ResponseEntity.ok(accountService.getAccountByEmailForAutologin(user_email));
     }
 
-    @CrossOrigin(origins = "*")
-    @GetMapping(path = "/getUserByEmail/{user_email}")
-    public ResponseEntity<User> getUserByEmail(@PathVariable String user_email) {
-        return ResponseEntity.ok(accountService.getAccountByEmail(user_email));
-    }
+//    @CrossOrigin(origins = "*")
+//    @GetMapping(path = "/getUserByEmail/{user_email}")
+//    public ResponseEntity<User> getUserByEmail(@PathVariable String user_email) {
+//        return ResponseEntity.ok(accountService.getAccountByEmail(user_email));
+//    }
 
 }
 

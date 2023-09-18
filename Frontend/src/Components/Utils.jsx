@@ -53,6 +53,7 @@ export const checking = {
     })
       .then((res) => res.json())
       .then((data) => {
+        console.log(data)
         setUser(data);
         setisLoggedIn(true);
         setModalShow(false);
