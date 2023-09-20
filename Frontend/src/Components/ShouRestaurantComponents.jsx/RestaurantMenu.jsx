@@ -16,7 +16,7 @@ export default function RestaurantMenu({ thisRestaurant, setThisRestaurant }) {
         method: "POST",
         headers: {
           "Content-Type": "application/json",
-          "Authorization" : `Bearer ${localStorage.getItem("token")}`
+          Authorization: `Bearer ${localStorage.getItem("token")}`,
         },
         body: JSON.stringify({}),
       }
@@ -44,7 +44,7 @@ export default function RestaurantMenu({ thisRestaurant, setThisRestaurant }) {
       method: "POST",
       headers: {
         "Content-Type": "application/json",
-        "Authorization" : `Bearer ${localStorage.getItem("token")}`
+        Authorization: `Bearer ${localStorage.getItem("token")}`,
       },
       body: JSON.stringify({}),
     })
@@ -72,54 +72,51 @@ export default function RestaurantMenu({ thisRestaurant, setThisRestaurant }) {
     fetch(`http://localhost:8080/categoryProduct/update/${key}/${categId}`, {
       method: "PATCH",
       headers: {
-        "Content-Type" : "application/json",
-        "Authorization" : `Bearer ${localStorage.getItem("token")}`
+        "Content-Type": "application/json",
+        Authorization: `Bearer ${localStorage.getItem("token")}`,
       },
       body: contentRef.current.textContent,
-    }).then(res => res.json())
-    .catch(err =>{
-      console.err("Err at updating categName " + err)
-    })
+    }).catch((err) => {
+      console.error("Err at updating categName " + err);
+    });
 
     for (let categ of thisRestaurantCopy.menu.categoryProducts) {
-        if (categ.id === categId) {
-            categ[key] = contentRef.current.textContent;
-            break;
-          }
+      if (categ.id === categId) {
+        categ[key] = contentRef.current.textContent;
+        break;
+      }
     }
     setThisRestaurant(thisRestaurantCopy);
-
   };
 
   const editProduct = (contentRef, key, categId, prodId) => {
     let thisRestaurantCopy = { ...thisRestaurant };
-    console.log("prod ID " + prodId)
-    console.log("cat Id " + categId )
+    console.log("prod ID " + prodId);
+    console.log("cat Id " + categId);
 
     fetch(`http://localhost:8080/product/update/${key}/${prodId}`, {
-      method : "PATCH",
+      method: "PATCH",
       headers: {
-        "Content-Type" : "application/json",
-        "Authorization" : `Bearer ${localStorage.getItem("token")}`
+        "Content-Type": "application/json",
+        Authorization: `Bearer ${localStorage.getItem("token")}`,
       },
-      body: contentRef.current.textContent
+      body: contentRef.current.textContent,
     })
-    .then(res => res.json())
-    .catch(err =>{
-      console.err("Err at updating categName " + err)
-    })
-
+      .then((res) => res.json())
+      .catch((err) => {
+        console.err("Err at updating categName " + err);
+      });
 
     for (let categ of thisRestaurantCopy.menu.categoryProducts) {
-        if (categ.id === categId) {
-            for(let prod of categ.products){
-                if(prod.id === prodId){
-                    prod[key] = contentRef.current.textContent
-                    break;
-                }
-            }
+      if (categ.id === categId) {
+        for (let prod of categ.products) {
+          if (prod.id === prodId) {
+            prod[key] = contentRef.current.textContent;
             break;
           }
+        }
+        break;
+      }
     }
     setThisRestaurant(thisRestaurantCopy);
   };
@@ -143,33 +140,32 @@ export default function RestaurantMenu({ thisRestaurant, setThisRestaurant }) {
         })}
       </div>
 
-        {checking.checkIfHolder() ?
-      <div className= "w-full flex justify-center mt-3 ">
-      <button
-        className="w-1/2 justify-center font-bold py-2 px-4 rounded inline-flex items-center  text-gray-200 bg-gradient-to-r from-yellow-400 via-yellow-500 to-yellow-600 hover:bg-gradient-to-br focus:ring-4 focus:outline-none focus:ring-yellow-300 dark:focus:ring-yellow-800 shadow-lg shadow-yellow-500/50 dark:shadow-lg dark:shadow-yellow-800/80  text-sm  text-cente"
-        onClick={addNewCateg}
-      >
-        <svg
-          xmlns="http://www.w3.org/2000/svg"
-          width={20}
-          height={20}
-          viewBox="0 0 24 24"
-          fill="none"
-          stroke={"white"}
-          strokeWidth="4"
-          strokeLinecap="round"
-          strokeLinejoin="round"
-          className = "mx-2"
-        >
-          <line x1="12" y1="5" x2="12" y2="19"></line>
-          <line x1="5" y1="12" x2="19" y2="12"></line>
-        </svg>
+      {checking.checkIfHolder() ? (
+        <div className="w-full flex justify-center mt-3 ">
+          <button
+            className="w-1/2 justify-center font-bold py-2 px-4 rounded inline-flex items-center  text-gray-200 bg-gradient-to-r from-yellow-400 via-yellow-500 to-yellow-600 hover:bg-gradient-to-br focus:ring-4 focus:outline-none focus:ring-yellow-300 dark:focus:ring-yellow-800 shadow-lg shadow-yellow-500/50 dark:shadow-lg dark:shadow-yellow-800/80  text-sm  text-cente"
+            onClick={addNewCateg}
+          >
+            <svg
+              xmlns="http://www.w3.org/2000/svg"
+              width={20}
+              height={20}
+              viewBox="0 0 24 24"
+              fill="none"
+              stroke={"white"}
+              strokeWidth="4"
+              strokeLinecap="round"
+              strokeLinejoin="round"
+              className="mx-2"
+            >
+              <line x1="12" y1="5" x2="12" y2="19"></line>
+              <line x1="5" y1="12" x2="19" y2="12"></line>
+            </svg>
 
-        <span>Add category of products(ex. Drinks)</span>
-        
-      </button>
-      </div> : null }
-
+            <span>Add category of products(ex. Drinks)</span>
+          </button>
+        </div>
+      ) : null}
     </>
   );
 }
