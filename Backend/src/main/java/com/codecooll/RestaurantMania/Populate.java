@@ -1,20 +1,16 @@
 package com.codecooll.RestaurantMania;
 
-import com.codecooll.RestaurantMania.accounts.model.User;
-import com.codecooll.RestaurantMania.accounts.service.AccountService;
+import com.codecooll.RestaurantMania.restaurant.model.User;
+import com.codecooll.RestaurantMania.services.AccountService;
 import com.codecooll.RestaurantMania.restaurant.model.*;
-import com.codecooll.RestaurantMania.restaurant.service.categoryProductService.CategoryProductService;
-import com.codecooll.RestaurantMania.restaurant.service.productService.ProductService;
-import com.codecooll.RestaurantMania.restaurant.service.restaurantService.RestaurantService;
+import com.codecooll.RestaurantMania.services.CategoryProductService;
+import com.codecooll.RestaurantMania.services.ProductService;
+import com.codecooll.RestaurantMania.services.RestaurantService;
 import org.json.simple.JSONArray;
 import org.json.simple.JSONObject;
 import org.json.simple.parser.JSONParser;
 import org.json.simple.parser.ParseException;
-import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.boot.autoconfigure.SpringBootApplication;
-import org.springframework.stereotype.Component;
 
-import java.io.FileNotFoundException;
 import java.io.FileReader;
 import java.io.IOException;
 import java.util.*;

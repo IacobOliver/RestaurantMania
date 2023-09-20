@@ -1,10 +1,10 @@
 package com.codecooll.RestaurantMania.authentication;
 
 
-import com.codecooll.RestaurantMania.accounts.model.Account;
-import com.codecooll.RestaurantMania.accounts.model.Role;
-import com.codecooll.RestaurantMania.accounts.model.User;
-import com.codecooll.RestaurantMania.accounts.service.AccountRepository;
+import com.codecooll.RestaurantMania.restaurant.model.Account;
+import com.codecooll.RestaurantMania.restaurant.types.Role;
+import com.codecooll.RestaurantMania.restaurant.model.User;
+import com.codecooll.RestaurantMania.data.repository.AccountRepository;
 import com.codecooll.RestaurantMania.security.JwtService;
 import lombok.RequiredArgsConstructor;
 

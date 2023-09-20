@@ -1,6 +1,5 @@
 package com.codecooll.RestaurantMania.restaurant.model;
 
-import com.codecooll.RestaurantMania.accounts.model.User;
 import com.fasterxml.jackson.annotation.JsonIgnore;
 import jakarta.persistence.*;
 import lombok.*;
