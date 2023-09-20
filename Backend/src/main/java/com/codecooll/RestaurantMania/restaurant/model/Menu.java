@@ -15,7 +15,7 @@ import java.util.List;
 @Builder
 @NoArgsConstructor
 @AllArgsConstructor
-//@Proxy(lazy = false)
+@Proxy(lazy = false)
 public class Menu {
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)

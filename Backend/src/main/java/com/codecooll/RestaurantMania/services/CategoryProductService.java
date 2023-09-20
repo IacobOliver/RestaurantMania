@@ -26,9 +26,7 @@ public class CategoryProductService {
     }
 
     public void updateCategoryName(Long categoryId, String newCategoryName){
-        CategoryProduct categoryProduct = categoryProductRepository.findById(categoryId).orElse(null);
-        categoryProduct.setName(newCategoryName);
-        categoryProductRepository.save(categoryProduct);
+       categoryProductRepository.updateNameById(categoryId,newCategoryName);
     }
 
     @Transactional

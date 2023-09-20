@@ -14,7 +14,7 @@ import org.hibernate.annotations.Proxy;
 @Setter
 @NoArgsConstructor
 @AllArgsConstructor
-//@Proxy(lazy = false)
+@Proxy(lazy = false)
 public class ProductRating extends Rating {
 
 //    @OneToMany(mappedBy = "", cascade = CascadeType.ALL, orphanRemoval = true, fetch = FetchType.EAGER)

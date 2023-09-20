@@ -1,5 +1,6 @@
 package com.codecooll.RestaurantMania.data.repository;
 
+import com.codecooll.RestaurantMania.restaurant.model.Image;
 import com.codecooll.RestaurantMania.restaurant.model.Restaurant;
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.data.jpa.repository.Modifying;
@@ -21,7 +22,7 @@ public interface RestaurantRepository extends JpaRepository<Restaurant, Long> {
     List<Restaurant> findAllRestaurantsOfUser(long user_id);
 
     @Query("SELECT NEW Restaurant(r.id, r.name, r.rating, r.image, r.description, r.active, r.address) " +
-            "FROM Restaurant r " +
+            "FROM Restaurant r LEFT JOIN r.image i " +
             "WHERE r.id = :restaurant_id")
     Optional<Restaurant> findByIdWithoutMenu(long restaurant_id);
 
@@ -35,10 +36,15 @@ public interface RestaurantRepository extends JpaRepository<Restaurant, Long> {
     @Query("UPDATE Restaurant r SET r.name = :newName WHERE r.id = :id")
     void updateNameById(Long id, String newName);
 
-//    @Modifying
-//    @Transactional
-//    @Query("UPDATE Restaurant r SET r.image.image_url = :newImageUrl WHERE r.id = :id")
-//    void updateImageById(Long id, String newImageUrl);
+    @Modifying
+    @Transactional
+    @Query("UPDATE Restaurant r SET r.active = :bool WHERE r.id = :id")
+    void updateIsActiveById(Long id,Boolean bool);
+
+    @Modifying
+    @Transactional
+    @Query("UPDATE Restaurant r SET r.image = :image WHERE r.id = :id")
+    void updateImageById(Long id, Image image);
 
 
 }

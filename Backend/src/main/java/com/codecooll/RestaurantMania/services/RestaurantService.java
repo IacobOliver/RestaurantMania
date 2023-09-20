@@ -45,13 +45,11 @@ public class RestaurantService {
 
     public Restaurant getById(long restaurantID) {
         Restaurant res = restaurantRepository.findByIdWithoutMenu(restaurantID).orElse(null);
-
+        System.out.println(res.getId());
         Menu menu = menuRepository.getByRestaurantIdWithoutCategoryProducts(restaurantID).orElse(null);
         Pageable pageable = PageRequest.of(0, 5);
 
-        assert menu != null;
         menu.setCategoryProducts(categoryProductRepository.getSomeOfMenu(menu.getId(), pageable));
-        assert res != null;
         res.setMenu(menu);
         return res;
     }
@@ -75,17 +73,15 @@ public class RestaurantService {
 
     public void setRestaurantImageUrl(Long restaurantId, Image image) {
         Restaurant restaurant = restaurantRepository.findByIdWithoutMenu(restaurantId).orElse(null);
-        assert restaurant != null;
-        if (restaurant.getImage() != null && restaurant.getImage().getImageUrl()!=null) {
+        if (restaurant.getImage() != null && restaurant.getImage().getImageUrl() != null) {
             String url = restaurant.getImage().getImageUrl();
             imageService.deleteImageByUrl(url);
         }
-        assert restaurant.getImage() != null;
-        imageUrlRepository.updateImageById(restaurant.getImage().getId(), image.getImageUrl());
+            restaurantRepository.updateImageById(restaurantId,image);
     }
 
     public void updateRestaurantName(Long restaurantId, String newName) {
-         restaurantRepository.updateNameById(restaurantId,newName);
+        restaurantRepository.updateNameById(restaurantId, newName);
     }
 
     public void updateRestaurantDescription(Long restaurantId, String newDescription) {
@@ -93,9 +89,8 @@ public class RestaurantService {
     }
 
     public void setActive(Long restaurant_id, Boolean value) {
-        Restaurant restaurant = restaurantRepository.findById(restaurant_id).orElse(null);
-        restaurant.setActive(value);
-        restaurantRepository.save(restaurant);
+        restaurantRepository.updateIsActiveById(restaurant_id, value);
+
     }
 
 }
