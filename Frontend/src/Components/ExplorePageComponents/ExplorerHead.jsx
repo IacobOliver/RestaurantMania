@@ -52,7 +52,7 @@ export default function ExploreHead() {
                 alt="food illustration"
                 loading="lazy"
                 width={3500}
-                height={3500}
+                height={32500}
               />
             </div>
           </div>

@@ -19,7 +19,7 @@ export default function MyRestaurant() {
   const params = useParams();
   const navigate = useNavigate();
 
-  let lastUpdatedMenu = "21.07.2003";
+  let lastUpdatedMenu = "21.09.2003";
   let id = params.restaurantId * 1;
   useEffect(() => {
     setLoading(true);

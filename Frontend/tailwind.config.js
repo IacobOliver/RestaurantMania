@@ -13,7 +13,7 @@ export default {
       hc1:"#a16207",
       },
       height:{
-        "1/10":"10%",
+        "1/10":"20%",
         "30":"7.5rem"
       },
       screens: {
