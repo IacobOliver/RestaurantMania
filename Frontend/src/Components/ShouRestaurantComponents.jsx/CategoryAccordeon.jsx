@@ -43,8 +43,6 @@ export default function CategoryAccordeon({
   const categRef = useRef(null);
   const [editName, setEditName] = useState(false);
 
-
-
   const deleteCategoryProduct = (e) => {
     e.target.parentElement.parentElement.parentElement.remove()
     console.log(categ.id)

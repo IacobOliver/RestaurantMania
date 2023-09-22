@@ -7,6 +7,8 @@ import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.*;
 
+import java.util.List;
+
 @Controller
 @RequestMapping(path = "/categoryProduct")
 @RequiredArgsConstructor
@@ -35,4 +37,8 @@ public class CategoryProductController {
         return ResponseEntity.ok("Deleted categ " +  categ_id);
     }
 
+    @GetMapping(path = "getSome/{menuId}/{pageNr}/{itemsPerPage}")
+    public ResponseEntity<List<CategoryProduct>> getSomeOfMenu(@PathVariable Long menuId,@PathVariable int pageNr,@PathVariable int itemsPerPage){
+        return ResponseEntity.ok(categoryProductService.getSomeOfMenu(menuId,pageNr,itemsPerPage));
+    }
 }

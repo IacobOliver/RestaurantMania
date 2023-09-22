@@ -30,7 +30,8 @@ public class SecurityConfig {
                 .csrf(csrf -> csrf.disable())
                 .authorizeHttpRequests(auth -> auth.requestMatchers("api/v1/auth/**",
                                 "restaurant/getAll/**",
-                                "restaurant/getById/**")
+                                "restaurant/getById/**",
+                                "categoryProduct/getSome/**")
                         .permitAll()
                         .anyRequest()
                         .authenticated())

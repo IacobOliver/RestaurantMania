@@ -14,7 +14,8 @@ import java.util.List;
 public interface CategoryProductRepository extends JpaRepository<CategoryProduct, Long> {
 
     @Query("SELECT c FROM CategoryProduct c " +
-            "WHERE c.menu.id = :menuId "
+            "WHERE c.menu.id = :menuId " +
+            "order by c.id asc"
            )
     List<CategoryProduct> getSomeOfMenu(long menuId, Pageable pageable);
 

@@ -47,9 +47,9 @@ public class RestaurantService {
         Restaurant res = restaurantRepository.findByIdWithoutMenu(restaurantID).orElse(null);
         System.out.println(res.getId());
         Menu menu = menuRepository.getByRestaurantIdWithoutCategoryProducts(restaurantID).orElse(null);
-        Pageable pageable = PageRequest.of(0, 5);
 
-        menu.setCategoryProducts(categoryProductRepository.getSomeOfMenu(menu.getId(), pageable));
+//        Pageable pageable = PageRequest.of(0, 5);
+//        menu.setCategoryProducts(categoryProductRepository.getSomeOfMenu(menu.getId(), pageable));
         res.setMenu(menu);
         return res;
     }

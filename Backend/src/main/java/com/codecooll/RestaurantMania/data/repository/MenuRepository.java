@@ -8,6 +8,7 @@ import java.util.Optional;
 
 public interface MenuRepository extends JpaRepository<Menu, Long> {
 
+
     @Query("SELECT NEW Menu(m.id, m.lastUpdated)" +
             " FROM Menu m" +
             " WHERE m.restaurant.id = :restaurant_id ")

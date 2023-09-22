@@ -6,8 +6,12 @@ import com.codecooll.RestaurantMania.data.repository.CategoryProductRepository;
 import com.codecooll.RestaurantMania.data.repository.MenuRepository;
 import jakarta.transaction.Transactional;
 import lombok.RequiredArgsConstructor;
+import org.springframework.data.domain.PageRequest;
+import org.springframework.data.domain.Pageable;
 import org.springframework.data.jpa.repository.Modifying;
 import org.springframework.stereotype.Service;
+
+import java.util.List;
 
 @Service
 @RequiredArgsConstructor
@@ -36,5 +40,11 @@ public class CategoryProductService {
         categoryProduct.getMenu().removeCategoryProduct(categoryProduct);
         categoryProductRepository.deleteById(categ_id);
 
+    }
+
+    public List<CategoryProduct> getSomeOfMenu(long menu_id, int pageNr,int itemsPerPage){
+        Pageable pageable = PageRequest.of(pageNr,itemsPerPage);
+
+        return categoryProductRepository.getSomeOfMenu(menu_id,pageable);
     }
 }
