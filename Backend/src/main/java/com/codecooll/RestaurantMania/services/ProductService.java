@@ -29,25 +29,18 @@ public class ProductService {
     }
 
     public Product addNewProduct(Long categ_id, Product product) {
-        Optional<CategoryProduct> categoryProductOptional = categoryProductRepository.findById(categ_id);
+       CategoryProduct categoryProduct = CategoryProduct.builder().id(categ_id).build();
 
-        if (categoryProductOptional.isPresent()) {
-            product.setCategoryProduct(categoryProductOptional.get());
-            CategoryProduct categoryProduct = categoryProductOptional.get();
-            categoryProduct.getProducts().add(product);
-            productRepository.save(product);
-            categoryProductRepository.save(categoryProduct);
-        }
+       product.setCategoryProduct(categoryProduct);
+       productRepository.save(product);
 
         return product;
     }
 
     public void updateProduct(Long product_id, String value, String key) {
-        Product product = productRepository.findById(product_id).orElse(null);
-        if (key == "name") product.setName(value);
-        else if (key == "description") product.setProductDescription(value);
-        else if (key == "price") product.setPrice(Integer.parseInt(value.replaceAll("[^\\d]", "")));
-        productRepository.save(product);
+        if (key == "name") productRepository.updateName(product_id , value);
+        else if (key == "description") productRepository.updateDescription(product_id, value);
+        else if (key == "price") productRepository.updatePrice(product_id,Integer.parseInt(value.replaceAll("[^\\d]", "")));
     }
 
     public void setProductImageUrl(Long product_id, Image image) {

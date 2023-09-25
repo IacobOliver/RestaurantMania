@@ -24,26 +24,31 @@ public class ProductController {
         this.productService = productService;
         this.imageService = imageService;
     }
+
     @CrossOrigin(origins = "*")
     @PostMapping(path = "post/new/product/{categ_id}")
     public ResponseEntity<Product> postNewProduct(@PathVariable Long categ_id, @RequestBody Product product) {
         return ResponseEntity.ok( productService.addNewProduct(categ_id, product)) ;
     }
+
     @CrossOrigin(origins = "*")
     @PatchMapping(path = "update/name/{product_id}")
     public void updateProductName(@PathVariable Long product_id, @RequestBody String value){
         productService.updateProduct(product_id, value, "name");
     }
+
     @CrossOrigin(origins = "*")
     @PatchMapping(path = "update/productDescription/{product_id}")
     public void updateProductDescription(@PathVariable Long product_id, @RequestBody String value){
         productService.updateProduct(product_id, value, "description");
     }
+
     @CrossOrigin(origins = "*")
     @PatchMapping(path = "update/price/{product_id}")
     public void updateProductPrice(@PathVariable Long product_id, @RequestBody String value){
         productService.updateProduct(product_id, value, "price");
     }
+
     @CrossOrigin(origins = "*")
     @PostMapping(path = "update/image/{product_id}")
     public ResponseEntity<Image> updateProductImage(@PathVariable Long product_id, @RequestBody MultipartFile image){
@@ -55,6 +60,7 @@ public class ProductController {
             return ResponseEntity.status(HttpStatus.INTERNAL_SERVER_ERROR).body(null);
         }
     }
+
     @CrossOrigin(origins = "*")
     @DeleteMapping(path = "delete/{product_id}")
     public void deleteProduct(@PathVariable Long product_id){
