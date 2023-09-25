@@ -22,7 +22,7 @@ public class CategoryProductService {
     
     public CategoryProduct addNewProductCategory(long menu_id, CategoryProduct categoryProduct) {
 
-        Menu menu = menuRepository.getById(menu_id);
+        Menu menu = Menu.builder().id(menu_id).build();
         categoryProduct.setMenu(menu);
         categoryProductRepository.save(categoryProduct);
 

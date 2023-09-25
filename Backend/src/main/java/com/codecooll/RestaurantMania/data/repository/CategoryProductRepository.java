@@ -6,6 +6,7 @@ import org.springframework.data.domain.Pageable;
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.data.jpa.repository.Modifying;
 import org.springframework.data.jpa.repository.Query;
+import org.springframework.data.repository.query.Param;
 import org.springframework.transaction.annotation.Transactional;
 
 import java.util.List;
@@ -22,5 +23,19 @@ public interface CategoryProductRepository extends JpaRepository<CategoryProduct
     @Modifying
     @Transactional
     @Query("UPDATE CategoryProduct c SET c.name = :newName WHERE c.id = :id")
-    void updateNameById(Long id, String newName);
+    public void updateNameById(Long id, String newName);
+
+//    @Modifying
+//    @Transactional
+//    @Query("INSERT INTO CategoryProduct (menu_id, name) VALUES (:menuId, :name)")
+//    void insert(@Param("menuId") Long menuId, @Param("name") String name);
+
+//    @Query("SELECT c.id FROM CategoryProduct c " +
+//            "WHERE c.id = :id")
+//    public Optional<CategoryProduct> getLazyCategoryProduct(long id);
+
+
+
+
+
 }
