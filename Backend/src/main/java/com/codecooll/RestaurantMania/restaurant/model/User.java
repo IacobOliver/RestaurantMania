@@ -40,8 +40,8 @@ public class User extends Account {
     }
 
     @Builder
-    public User(String firstName, String lastName, String email, String password, Role role) {
-        super(firstName, lastName, email, password, role);
+    public User(String firstName, String lastName, String email, String password, Role role, Long id) {
+        super(id,firstName, lastName, email, password, role);
     }
 
     public User(Long id, String firstName, String lastName, String email, String password, Role role) {

@@ -7,6 +7,7 @@ import com.codecooll.RestaurantMania.data.repository.CategoryProductRepository;
 import com.codecooll.RestaurantMania.services.cloudStorage.ImageService;
 import com.codecooll.RestaurantMania.data.repository.ProductRepository;
 import jakarta.transaction.Transactional;
+import lombok.RequiredArgsConstructor;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.jpa.repository.Modifying;
 import org.springframework.stereotype.Service;
@@ -14,19 +15,10 @@ import org.springframework.stereotype.Service;
 import java.util.Optional;
 
 @Service
+@RequiredArgsConstructor
 public class ProductService {
-
     private final ProductRepository productRepository;
-    private final CategoryProductRepository categoryProductRepository;
     private final ImageService imageService;
-
-
-    @Autowired
-    public ProductService(ProductRepository productRepository, CategoryProductRepository categoryProductRepository, ImageService imageService) {
-        this.categoryProductRepository = categoryProductRepository;
-        this.productRepository = productRepository;
-        this.imageService = imageService;
-    }
 
     public Product addNewProduct(Long categ_id, Product product) {
        CategoryProduct categoryProduct = CategoryProduct.builder().id(categ_id).build();
@@ -55,7 +47,6 @@ public class ProductService {
     @Transactional
     @Modifying
     public void deleteProductById(Long product_id) {
-        //productRepository.deleteProductById(product_id);
-        productRepository.deleteById(product_id);
+        productRepository.deleteProductById(product_id);
     }
 }

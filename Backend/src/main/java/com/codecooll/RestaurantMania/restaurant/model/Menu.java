@@ -25,7 +25,7 @@ public class Menu {
 
     @JsonManagedReference
     @OneToMany(mappedBy = "menu", cascade = CascadeType.ALL, fetch = FetchType.LAZY)
-    private List<CategoryProduct> categoryProducts = new ArrayList<>();
+    private List<CategoryProduct> categoryProducts;
 
     @JsonIgnore
     @OneToOne(mappedBy = "menu", cascade = CascadeType.ALL,orphanRemoval = true)

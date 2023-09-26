@@ -40,7 +40,6 @@ public class Restaurant {
     @JoinColumn(name = "menu_id", referencedColumnName = "id")
     private Menu menu;
 
-
     @OneToMany(mappedBy = "restaurant", cascade = CascadeType.ALL, orphanRemoval = true,fetch = FetchType.EAGER)
     private List<RestaurantRating> restaurantRatings = new ArrayList<>();
 

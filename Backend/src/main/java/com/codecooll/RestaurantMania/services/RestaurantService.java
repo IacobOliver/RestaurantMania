@@ -28,7 +28,7 @@ public class RestaurantService {
 
 
     public Restaurant addNewRestaurant(Long client_id, Restaurant newRestaurant) {
-        User user = (User) accountRepository.findById(client_id).orElseThrow(() -> new IllegalArgumentException("User not found"));
+        User user = User.builder().id(client_id).build();
         newRestaurant.setUser(user);
 
         Menu defaultMenu = new Menu();
@@ -60,12 +60,6 @@ public class RestaurantService {
     @Transactional
     @Modifying
     public void deleteById(Long restaurantId) {
-        Restaurant restaurant = restaurantRepository.getById(restaurantId);
-
-        User user = restaurant.getUser();
-
-        user.removeRestaurant(restaurant);
-
         restaurantRepository.deleteById(restaurantId);
     }
 
