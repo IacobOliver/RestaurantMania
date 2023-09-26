@@ -10,6 +10,7 @@ export default function RestaurantMenu({ thisRestaurant, setThisRestaurant }) {
   const [open, setOpen] = useState(1);
   const [page, setPage] = useState(0);
   const [loading, setLoading] = useState(false);
+
   useEffect(() => {
     if (thisRestaurant) {
       setLoading(true);
@@ -19,13 +20,13 @@ export default function RestaurantMenu({ thisRestaurant, setThisRestaurant }) {
         .then((res) => res.json())
         .then((data) => {
           console.log(data);
-          console.log();
+          console.log(thisRestaurant.menu.categoryProducts);
           setThisRestaurant({
             ...thisRestaurant,
             menu: {
               ...thisRestaurant.menu,
               categoryProducts: [
-                ...thisRestaurant.menu.categoryProducts,
+               ...thisRestaurant.menu.categoryProducts ? thisRestaurant.menu.categoryProducts : [],
                 ...data,
               ],
             },

@@ -1,5 +1,6 @@
 package com.codecooll.RestaurantMania.restaurant.model;
 
+import com.fasterxml.jackson.annotation.JsonBackReference;
 import com.fasterxml.jackson.annotation.JsonIgnore;
 import jakarta.persistence.*;
 import lombok.*;
@@ -15,14 +16,14 @@ import java.util.List;
 @Builder
 @NoArgsConstructor
 @AllArgsConstructor
-@Proxy(lazy = false)
 public class Menu {
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
     private long id;
     private String lastUpdated = LocalDate.now().toString();
 
-    @OneToMany(mappedBy = "menu", cascade = CascadeType.ALL, orphanRemoval = true,fetch = FetchType.EAGER)
+    @JsonBackReference
+    @OneToMany(mappedBy = "menu", cascade = CascadeType.ALL, fetch = FetchType.LAZY)
     private List<CategoryProduct> categoryProducts = new ArrayList<>();
 
     @JsonIgnore

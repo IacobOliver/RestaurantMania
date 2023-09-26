@@ -24,6 +24,8 @@ public class CategoryProductService {
 
         Menu menu = Menu.builder().id(menu_id).build();
         categoryProduct.setMenu(menu);
+
+        
         categoryProductRepository.save(categoryProduct);
 
         return categoryProduct;
@@ -47,4 +49,5 @@ public class CategoryProductService {
 
         return categoryProductRepository.getSomeOfMenu(menu_id,pageable);
     }
+
 }

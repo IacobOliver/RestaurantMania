@@ -12,7 +12,6 @@ import org.springframework.security.core.userdetails.UserDetails;
 @Data
 @NoArgsConstructor
 @AllArgsConstructor
-
 public abstract class Account implements UserDetails{
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)

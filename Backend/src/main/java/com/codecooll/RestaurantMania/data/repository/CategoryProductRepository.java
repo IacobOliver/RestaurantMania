@@ -21,19 +21,13 @@ public interface CategoryProductRepository extends JpaRepository<CategoryProduct
            )
     List<CategoryProduct> getSomeOfMenu(long menuId, Pageable pageable);
 
+
     @Modifying
     @Transactional
     @Query("UPDATE CategoryProduct c SET c.name = :newName WHERE c.id = :id")
     public void updateNameById(Long id, String newName);
 
-//    @Modifying
-//    @Transactional
-//    @Query("INSERT INTO CategoryProduct (menu_id, name) VALUES (:menuId, :name)")
-//    void insert(@Param("menuId") Long menuId, @Param("name") String name);
 
-//    @Query("SELECT c.id FROM CategoryProduct c " +
-//            "WHERE c.id = :id")
-//    public Optional<CategoryProduct> getLazyCategoryProduct(long id);
 
 
 

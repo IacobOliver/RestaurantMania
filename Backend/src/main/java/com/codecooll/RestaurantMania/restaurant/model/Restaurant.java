@@ -15,7 +15,6 @@ import java.util.List;
 @Builder
 @NoArgsConstructor
 @AllArgsConstructor
-@Proxy(lazy = false)
 public class Restaurant {
 
     @Id

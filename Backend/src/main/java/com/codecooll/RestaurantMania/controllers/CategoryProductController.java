@@ -41,4 +41,6 @@ public class CategoryProductController {
     public ResponseEntity<List<CategoryProduct>> getSomeOfMenu(@PathVariable Long menuId,@PathVariable int pageNr,@PathVariable int itemsPerPage){
         return ResponseEntity.ok(categoryProductService.getSomeOfMenu(menuId,pageNr,itemsPerPage));
     }
+
+
 }
