@@ -1,12 +1,15 @@
 import React from "react";
 import { useState, useEffect } from "react";
 import CategoryAccordeon from "./CategoryAccordeon";
-import { checking } from "../Utils";
 import Loading from "../Loading";
 
 const ITEMS_PER_PAGE = 5;
 
-export default function RestaurantMenu({ thisRestaurant, setThisRestaurant }) {
+export default function RestaurantMenu({
+  isHolder,
+  thisRestaurant,
+  setThisRestaurant,
+}) {
   const [open, setOpen] = useState(1);
   const [page, setPage] = useState(0);
   const [loading, setLoading] = useState(false);
@@ -19,14 +22,14 @@ export default function RestaurantMenu({ thisRestaurant, setThisRestaurant }) {
       )
         .then((res) => res.json())
         .then((data) => {
-          console.log(data);
-          console.log(thisRestaurant.menu.categoryProducts);
           setThisRestaurant({
             ...thisRestaurant,
             menu: {
               ...thisRestaurant.menu,
               categoryProducts: [
-               ...thisRestaurant.menu.categoryProducts ? thisRestaurant.menu.categoryProducts : [],
+                ...(thisRestaurant.menu.categoryProducts
+                  ? thisRestaurant.menu.categoryProducts
+                  : []),
                 ...data,
               ],
             },
@@ -90,10 +93,10 @@ export default function RestaurantMenu({ thisRestaurant, setThisRestaurant }) {
 
         thisRestaurantCopy.menu.categoryProducts.map((categ) => {
           if (categ.id === categId) {
-            if(categ.products){
+            if (categ.products) {
               categ.products.push(newProd);
-            }else{
-              categ.products = [newProd]
+            } else {
+              categ.products = [newProd];
             }
           }
           return categ;
@@ -168,6 +171,7 @@ export default function RestaurantMenu({ thisRestaurant, setThisRestaurant }) {
         {thisRestaurant?.menu.categoryProducts?.map((categ, index) => {
           return (
             <CategoryAccordeon
+              isHolder={isHolder}
               key={index}
               open={open}
               index={index}
@@ -181,7 +185,7 @@ export default function RestaurantMenu({ thisRestaurant, setThisRestaurant }) {
         })}
       </div>
 
-      {checking.checkIfHolder() ? (
+      {isHolder ? (
         <div className="w-full flex justify-center mt-3 ">
           <button
             className="w-1/2 justify-center font-bold py-2 px-4 rounded inline-flex items-center  text-gray-200 bg-gradient-to-r from-yellow-400 via-yellow-500 to-yellow-600 hover:bg-gradient-to-br focus:ring-4 focus:outline-none focus:ring-yellow-300 dark:focus:ring-yellow-800 shadow-lg shadow-yellow-500/50 dark:shadow-lg dark:shadow-yellow-800/80  text-sm  text-cente"

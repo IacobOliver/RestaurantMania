@@ -7,7 +7,6 @@ import {
   AccordionBody,
 } from "@material-tailwind/react";
 import ProductCard from "./ProductCard";
-import { checking } from "../Utils";
 
 function Icon({ id, open }) {
   return (
@@ -17,8 +16,9 @@ function Icon({ id, open }) {
       viewBox="0 0 24 24"
       strokeWidth={2}
       stroke="currentColor"
-      className={`${id === open ? "rotate-180" : ""
-        } h-5 w-5 transition-transform`}
+      className={`${
+        id === open ? "rotate-180" : ""
+      } h-5 w-5 transition-transform`}
     >
       <path
         strokeLinecap="round"
@@ -29,9 +29,8 @@ function Icon({ id, open }) {
   );
 }
 
-
-
 export default function CategoryAccordeon({
+  isHolder,
   open,
   index,
   handleOpen,
@@ -44,21 +43,18 @@ export default function CategoryAccordeon({
   const [editName, setEditName] = useState(false);
 
   const deleteCategoryProduct = (e) => {
-    e.target.parentElement.parentElement.parentElement.remove()
-    console.log(categ.id)
+    e.target.parentElement.parentElement.parentElement.remove();
+    console.log(categ.id);
     fetch(`http://localhost:8080/categoryProduct/delete/${categ.id}`, {
       method: "DELETE",
       headers: {
         "Content-Type": "application/json",
-        "Authorization" : `Bearer ${localStorage.getItem("token")}`
+        Authorization: `Bearer ${localStorage.getItem("token")}`,
       },
-
-    }).then(res => res.json())
-      .catch(err => console.log("Error del categPrduct " + err))
-
-  }
-
-
+    })
+      .then((res) => res.json())
+      .catch((err) => console.log("Error del categPrduct " + err));
+  };
 
   return (
     <Accordion
@@ -70,19 +66,24 @@ export default function CategoryAccordeon({
         onClick={(e) => handleOpen(index + 1, e)}
       >
         <div className="flex flex-row items-center">
-          {checking.checkIfHolder() ? <i onClick={deleteCategoryProduct} className="fas fa-trash mr-3 text-md text-gray-200 bg-gray-800 rounded-lg p-2"></i> : null}
-
+          {isHolder ? (
+            <i
+              onClick={deleteCategoryProduct}
+              className="fas fa-trash mr-3 text-md text-gray-200 bg-gray-800 rounded-lg p-2"
+            ></i>
+          ) : null}
 
           <p
             contentEditable={editName}
-            className={`${editName ? "border border-white rounded-lg" : ""} mb-0`}
+            className={`${
+              editName ? "border border-white rounded-lg" : ""
+            } mb-0`}
             ref={categRef}
           >
             {categ.name ? categ.name : "Add a category name"}
           </p>
 
-
-          {editName && checking.checkIfHolder() ? (
+          {editName && isHolder ? (
             <i
               onClick={() => {
                 editContentEvent(categRef, "name", categ.id);
@@ -92,21 +93,22 @@ export default function CategoryAccordeon({
             >
               {" "}
             </i>
-          ) : null }
+          ) : null}
 
-            {!editName && checking.checkIfHolder() ?
-          <i
-            onClick={() => {
-              setEditName(true);
-            }}
-            className="fas fa-edit ml-3 mr-3 hover:text-gray-400"
-          ></i> : null }
-
+          {!editName && isHolder ? (
+            <i
+              onClick={() => {
+                setEditName(true);
+              }}
+              className="fas fa-edit ml-3 mr-3 hover:text-gray-400"
+            ></i>
+          ) : null}
         </div>
       </AccordionHeader>
       <AccordionBody>
         {categ.products?.map((prod, index) => (
           <ProductCard
+            isHolder={isHolder}
             product={prod}
             key={index}
             prodId={prod.id}
@@ -115,8 +117,7 @@ export default function CategoryAccordeon({
           />
         ))}
 
-
-        {checking.checkIfHolder() ?
+        {isHolder ? (
           <div className="w-full flex justify-center">
             <button
               className="w-11/12 justify-center inline-flex items-center  text-white bg-gradient-to-r from-yellow-400 via-yellow-500 to-yellow-600 hover:bg-gradient-to-br focus:ring-4 focus:outline-none focus:ring-yellow-300 dark:focus:ring-yellow-800 shadow-lg shadow-yellow-500/50 dark:shadow-lg dark:shadow-yellow-800/80 font-medium rounded-lg text-sm px-5 py-2.5 text-center"
@@ -124,7 +125,6 @@ export default function CategoryAccordeon({
                 addNewProd(categ.id);
               }}
             >
-
               <svg
                 xmlns="http://www.w3.org/2000/svg"
                 width={20}
@@ -142,9 +142,8 @@ export default function CategoryAccordeon({
               </svg>
               <span>Add a product(ex. Smoothie)</span>
             </button>
-          </div> : null}
-
-
+          </div>
+        ) : null}
       </AccordionBody>
     </Accordion>
   );

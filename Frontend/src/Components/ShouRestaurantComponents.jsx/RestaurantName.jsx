@@ -1,11 +1,8 @@
 import React from "react";
 import { useRef } from "react";
 import { useState } from "react";
-import { useAtom } from "jotai";
-import state from "../AtomStates";
-import { checking } from "../Utils";
-import { useParams } from "react-router-dom";
-export default function RestaurantName({ thisRestaurant, editContentEvent }) {
+
+export default function RestaurantName({isHolder, thisRestaurant, editContentEvent }) {
   const [editName, setEditName] = useState(false);
   const contentRef = useRef(null);
 
@@ -26,7 +23,7 @@ export default function RestaurantName({ thisRestaurant, editContentEvent }) {
 
 
 
-      {editName && checking.checkIfHolder() ? (
+      {editName && isHolder ? (
         <i
           onClick={() => {
             editContentEvent(contentRef, "name");
@@ -37,7 +34,7 @@ export default function RestaurantName({ thisRestaurant, editContentEvent }) {
         </i>
       ) : null}
 
-      {!editName && checking.checkIfHolder() ?
+      {!editName && isHolder ?
 
         <i
           onClick={() => {

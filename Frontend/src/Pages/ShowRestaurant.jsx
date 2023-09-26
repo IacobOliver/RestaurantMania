@@ -9,26 +9,43 @@ import RestaurantImage from "../Components/ShouRestaurantComponents.jsx/Restaura
 import RestaurantMenu from "../Components/ShouRestaurantComponents.jsx/RestaurantMenu";
 import { checking } from "../Components/Utils";
 import Loading from "../Components/Loading";
-//x
+
+const checkIfHolder = (user, params) => {
+  console.log("Chefifholder", user);
+  console.log(params.restaurantId);
+  if (user) {
+    return user.restaurants?.reduce(
+      (acc, cur) => (cur.id == params.restaurantId ? true : acc),
+      false
+    );
+  }
+  return false;
+};
+
 export default function MyRestaurant() {
   const [thisRestaurant, setThisRestaurant] = useState(null);
   const [refreshShowRestaurant, setRefreshShowRestaurant] = useAtom(
     state.refreshShowRestaurant
   );
   const [loading, setLoading] = useState(false);
+  const [user, setuser] = useAtom(state.user);
+
   const params = useParams();
   const navigate = useNavigate();
+
+  let isHolder = checkIfHolder(user, params);
 
   let lastUpdatedMenu = "21.09.2003";
   let id = params.restaurantId * 1;
   useEffect(() => {
     setLoading(true);
-    
+
     fetch(`http://localhost:8080/restaurant/getById/${id}`)
       .then((res) => res.json())
       .then((data) => {
         setThisRestaurant(data);
         setLoading(false);
+        // setIsHolder(checkIfHolder(user,params))
         console.log(data);
       })
       .catch((error) => {
@@ -47,8 +64,8 @@ export default function MyRestaurant() {
       `http://localhost:8080/restaurant/uploadProfileImage/${thisRestaurant.id}`,
       {
         method: "POST",
-        headers:{
-          "Authorization" : `Bearer ${localStorage.getItem("token")}`
+        headers: {
+          Authorization: `Bearer ${localStorage.getItem("token")}`,
         },
         body: formData,
       }
@@ -78,7 +95,7 @@ export default function MyRestaurant() {
         method: "PATCH",
         headers: {
           "Content-Type": "application/json",
-          "Authorization" : `Bearer ${localStorage.getItem("token")}`
+          Authorization: `Bearer ${localStorage.getItem("token")}`,
         },
         body: contentRef.current.textContent,
       }
@@ -114,6 +131,7 @@ export default function MyRestaurant() {
         {/* col1 */}
         <div className="bg-gray-900 col-span-2">
           <RestaurantName
+            isHolder={isHolder}
             thisRestaurant={thisRestaurant}
             editContentEvent={editContentEvent}
           />
@@ -121,6 +139,7 @@ export default function MyRestaurant() {
           <Divider />
 
           <RestaurantImage
+            isHolder={isHolder}
             thisRestaurant={thisRestaurant}
             handleImageChange={handleImageChange}
           />
@@ -132,6 +151,7 @@ export default function MyRestaurant() {
           <Divider />
 
           <RestaurantDescription
+            isHolder={isHolder}
             thisRestaurant={thisRestaurant}
             editContentEvent={editContentEvent}
           />
@@ -151,6 +171,7 @@ export default function MyRestaurant() {
               <Loading />
             ) : (
               <RestaurantMenu
+                isHolder={isHolder}
                 thisRestaurant={thisRestaurant}
                 setThisRestaurant={setThisRestaurant}
               />

@@ -1,7 +1,4 @@
 import { validate } from "email-validator";
-import { useAtom } from "jotai";
-import state from "./AtomStates";
-import { useParams } from "react-router-dom";
 
 export const checking = {
   name: (e) => {
@@ -28,19 +25,6 @@ export const checking = {
 
   wrongInput: (input) => {
     input.setCustomValidity("Invalid field.");
-  },
-
-  checkIfHolder: () => {
-    const [user, setuser] = useAtom(state.user);
-    const params = useParams();
-    if (user) {
-      console.log(user.restaurants);
-      return user.restaurants?.reduce(
-        (acc, cur) => (cur.id == params.restaurantId ? true : acc),
-        false
-      );
-    }
-    return false;
   },
 
   autoLogInWithToken: ({ setModalShow, setUser, setisLoggedIn }) => {

@@ -1,9 +1,9 @@
 import React from "react";
 import { useState } from "react";
 import { useRef } from "react";
-import { checking } from "../Utils";
 
-export default function ProductCard({ product, prodId, categId, editProduct }) {
+
+export default function ProductCard({ isHolder,product, prodId, categId, editProduct }) {
   const imgRef = useRef(null);
   const nameRef = useRef(null);
   const descriptionRef = useRef(null);
@@ -42,7 +42,7 @@ export default function ProductCard({ product, prodId, categId, editProduct }) {
   const EditButton = ({ edit, setEdit, field, elRef }) => {
     return (
       <>
-        {edit && checking.checkIfHolder() ? (
+        {edit && isHolder ? (
           <i
             onClick={() => {
               editProduct(elRef, field, categId, prodId);
@@ -52,7 +52,7 @@ export default function ProductCard({ product, prodId, categId, editProduct }) {
           ></i>
         ) : null}
 
-        {!edit && checking.checkIfHolder() ? (
+        {!edit && isHolder ? (
           <i
             onClick={() => {
               setEdit(true);
@@ -95,7 +95,7 @@ export default function ProductCard({ product, prodId, categId, editProduct }) {
           />
         </label>
 
-        {checking.checkIfHolder() ? (
+        {isHolder ? (
           <input
             disabled={false}
             type="file"
@@ -129,7 +129,7 @@ export default function ProductCard({ product, prodId, categId, editProduct }) {
               />
             </div>
 
-            {checking.checkIfHolder() ? (
+            {isHolder? (
               <i
                 onClick={deleteProductEvent}
                 className="fas fa-trash mr-3 text-md text-gray-200 bg-gray-800 rounded-lg p-2"

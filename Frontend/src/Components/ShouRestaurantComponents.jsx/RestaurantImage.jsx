@@ -1,7 +1,6 @@
 import React from "react";
-import { checking } from "../Utils";
 
-export default function RestaurantImage({ thisRestaurant, handleImageChange }) {
+export default function RestaurantImage({ isHolder,thisRestaurant, handleImageChange }) {
   return (
     <div className="mt-0 flex justify-center">
       <div className="p-3">
@@ -17,7 +16,7 @@ export default function RestaurantImage({ thisRestaurant, handleImageChange }) {
         </label>
 
 
-        {checking.checkIfHolder() ?
+        {isHolder ?
           <input
             disabled={false}
             type="file"
