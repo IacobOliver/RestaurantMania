@@ -25,7 +25,6 @@ public class CategoryProductService {
         Menu menu = Menu.builder().id(menu_id).build();
         categoryProduct.setMenu(menu);
 
-        
         categoryProductRepository.save(categoryProduct);
 
         return categoryProduct;
@@ -38,8 +37,6 @@ public class CategoryProductService {
     @Transactional
     @Modifying
     public void deleteCategById(Long categ_id){
-        CategoryProduct categoryProduct = categoryProductRepository.findById(categ_id).orElse(null);
-        categoryProduct.getMenu().removeCategoryProduct(categoryProduct);
         categoryProductRepository.deleteById(categ_id);
 
     }

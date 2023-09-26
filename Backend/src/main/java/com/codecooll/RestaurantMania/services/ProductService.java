@@ -33,7 +33,6 @@ public class ProductService {
 
        product.setCategoryProduct(categoryProduct);
        productRepository.save(product);
-
         return product;
     }
 
@@ -56,9 +55,7 @@ public class ProductService {
     @Transactional
     @Modifying
     public void deleteProductById(Long product_id) {
-        Product product = productRepository.findById(product_id).orElse(null);
-        product.getCategoryProduct().removeProduct(product);
+        //productRepository.deleteProductById(product_id);
         productRepository.deleteById(product_id);
-
     }
 }

@@ -25,15 +25,15 @@ public class Product {
     @Column(length = 1000)
     private String productDescription;
 
-    @OneToOne(cascade = CascadeType.ALL, orphanRemoval = true)
+    @OneToOne(cascade = CascadeType.ALL)
     private Image image;
 
     @JsonIgnore
     @ManyToOne
-    @JoinColumn(name = "categoryProduct_id", nullable = false)
+    @JoinColumn(name = "categoryProduct_id")
     private CategoryProduct categoryProduct;
 
     @OneToMany(mappedBy = "product", cascade = CascadeType.ALL, fetch = FetchType.EAGER)
-    private List<ProductRating> productRatings = new ArrayList<>();
+    private List<ProductRating> productRatings;
 
 }

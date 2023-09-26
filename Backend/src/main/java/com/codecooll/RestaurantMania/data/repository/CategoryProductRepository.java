@@ -26,11 +26,4 @@ public interface CategoryProductRepository extends JpaRepository<CategoryProduct
     @Transactional
     @Query("UPDATE CategoryProduct c SET c.name = :newName WHERE c.id = :id")
     public void updateNameById(Long id, String newName);
-
-
-
-
-
-
-
 }

@@ -87,9 +87,14 @@ export default function RestaurantMenu({ thisRestaurant, setThisRestaurant }) {
       .then((newProd) => {
         console.log(newProd);
         let thisRestaurantCopy = { ...thisRestaurant };
+
         thisRestaurantCopy.menu.categoryProducts.map((categ) => {
           if (categ.id === categId) {
-            categ.products.push(newProd);
+            if(categ.products){
+              categ.products.push(newProd);
+            }else{
+              categ.products = [newProd]
+            }
           }
           return categ;
         });

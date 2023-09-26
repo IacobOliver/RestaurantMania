@@ -2,6 +2,7 @@ package com.codecooll.RestaurantMania.data.repository;
 
 import com.codecooll.RestaurantMania.restaurant.model.Product;
 import org.springframework.data.jpa.repository.JpaRepository;
+import org.springframework.data.jpa.repository.Modifying;
 import org.springframework.data.jpa.repository.Query;
 
 public interface ProductRepository extends JpaRepository<Product, Long> {
@@ -17,4 +18,8 @@ public interface ProductRepository extends JpaRepository<Product, Long> {
     @Query("UPDATE Product p SET p.name = :price " +
             "WHERE p.id = :id")
     public void updatePrice(Long id, double price);
+
+   @Modifying
+    @Query("DELETE FROM Product p WHERE p.id = :product_id" )
+    public void deleteProductById(Long product_id);
 }
