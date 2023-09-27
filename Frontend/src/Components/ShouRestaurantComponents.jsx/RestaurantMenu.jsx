@@ -165,29 +165,10 @@ export default function RestaurantMenu({
 
   return (
     <>
-      <div className="md:mr-2 rounded-t-lg divide-y-2 border-b-2 bg-gradient-to-r from-gray-900 via-gray-800 to-gray-700 lg:overflow-visible">
-        {loading ? <Loading /> : null}
-        {thisRestaurant?.menu.categoryProducts?.map((categ, index) => {
-          return (
-            <CategoryAccordeon
-              isHolder={isHolder}
-              key={index}
-              open={open}
-              index={index}
-              handleOpen={handleOpen}
-              categ={categ}
-              editContentEvent={editContentEvent}
-              addNewProd={addNewProd}
-              editProduct={editProduct}
-            />
-          );
-        })}
-      </div>
-
-      {isHolder ? (
-        <div className="w-full flex justify-center mt-3 ">
+     {isHolder ? (
+        <div className="w-full flex justify-center bg-gradient-to-r from-gray-900 via-gray-800 to-gray-700 py-3 border-b-2 border-b-white">
           <button
-            className="w-1/2 justify-center font-bold py-2 px-4 rounded inline-flex items-center  text-gray-200 bg-gradient-to-r from-yellow-400 via-yellow-500 to-yellow-600 hover:bg-gradient-to-br focus:ring-4 focus:outline-none focus:ring-yellow-300 dark:focus:ring-yellow-800 shadow-lg shadow-yellow-500/50 dark:shadow-lg dark:shadow-yellow-800/80  text-sm  text-cente"
+            className=" w-1/2 justify-center font-bold py-2 px-4 rounded inline-flex items-center   text-gray-200 bg-gradient-to-r from-yellow-400 via-yellow-500 to-yellow-600 hover:bg-gradient-to-br focus:ring-4 focus:outline-none focus:ring-yellow-300 dark:focus:ring-yellow-800 shadow-lg shadow-yellow-500/50 dark:shadow-lg dark:shadow-yellow-800/80  text-sm  text-center"
             onClick={addNewCateg}
           >
             <svg
@@ -210,6 +191,29 @@ export default function RestaurantMenu({
           </button>
         </div>
       ) : null}
+
+
+
+      <div className="md:mr-2 rounded-t-lg divide-y-2 border-b-2 bg-gradient-to-r from-gray-900 via-gray-800 to-gray-700 lg:overflow-visible">
+        {loading ? <Loading /> : null}
+        {thisRestaurant?.menu.categoryProducts?.map((categ, index) => {
+          return (
+            <CategoryAccordeon
+              isHolder={isHolder}
+              key={index}
+              open={open}
+              index={index}
+              handleOpen={handleOpen}
+              categ={categ}
+              editContentEvent={editContentEvent}
+              addNewProd={addNewProd}
+              editProduct={editProduct}
+            />
+          );
+        })}
+      </div>
+
+     
       
     </>
   );

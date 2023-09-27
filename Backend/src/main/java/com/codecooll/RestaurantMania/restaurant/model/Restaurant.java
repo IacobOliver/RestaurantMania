@@ -31,6 +31,9 @@ public class Restaurant {
     @OneToOne(cascade = CascadeType.ALL, orphanRemoval = true)
     private Image image;
 
+    @ElementCollection(fetch = FetchType.EAGER)
+    private List<String> types;
+
     @JsonIgnore
     @ManyToOne
     @JoinColumn(name = "user_id", nullable = false)

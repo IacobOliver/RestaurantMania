@@ -3,7 +3,7 @@ import { useState } from "react";
 import { useRef } from "react";
 
 
-export default function ProductCard({ isHolder,product, prodId, categId, editProduct }) {
+export default function ProductCard({ isHolder, product, prodId, categId, editProduct }) {
   const imgRef = useRef(null);
   const nameRef = useRef(null);
   const descriptionRef = useRef(null);
@@ -20,8 +20,8 @@ export default function ProductCard({ isHolder,product, prodId, categId, editPro
 
     fetch(`http://localhost:8080/product/update/image/${product.id}`, {
       method: "POST",
-      headers:{
-        "Authorization" : `Bearer ${localStorage.getItem("token")}`
+      headers: {
+        "Authorization": `Bearer ${localStorage.getItem("token")}`
       },
       body: formData,
     })
@@ -48,7 +48,7 @@ export default function ProductCard({ isHolder,product, prodId, categId, editPro
               editProduct(elRef, field, categId, prodId);
               setEdit(false);
             }}
-            className="fa fa-check ml-3 mr-3 text-gray-200 hover:text-gray-400"
+            className="fa fa-check mx-3 mb-0 text-gray-200 hover:text-gray-400 bg-gray-700 p-2 rounded-lg"
           ></i>
         ) : null}
 
@@ -57,7 +57,7 @@ export default function ProductCard({ isHolder,product, prodId, categId, editPro
             onClick={() => {
               setEdit(true);
             }}
-            className="fas fa-edit ml-3 mr-3 text-gray-200 hover:text-gray-400"
+            className="fas fa-edit mx-3 mb-0 text-gray-200 hover:text-gray-400 bg-gray-700 p-2 rounded-lg"
           ></i>
         ) : null}
       </>
@@ -71,7 +71,7 @@ export default function ProductCard({ isHolder,product, prodId, categId, editPro
       method: "DELETE",
       headers: {
         "Content-Type": "application/json",
-        "Authorization" : `Bearer ${localStorage.getItem("token")}`
+        "Authorization": `Bearer ${localStorage.getItem("token")}`
       },
     })
       .then((res) => res.json())
@@ -129,12 +129,19 @@ export default function ProductCard({ isHolder,product, prodId, categId, editPro
               />
             </div>
 
-            {isHolder? (
+            {isHolder ? (
               <i
                 onClick={deleteProductEvent}
-                className="fas fa-trash mr-3 text-md text-gray-200 bg-gray-800 rounded-lg p-2"
+                className="fas fa-trash mr-3 text-md text-gray-200 bg-gray-700 rounded-lg p-2"
               ></i>
             ) : null}
+
+            {/* {isHolder ? (
+              <i
+                onClick={deleteCategoryProduct}
+                className="fas fa-trash mr-2 text-md text-gray-200 bg-gray-800 rounded-lg p-2"
+              ></i>
+            ) : null} */}
           </div>
 
           <div className="flex items-center">

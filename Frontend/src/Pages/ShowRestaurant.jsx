@@ -167,7 +167,7 @@ export default function MyRestaurant() {
             </p>
           </div>
 
-          <div className="max-h-screen overflow-y-scroll mt-3 scrollbar-hide">
+          <div className="max-h-screen overflow-y-scroll scrollbar-hide">
             {loading ? (
               <Loading />
             ) : (
