@@ -43,6 +43,7 @@ export default function MyRestaurant() {
     fetch(`http://localhost:8080/restaurant/getById/${id}`)
       .then((res) => res.json())
       .then((data) => {
+        data.menu.categoryProducts = [];
         setThisRestaurant(data);
         setLoading(false);
         // setIsHolder(checkIfHolder(user,params))

@@ -3,7 +3,7 @@ import { useState, useEffect } from "react";
 import CategoryAccordeon from "./CategoryAccordeon";
 import Loading from "../Loading";
 
-const ITEMS_PER_PAGE = 5;
+const ITEMS_PER_PAGE = 1;
 
 export default function RestaurantMenu({
   isHolder,
@@ -13,36 +13,35 @@ export default function RestaurantMenu({
   const [open, setOpen] = useState(1);
   const [page, setPage] = useState(0);
   const [loading, setLoading] = useState(false);
-
   useEffect(() => {
-    if (thisRestaurant) {
-      setLoading(true);
-      fetch(
-        `http://localhost:8080/categoryProduct/getSome/${thisRestaurant.menu.id}/${page}/${ITEMS_PER_PAGE}`
-      )
-        .then((res) => res.json())
-        .then((data) => {
-          setThisRestaurant({
-            ...thisRestaurant,
-            menu: {
-              ...thisRestaurant.menu,
-              categoryProducts: [
-                ...(thisRestaurant.menu.categoryProducts
-                  ? thisRestaurant.menu.categoryProducts
-                  : []),
-                ...data,
-              ],
-            },
+    let page1 = 0;
+    let loadedCategs = [];
+    async function fetchData() {
+      if (thisRestaurant) {
+        // console.log("++++++++++", thisRestaurant);
+        fetch(
+          `http://localhost:8080/categoryProduct/getSome/${thisRestaurant.menu.id}/${page1}/${ITEMS_PER_PAGE}`
+        )
+          .then((res) => res.json())
+          .then((data) => {
+            if (data.length === 0) return;
+            loadedCategs = [...loadedCategs, ...data];
+            setThisRestaurant({
+              ...thisRestaurant,
+              menu: {
+                ...thisRestaurant.menu,
+                categoryProducts: [...loadedCategs],
+              },
+            });
+            setLoading(false);
+            page1++;
+            fetchData();
           });
-          setLoading(false);
-        });
+      }
     }
-  }, [page]);
-
-  const seeMore = () => {
-    setPage(page + 1);
-  };
-
+    fetchData();
+  }, []);
+ 
   const handleOpen = (value, e) => {
     if (e.target.nodeName != "I") setOpen(open === value ? 0 : value);
   };
@@ -211,28 +210,7 @@ export default function RestaurantMenu({
           </button>
         </div>
       ) : null}
-      <button
-        className="w-1/2 justify-center font-bold py-2 px-4 rounded inline-flex items-center  text-gray-200 bg-gradient-to-r from-yellow-400 via-yellow-500 to-yellow-600 hover:bg-gradient-to-br focus:ring-4 focus:outline-none focus:ring-yellow-300 dark:focus:ring-yellow-800 shadow-lg shadow-yellow-500/50 dark:shadow-lg dark:shadow-yellow-800/80  text-sm  text-cente"
-        onClick={seeMore}
-      >
-        <svg
-          xmlns="http://www.w3.org/2000/svg"
-          width={20}
-          height={20}
-          viewBox="0 0 24 24"
-          fill="none"
-          stroke={"white"}
-          strokeWidth="4"
-          strokeLinecap="round"
-          strokeLinejoin="round"
-          className="mx-2"
-        >
-          <line x1="12" y1="5" x2="12" y2="19"></line>
-          <line x1="5" y1="12" x2="19" y2="12"></line>
-        </svg>
-
-        <span>See more...</span>
-      </button>
+      
     </>
   );
 }
