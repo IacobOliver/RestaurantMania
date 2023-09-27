@@ -1,27 +1,30 @@
 package com.codecooll.RestaurantMania.controllers;
 
-import com.codecooll.RestaurantMania.data.repository.RestaurantTagRepository;
+import com.codecooll.RestaurantMania.data.repository.TagRepository;
 import com.codecooll.RestaurantMania.restaurant.model.Tag;
 import lombok.RequiredArgsConstructor;
+import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Controller;
-import org.springframework.web.bind.annotation.CrossOrigin;
-import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.RequestBody;
-import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
 
-@Controller
+@RestController
 @RequiredArgsConstructor
 @RequestMapping(path = "/restaurantTag")
-public class RestaurantTagController {
-    private final RestaurantTagRepository restaurantTagRepository;
+public class TagController {
+    private final TagRepository tagRepository;
 
-    @PostMapping("saveTags")
+    @PostMapping("/saveTags")
     @CrossOrigin("*")
-    public void saveTags(@RequestBody List<String> tags){
+    public void saveTags(@RequestBody List<String> tags) {
         List<Tag> response = tags.stream().map(item -> Tag.builder().name(item).build()).toList();
-        response.forEach(i -> System.out.println(i.toString()));
-        //restaurantTagRepository.saveAll(tags);
+        tagRepository.saveAll(response);
+    }
+
+    @GetMapping("/getAll")
+    @CrossOrigin("*")
+    public ResponseEntity<List<Tag>> getTags() {
+        return ResponseEntity.ok(tagRepository.findAll());
     }
 }

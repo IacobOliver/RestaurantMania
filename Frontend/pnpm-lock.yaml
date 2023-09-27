@@ -37,6 +37,9 @@ dependencies:
   react-dom:
     specifier: ^18.2.0
     version: 18.2.0(react@18.2.0)
+  react-draggable-tags:
+    specifier: ^1.0.6
+    version: 1.0.6(react-dom@18.2.0)(react@18.2.0)
   react-infinite-scroll-component:
     specifier: ^6.1.0
     version: 6.1.0(react@18.2.0)
@@ -2009,6 +2012,11 @@ packages:
     engines: {node: '>= 4'}
     dev: true
 
+  /immutable@3.8.2:
+    resolution: {integrity: sha512-15gZoQ38eYjEjxkorfbcgBKBL6R7T459OuK+CpcWt7O3KF4uPCx2tD0uFETlUDIyo+1789crbMhTvQBSR5yBMg==}
+    engines: {node: '>=0.10.0'}
+    dev: false
+
   /import-fresh@3.3.0:
     resolution: {integrity: sha512-veYYhQa+D1QBKznvhUHxb8faxlrwUnxseDAbAp457E0wLNio2bOSKnjYDhMj+YiAq61xrMGhQk9iXVk5FzgQMw==}
     engines: {node: '>=6'}
@@ -2822,6 +2830,17 @@ packages:
       loose-envify: 1.4.0
       react: 18.2.0
       scheduler: 0.23.0
+    dev: false
+
+  /react-draggable-tags@1.0.6(react-dom@18.2.0)(react@18.2.0):
+    resolution: {integrity: sha512-8Sl6UnLRCotqkaPih5D9L2DoKX858fV/zIf/ZkvcCht3Y58hkOLWO5V1M4XgdcZ0NMKh2ttcI55MCZqKO17DCg==}
+    peerDependencies:
+      react: '>= 16.0'
+      react-dom: '>= 16.0'
+    dependencies:
+      immutable: 3.8.2
+      react: 18.2.0
+      react-dom: 18.2.0(react@18.2.0)
     dev: false
 
   /react-fast-compare@3.2.2:

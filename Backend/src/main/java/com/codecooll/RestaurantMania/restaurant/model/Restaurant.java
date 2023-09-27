@@ -1,9 +1,9 @@
 package com.codecooll.RestaurantMania.restaurant.model;
 
 import com.fasterxml.jackson.annotation.JsonIgnore;
+import com.fasterxml.jackson.annotation.JsonManagedReference;
 import jakarta.persistence.*;
 import lombok.*;
-import org.hibernate.annotations.Proxy;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -31,8 +31,14 @@ public class Restaurant {
     @OneToOne(cascade = CascadeType.ALL, orphanRemoval = true)
     private Image image;
 
-    @ElementCollection(fetch = FetchType.EAGER)
-    private List<String> types;
+    @JsonManagedReference
+    @ManyToMany(fetch = FetchType.LAZY, cascade = CascadeType.ALL)
+    @JoinTable(
+            name = "restaurants_tags",
+            joinColumns = @JoinColumn(name = "restaurant_id"),
+            inverseJoinColumns = @JoinColumn(name = "tag_id")
+    )
+    private List<Tag> tags;
 
     @JsonIgnore
     @ManyToOne
@@ -43,10 +49,10 @@ public class Restaurant {
     @JoinColumn(name = "menu_id", referencedColumnName = "id")
     private Menu menu;
 
-    @OneToMany(mappedBy = "restaurant", cascade = CascadeType.ALL, orphanRemoval = true,fetch = FetchType.EAGER)
+    @OneToMany(mappedBy = "restaurant", cascade = CascadeType.ALL, orphanRemoval = true, fetch = FetchType.EAGER)
     private List<RestaurantRating> restaurantRatings = new ArrayList<>();
 
-    public Restaurant( long id,String name, double rating, Image image, String description, boolean active, String address) {
+    public Restaurant(long id, String name, double rating, Image image, String description, boolean active, String address) {
         this.id = id;
         this.name = name;
         this.rating = rating;

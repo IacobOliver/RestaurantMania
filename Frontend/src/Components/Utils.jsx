@@ -45,4 +45,15 @@ export const checking = {
         console.error(err);
       });
   },
+
 };
+
+export let tags = []
+
+export const getTag = () =>{
+  fetch("http://localhost:8080/restaurantTag/getAll")
+  .then(res => res.json())
+  .then(data =>{
+    console.log(data);
+  }) 
+}
