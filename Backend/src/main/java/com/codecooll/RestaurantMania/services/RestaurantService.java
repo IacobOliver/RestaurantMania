@@ -39,9 +39,6 @@ public class RestaurantService {
         return newRestaurant;
     }
 
-    public List<Restaurant> getAll() {
-        return restaurantRepository.findAll();
-    }
 
     public Restaurant getById(long restaurantID) {
         Restaurant res = restaurantRepository.findByIdWithoutMenu(restaurantID).orElse(null);
@@ -85,4 +82,8 @@ public class RestaurantService {
 
     }
 
+    public List<Restaurant> getSomeRestaurants(int pageNr, int itemsPerPage) {
+        Pageable pageable = PageRequest.of(pageNr, itemsPerPage);
+        return restaurantRepository.getSomeOfRestaurants(pageable);
+    }
 }

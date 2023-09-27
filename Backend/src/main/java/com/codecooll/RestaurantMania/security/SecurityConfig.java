@@ -29,6 +29,7 @@ public class SecurityConfig {
                 .cors(Customizer.withDefaults())
                 .csrf(csrf -> csrf.disable())
                 .authorizeHttpRequests(auth -> auth.requestMatchers("api/v1/auth/**",
+                                "restaurant/getSome/**",
                                 "restaurant/getAll/**",
                                 "restaurant/getById/**",
                                 "categoryProduct/getSome/**")

@@ -1,5 +1,6 @@
 package com.codecooll.RestaurantMania.controllers;
 
+import com.codecooll.RestaurantMania.restaurant.model.CategoryProduct;
 import com.codecooll.RestaurantMania.restaurant.model.Image;
 import com.codecooll.RestaurantMania.restaurant.model.Restaurant;
 import com.codecooll.RestaurantMania.services.cloudStorage.ImageService;
@@ -35,12 +36,6 @@ public class RestaurantController {
     }
 
     @CrossOrigin(origins = "*")
-    @GetMapping(path = "/getAll")
-    public ResponseEntity<List<Restaurant>> getAllRestaurants() {
-        return ResponseEntity.ok(restaurantService.getAll());
-    }
-
-    @CrossOrigin(origins = "*")
     @GetMapping(path = "/getAll/withoutMenu")
     public ResponseEntity<List<Restaurant>> getRestaurantWithoutMenu() {
         return ResponseEntity.ok(restaurantService.getWithoutMenu());
@@ -50,6 +45,12 @@ public class RestaurantController {
     @GetMapping(path = "/getById/{restaurantId}")
     public ResponseEntity<Restaurant> getRestaurantByID(@PathVariable Long restaurantId) {
         return ResponseEntity.ok(restaurantService.getById(restaurantId));
+    }
+
+    @CrossOrigin(origins = "*")
+    @GetMapping(path = "/getSome/{page}/{quantity}")
+    public ResponseEntity<List<Restaurant>> getSomeRestaurants(@PathVariable int page, @PathVariable int quantity){
+        return ResponseEntity.ok(restaurantService.getSomeRestaurants(page, quantity));
     }
 
     @CrossOrigin(origins = "*")

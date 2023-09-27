@@ -2,6 +2,7 @@ package com.codecooll.RestaurantMania.data.repository;
 
 import com.codecooll.RestaurantMania.restaurant.model.Image;
 import com.codecooll.RestaurantMania.restaurant.model.Restaurant;
+import org.springframework.data.domain.Pageable;
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.data.jpa.repository.Modifying;
 import org.springframework.data.jpa.repository.Query;
@@ -46,5 +47,7 @@ public interface RestaurantRepository extends JpaRepository<Restaurant, Long> {
     @Query("UPDATE Restaurant r SET r.image = :image WHERE r.id = :id")
     void updateImageById(Long id, Image image);
 
-
+    @Query("SELECT NEW com.codecooll.RestaurantMania.restaurant.model.Restaurant( r.id, r.name, r.rating, r.image, r.description, r.active, r.address) " +
+            "FROM Restaurant r LEFT JOIN r.image i")
+    List<Restaurant> getSomeOfRestaurants(Pageable pageable);
 }
