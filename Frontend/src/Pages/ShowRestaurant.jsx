@@ -11,8 +11,6 @@ import Loading from "../Components/Loading";
 import ListTags from "../Components/ShouRestaurantComponents.jsx/TagComponents/ListTags";
 
 const checkIfHolder = (user, params) => {
-  console.log("Chefifholder", user);
-  console.log(params.restaurantId);
   if (user) {
     return user.restaurants?.reduce(
       (acc, cur) => (cur.id == params.restaurantId ? true : acc),
@@ -104,7 +102,7 @@ export default function MyRestaurant() {
       .then((response) => {
         return response.json();
       })
-      .then((data) => {})
+      .then((data) => { })
       .catch((error) => {
         console.error("Error while updating the restaurant name:", error);
       });
@@ -137,6 +135,10 @@ export default function MyRestaurant() {
             editContentEvent={editContentEvent}
           />
 
+          {/* <Divider /> */}
+
+          <ListTags />
+
           <Divider />
 
           <RestaurantImage
@@ -149,10 +151,6 @@ export default function MyRestaurant() {
 
           <RatingComponent />
 
-          <Divider />
-
-          <ListTags/>
-          
           <Divider />
 
           <RestaurantDescription

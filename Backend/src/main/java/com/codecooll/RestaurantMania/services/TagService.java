@@ -7,7 +7,11 @@ import com.codecooll.RestaurantMania.restaurant.model.Restaurant;
 import com.codecooll.RestaurantMania.restaurant.model.Tag;
 import com.codecooll.RestaurantMania.restaurant.model.User;
 import lombok.RequiredArgsConstructor;
+import org.springframework.data.domain.PageRequest;
+import org.springframework.data.domain.Pageable;
 import org.springframework.stereotype.Service;
+
+import java.util.List;
 
 @Service
 @RequiredArgsConstructor
@@ -26,5 +30,10 @@ public class TagService {
 
         }
         return tag;
+    }
+
+    public List<Tag> getSomeTags(int pageNr, int quantity){
+        Pageable pageable = PageRequest.of(pageNr, quantity);
+        return tagRepository.getSomeTags(pageable);
     }
 }

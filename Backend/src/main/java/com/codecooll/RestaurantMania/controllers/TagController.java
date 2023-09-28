@@ -31,6 +31,13 @@ public class TagController {
         return ResponseEntity.ok(tagRepository.findAll());
     }
 
+    @GetMapping("/getSomeTags/{pageNr}/{quantity}")
+    @CrossOrigin("*")
+    public ResponseEntity<List<Tag>> getSomeTags(@PathVariable int pageNr, @PathVariable int quantity){
+        return ResponseEntity.ok(tagService.getSomeTags(pageNr, quantity));
+
+    }
+
     @PostMapping("/saveTag/{restaurant_id}/{tag_id}")
     @CrossOrigin("*")
     public ResponseEntity<Tag> saveTag(@PathVariable Long restaurant_id, @PathVariable Long tag_id ) {

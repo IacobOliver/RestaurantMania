@@ -100,21 +100,14 @@ body {
   font-weight: bold;
 } */
 
-.tags-input-container {
-  padding: 0.5em;
-  width: min(80vw, 600px);
-  margin-top: 1em;
-  display: flex;
-  align-items: center;
-  flex-wrap: wrap;
-  gap: 0.5em;
-}
 
 .tag-item {
-  background-color: rgb(223, 177, 7);
   display: inline-block;
-  padding: 0.5em 0.75em;
   border-radius: 20px;
+  padding: 0.3rem;
+  font-size: small;
+  font-weight: bold;
+  cursor: pointer;
 }
 .tag-item .close {
   height: 20px;
@@ -130,9 +123,3 @@ body {
   cursor: pointer;
 }
 
-.tags-input {
-  flex-grow: 1;
-  padding: 0.5em 0;
-  border: none;
-  outline: none;
-}
