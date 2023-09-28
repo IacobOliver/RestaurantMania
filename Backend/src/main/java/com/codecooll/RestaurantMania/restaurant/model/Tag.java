@@ -7,6 +7,7 @@ import lombok.Builder;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 
+import java.util.ArrayList;
 import java.util.List;
 
 @Entity
@@ -23,4 +24,11 @@ public class Tag {
     @JsonBackReference
     @ManyToMany(mappedBy = "tags", fetch = FetchType.EAGER, cascade = CascadeType.ALL)
     private List<Restaurant> restaurants;
+
+    public void addRestaurant(Restaurant restaurant) {
+        if(this.restaurants == null){
+            this.restaurants = new ArrayList<>();
+        }
+        this.restaurants.add(restaurant);
+    }
 }

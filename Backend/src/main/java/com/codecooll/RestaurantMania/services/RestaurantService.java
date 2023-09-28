@@ -86,4 +86,5 @@ public class RestaurantService {
         Pageable pageable = PageRequest.of(pageNr, itemsPerPage);
         return restaurantRepository.getSomeOfRestaurants(pageable);
     }
+
 }

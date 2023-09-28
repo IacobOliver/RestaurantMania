@@ -32,7 +32,7 @@ public class Restaurant {
     private Image image;
 
     @JsonManagedReference
-    @ManyToMany(fetch = FetchType.LAZY, cascade = CascadeType.ALL)
+    @ManyToMany(fetch = FetchType.EAGER, cascade = CascadeType.ALL)
     @JoinTable(
             name = "restaurants_tags",
             joinColumns = @JoinColumn(name = "restaurant_id"),
@@ -62,12 +62,10 @@ public class Restaurant {
         this.address = address;
     }
 
-    @Override
-    public String toString() {
-        return "Restaurant{" +
-                "id=" + id +
-                ", name='" + name + '\'' +
-                ", menu=" + menu +
-                '}';
+    public void addTag(Tag tag){
+        if(this.tags == null){
+            this.tags = new ArrayList<>();
+        }
+        this.tags.add(tag);
     }
 }
