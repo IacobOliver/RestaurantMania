@@ -1,5 +1,6 @@
 import React from "react"
 import { DraggableArea } from 'react-draggable-tags';
+// import TagsInput from "./TagInput";
 
 
 let tags = ["African Cuisine",
@@ -28,11 +29,10 @@ export default function TagList() {
         </div>
     }
 
-
-
-
     return (
-        <div className=" bg-gradient-to-r from-gray-900 via-gray-800 to-gray-900">
+        // <div>
+     <div className=" bg-gradient-to-r from-gray-900 via-gray-800 to-gray-900">
+            {/* <TagsInput/> */}
             <div className="flex justify-center items-center">
                 <button
                     className="  justify-center font-bold py-2 px-4 rounded inline-flex items-center   text-gray-200 bg-gradient-to-r from-yellow-400 via-yellow-500 to-yellow-600 hover:bg-gradient-to-br focus:ring-4 focus:outline-none focus:ring-yellow-300 dark:focus:ring-yellow-800 shadow-lg shadow-yellow-500/50 dark:shadow-lg dark:shadow-yellow-800/80  text-sm  text-center"
@@ -53,5 +53,6 @@ export default function TagList() {
                 />
             </div>
 
-        </div>)
+        </div>
+        )
 }

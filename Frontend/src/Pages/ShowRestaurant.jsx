@@ -7,9 +7,8 @@ import RestaurantName from "../Components/ShouRestaurantComponents.jsx/Restauran
 import RestaurantDescription from "../Components/ShouRestaurantComponents.jsx/RestaurantDescription";
 import RestaurantImage from "../Components/ShouRestaurantComponents.jsx/RestaurantImage";
 import RestaurantMenu from "../Components/ShouRestaurantComponents.jsx/RestaurantMenu";
-import { checking } from "../Components/Utils";
 import Loading from "../Components/Loading";
-import TagList from "../Components/ShouRestaurantComponents.jsx/TagList";
+import TagsInput from "../Components/TagComponents/TagInput";
 
 const checkIfHolder = (user, params) => {
   console.log("Chefifholder", user);
@@ -152,8 +151,8 @@ export default function MyRestaurant() {
 
           <Divider />
 
-          <TagList/>
-
+          <TagsInput/>
+          
           <Divider />
 
           <RestaurantDescription

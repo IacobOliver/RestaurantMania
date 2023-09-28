@@ -54,7 +54,7 @@ export default function MyRestaurantsPopUp() {
       method: "POST",
       headers: {
         "Content-Type": "application/json",
-        "Authorization" : `Bearer ${localStorage.getItem("token")}`
+        Authorization: `Bearer ${localStorage.getItem("token")}`,
       },
       body: JSON.stringify({ rating: 0 }),
     })
@@ -63,14 +63,16 @@ export default function MyRestaurantsPopUp() {
         console.log(restaurant);
         setUser({
           ...user,
-          restaurants: [...user.restaurants? user.restaurants : [], restaurant],
+          restaurants: [
+            ...(user.restaurants ? user.restaurants : []),
+            restaurant,
+          ],
         });
         setLoading(false);
         setshowMyRestaurants(false);
         setRefreshShowRestaurant(refreshShowRestaurant + 1);
         navigate(`/explore/restaurant/${restaurant.id}`);
       });
-
   };
   console.log(user);
   return (
@@ -79,7 +81,7 @@ export default function MyRestaurantsPopUp() {
         className="flex justify-end text-gray-300"
         onClick={() => setshowMyRestaurants(false)}
       >
-        <i class="fa fa-close"></i>
+        <i className="fa fa-close"></i>
       </div>
       {loading ? <Loading /> : <></>}
       <h2 className="w-full flex justify-center p-2 mb-4">
