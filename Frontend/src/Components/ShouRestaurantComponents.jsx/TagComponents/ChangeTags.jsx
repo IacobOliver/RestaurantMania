@@ -2,7 +2,7 @@ import React, { useEffect, useState } from "react";
 import InfiniteScroll from 'react-infinite-scroll-component';
 import Loading from "../../Loading";
 
-const QUANTITY = 20;
+const QUANTITY = 10;
 
 export default function ChangeTag({ tags }) {
     const [allTags, setAllTags] = useState([]);
@@ -20,7 +20,7 @@ export default function ChangeTag({ tags }) {
         })
             .then(res => res.json())
             .then(data => {
-                if(data.length < QUANTITY){
+                if (data.length < QUANTITY) {
                     setHasMore(false);
                 }
                 setAllTags([...allTags, ...data]);
@@ -54,20 +54,26 @@ export default function ChangeTag({ tags }) {
 
             <input onKeyDown={handleKeyDown} type="text" className="w-full  text-white bg-gray-800  border-gray-800 focus:border-gray-600 focus:border-1 focus:ring-0 rounded-lg mt-3" placeholder="Search a tag" />
 
+            {allTags.length != 0 ?
+                <InfiniteScroll className="mt-3 custom-scrollbar"
+                    dataLength={allTags.length}
+                    next={() => {
+                        setPage(page + 1)
+                    }}
+                    hasMore={hasMore} // Replace with a condition based on your data source
+                    height={350}
+                    endMessage={<p className="bg-pink-400">No more data to load.</p>}
+                >
 
-            <InfiniteScroll className="h-10 overflow-scroll"
-                dataLength={allTags.length}
-                next={() => setPage(page + 1)}
-                hasMore={hasMore} // Replace with a condition based on your data source
-                loader={<Loading />}
-                endMessage={<p>No more data to load.</p>}
-            >
+                    {allTags.map((tag, index) => (
+                        <div className="bg-gray-900 rounded-lg my-1 p-2 flex justify-between items-center" key={index}>
+                            <p className="truncate mb-0  bg-gray-800 p-1 rounded-xl"> # {tag.name}</p>
+                            <p className=" truncate mb-0 mx-3 bg-gray-800 p-1 rounded-xl">{Math.floor(Math.random() * 20 + 1)}.{Math.floor(Math.random() * 9 + 1)} mill</p>
+                        </div>
+                    ))}
 
-                {allTags.map((tag, index) => (
-                   <p>{tag.name}</p>
-                ))}
-
-            </InfiniteScroll>
+                </InfiniteScroll> : <></>
+            }
 
         </div>
     )
