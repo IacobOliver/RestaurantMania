@@ -1,9 +1,10 @@
 
 import React from "react";
 import Modal from "react-bootstrap/Modal";
-import LoginForm from "./LoginForm";
+import ChangeTag from "./ChangeTags";
 
-export default function ModalForm({ show, onHide, handleModalButton }) {
+
+export default function ChangeTagsModal({show, onHide, restaurantTags}) {
 
   return (
     <>
@@ -24,12 +25,12 @@ export default function ModalForm({ show, onHide, handleModalButton }) {
             }}
           >
             <div
-              onClick = {onHide}
+               onClick = {onHide}
               className="flex justify-end text-gray-300 mb-2"
             >
               <i className="fa fa-close"></i>
             </div>
-            <LoginForm />
+            <ChangeTag tags={restaurantTags}/>
           </div>
 
         </Modal.Body>

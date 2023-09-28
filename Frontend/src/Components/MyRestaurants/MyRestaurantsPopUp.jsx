@@ -9,13 +9,8 @@ import Loading from "../Loading";
 export default function MyRestaurantsPopUp() {
   const [loading, setLoading] = useState(false);
   const [user, setUser] = useAtom(state.user);
-  console.log(user);
-  const [showMyRestaurants, setshowMyRestaurants] = useAtom(
-    state.showMyRestaurants
-  );
-  const [refreshShowRestaurant, setRefreshShowRestaurant] = useAtom(
-    state.refreshShowRestaurant
-  );
+  const [showMyRestaurants, setshowMyRestaurants] = useAtom( state.showMyRestaurants);
+  const [refreshShowRestaurant, setRefreshShowRestaurant] = useAtom(state.refreshShowRestaurant );
   const navigate = useNavigate();
 
   const RestaurantItem = ({ restaurantName, restaurantId }) => {

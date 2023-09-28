@@ -11,6 +11,8 @@ const state = {
   displayCustomDay: atom(today),
 
   showMyRestaurants : atom(false),
-  refreshShowRestaurant : atom(0)
+  refreshShowRestaurant : atom(0),
+
+  tagsModal : atom(false)
 };
 export default state;

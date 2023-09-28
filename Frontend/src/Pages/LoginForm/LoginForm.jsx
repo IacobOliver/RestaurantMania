@@ -69,27 +69,6 @@ function LoginForm() {
     }
   };
 
-  // const handleLogInSubmit = () => {
-  //   fetch(
-  //     `http://localhost:8080/account/getUserByEmail/${emailRef.current.value}`
-  //   )
-  //     .then((res) => res.json())
-  //     .then((data) => {
-  //       setUser(data);
-  //       if (password === data.password) {
-  //         setisLoggedIn(true);
-  //         setModalShow(false);
-  //       } else {
-  //         alert("Incorect password");
-  //         checking.wrongPass(passwordLoginRef.current);
-  //       }
-  //     })
-  //     .catch((err) => {
-  //       alert("User does not exist");
-  //       console.error("User not exist " + err);
-  //       checking.userNotExist(emailLoginRef.current);
-  //     });
-  // };
   const handleLogInSubmit = () => {
     fetch("http://localhost:8080/api/v1/auth/authenticate", {
       method: "POST",
