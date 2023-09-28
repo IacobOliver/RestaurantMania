@@ -61,6 +61,7 @@ export default function MyRestaurant() {
     const formData = new FormData();
     formData.append("image", file);
 
+    setLoading(true);
     fetch(
       `http://localhost:8080/restaurant/uploadProfileImage/${thisRestaurant.id}`,
       {
@@ -76,11 +77,12 @@ export default function MyRestaurant() {
         return response.json();
       })
       .then((data) => {
+        console.log(data);
         setThisRestaurant({
           ...thisRestaurant,
           image: { ...thisRestaurant.image, imageUrl: data.imageUrl },
         });
-        console.log("the restaurant was refreshed");
+        setLoading(false);
       })
       .catch((error) => {
         console.error("Error while uploading image:", error);

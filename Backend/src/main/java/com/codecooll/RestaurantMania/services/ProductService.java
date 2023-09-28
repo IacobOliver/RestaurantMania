@@ -21,22 +21,23 @@ public class ProductService {
     private final ImageService imageService;
 
     public Product addNewProduct(Long categ_id, Product product) {
-       CategoryProduct categoryProduct = CategoryProduct.builder().id(categ_id).build();
+        CategoryProduct categoryProduct = CategoryProduct.builder().id(categ_id).build();
 
-       product.setCategoryProduct(categoryProduct);
-       productRepository.save(product);
+        product.setCategoryProduct(categoryProduct);
+        productRepository.save(product);
         return product;
     }
 
     public void updateProduct(Long product_id, String value, String key) {
-        if (key == "name") productRepository.updateName(product_id , value);
+        if (key == "name") productRepository.updateName(product_id, value);
         else if (key == "description") productRepository.updateDescription(product_id, value);
-        else if (key == "price") productRepository.updatePrice(product_id,Integer.parseInt(value.replaceAll("[^\\d]", "")));
+        else if (key == "price")
+            productRepository.updatePrice(product_id, Integer.parseInt(value.replaceAll("[^\\d]", "")));
     }
 
     public void setProductImageUrl(Long product_id, Image image) {
-        Product product = productRepository.getById(product_id);
-        if (product.getImage() != null) {
+        Product product = productRepository.findById(product_id).orElse(null);
+        if (product.getImage() != null && product.getImage().getImageUrl() != null) {
             String url = product.getImage().getImageUrl();
             imageService.deleteImageByUrl(url);
         }

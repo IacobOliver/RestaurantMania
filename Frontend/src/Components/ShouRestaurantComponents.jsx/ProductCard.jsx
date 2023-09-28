@@ -2,8 +2,14 @@ import React from "react";
 import { useState } from "react";
 import { useRef } from "react";
 
-
-export default function ProductCard({ isHolder,product, prodId, categId, editProduct }) {
+export default function ProductCard({
+  isHolder,
+  product,
+  prodId,
+  categId,
+  editProduct,
+  setLoading,
+}) {
   const imgRef = useRef(null);
   const nameRef = useRef(null);
   const descriptionRef = useRef(null);
@@ -18,10 +24,12 @@ export default function ProductCard({ isHolder,product, prodId, categId, editPro
     const formData = new FormData();
     formData.append("image", file);
 
+    setLoading(true);
+
     fetch(`http://localhost:8080/product/update/image/${product.id}`, {
       method: "POST",
-      headers:{
-        "Authorization" : `Bearer ${localStorage.getItem("token")}`
+      headers: {
+        Authorization: `Bearer ${localStorage.getItem("token")}`,
       },
       body: formData,
     })
@@ -33,6 +41,7 @@ export default function ProductCard({ isHolder,product, prodId, categId, editPro
         console.log(imageRef.current.src);
         console.log(data.imageUrl);
         imageRef.current.src = data.imageUrl;
+        setLoading(false);
       })
       .catch((error) => {
         console.error("Error while uploading image:", error);
@@ -71,7 +80,7 @@ export default function ProductCard({ isHolder,product, prodId, categId, editPro
       method: "DELETE",
       headers: {
         "Content-Type": "application/json",
-        "Authorization" : `Bearer ${localStorage.getItem("token")}`
+        Authorization: `Bearer ${localStorage.getItem("token")}`,
       },
     })
       .then((res) => res.json())
@@ -129,7 +138,7 @@ export default function ProductCard({ isHolder,product, prodId, categId, editPro
               />
             </div>
 
-            {isHolder? (
+            {isHolder ? (
               <i
                 onClick={deleteProductEvent}
                 className="fas fa-trash mr-3 text-md text-gray-200 bg-gray-800 rounded-lg p-2"

@@ -14,7 +14,8 @@ import java.util.Optional;
 
 public interface RestaurantRepository extends JpaRepository<Restaurant, Long> {
     @Query("SELECT NEW com.codecooll.RestaurantMania.restaurant.model.Restaurant( r.id, r.name, r.rating, r.image, r.description, r.active, r.address) " +
-            "FROM Restaurant r LEFT JOIN r.image i")
+            "FROM Restaurant r LEFT JOIN r.image i " +
+            "WHERE r.active = TRUE")
     List<Restaurant> findAllRestaurantsWithNamesAndRatings();
 
     @Query("SELECT NEW com.codecooll.RestaurantMania.restaurant.model.Restaurant( r.id,r.name, r.rating, r.image, r.description, r.active, r.address) " +

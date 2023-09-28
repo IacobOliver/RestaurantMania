@@ -179,6 +179,7 @@ export default function RestaurantMenu({
               editContentEvent={editContentEvent}
               addNewProd={addNewProd}
               editProduct={editProduct}
+              setLoading = {setLoading}
             />
           );
         })}

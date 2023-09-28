@@ -38,6 +38,7 @@ export default function CategoryAccordeon({
   editContentEvent,
   addNewProd,
   editProduct,
+  setLoading
 }) {
   const categRef = useRef(null);
   const [editName, setEditName] = useState(false);
@@ -114,6 +115,7 @@ export default function CategoryAccordeon({
             prodId={prod.id}
             editProduct={editProduct}
             categId={categ.id}
+            setLoading = {setLoading}
           />
         ))}
 
