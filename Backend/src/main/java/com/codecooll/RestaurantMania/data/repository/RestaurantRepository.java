@@ -14,8 +14,7 @@ import java.util.Optional;
 
 public interface RestaurantRepository extends JpaRepository<Restaurant, Long> {
     @Query("SELECT NEW com.codecooll.RestaurantMania.restaurant.model.Restaurant( r.id, r.name, r.rating, r.image, r.description, r.active, r.address) " +
-            "FROM Restaurant r LEFT JOIN r.image i " +
-            "WHERE r.active = TRUE")
+            "FROM Restaurant r LEFT JOIN r.image i")
     List<Restaurant> findAllRestaurantsWithNamesAndRatings();
 
     @Query("SELECT NEW com.codecooll.RestaurantMania.restaurant.model.Restaurant( r.id,r.name, r.rating, r.image, r.description, r.active, r.address) " +
@@ -49,6 +48,7 @@ public interface RestaurantRepository extends JpaRepository<Restaurant, Long> {
     void updateImageById(Long id, Image image);
 
     @Query("SELECT NEW com.codecooll.RestaurantMania.restaurant.model.Restaurant( r.id, r.name, r.rating, r.image, r.description, r.active, r.address) " +
-            "FROM Restaurant r LEFT JOIN r.image i")
+            "FROM Restaurant r LEFT JOIN r.image i " +
+            "WHERE r.active = true")
     List<Restaurant> getSomeOfRestaurants(Pageable pageable);
 }
