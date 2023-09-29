@@ -28,6 +28,8 @@ public class ProductService {
         return product;
     }
 
+    @Transactional
+    @Modifying
     public void updateProduct(Long product_id, String value, String key) {
         if (key == "name") productRepository.updateName(product_id , value);
         else if (key == "description") productRepository.updateDescription(product_id, value);

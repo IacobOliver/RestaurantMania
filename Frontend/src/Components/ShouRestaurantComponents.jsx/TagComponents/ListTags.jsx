@@ -43,6 +43,7 @@ function ListTags() {
         show={tagsModal}
         onHide={() =>setTagsModal(false)}
         restaurantTags={tags}
+        setRestaurantTags = {setTags}
         />
     </div>
   );

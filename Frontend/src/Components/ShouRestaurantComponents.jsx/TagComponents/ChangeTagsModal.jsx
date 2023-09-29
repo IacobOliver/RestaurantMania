@@ -4,7 +4,7 @@ import Modal from "react-bootstrap/Modal";
 import ChangeTag from "./ChangeTags";
 
 
-export default function ChangeTagsModal({show, onHide, restaurantTags}) {
+export default function ChangeTagsModal({show, onHide, restaurantTags, setRestaurantTags}) {
 
   return (
     <>
@@ -30,7 +30,7 @@ export default function ChangeTagsModal({show, onHide, restaurantTags}) {
             >
               <i className="fa fa-close"></i>
             </div>
-            <ChangeTag tags={restaurantTags}/>
+            <ChangeTag tags={restaurantTags} setRestaurantTags={setRestaurantTags}/>
           </div>
 
         </Modal.Body>
