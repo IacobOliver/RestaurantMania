@@ -42,8 +42,9 @@ public class ProductService {
             String url = product.getImage().getImageUrl();
             imageService.deleteImageByUrl(url);
         }
-        product.setImage(image);
-        productRepository.save(product);
+//        product.setImage(image);
+//        productRepository.save(product);
+        productRepository.updateImageById(product_id, image);
     }
 
     @Transactional

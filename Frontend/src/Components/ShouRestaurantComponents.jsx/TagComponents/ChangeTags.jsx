@@ -37,24 +37,22 @@ export default function ChangeTag({ tags, setRestaurantTags }) {
     }
 
     function addTag(e){
-        let length = e.target.firstChild.textContent.split("").length
-        setRestaurantTags([...tags, e.target.firstChild.textContent.substring(2, length-1)])
-        console.log(tags[tags.length -1])
+        setRestaurantTags([...tags, e.target.nextSibling.textContent.substring(3)])
       
     }
 
-    function removeTag(e,index) {
-        // setTags(tags.filter((el, i) => i !== index));
-        e.target.parentElement.remove()
+    function removeTag(e) {
+     let tagName = e.target.parentElement.id
+     setRestaurantTags(tags.filter( name => name != tagName))
     }
 
     return (
         <div className=" bg-gradient-to-r from-gray-900 via-gray-800 to-gray-900">
             <div className="px-2 flex items-center gap-[0.5rem] flex-wrap">
                 {tags.map((tag, index) => (
-                    <div className="tag-item bg-gradient-to-r from-yellow-400 via-yellow-500 to-yellow-600" key={index} >
+                    <div id={tag} className="tag-item bg-gradient-to-r from-yellow-400 via-yellow-500 to-yellow-600" key={index} >
                         <span className="text"># {tag}</span>
-                        <span className="close" onClick={(e) => removeTag(e,index)}>&times;</span>
+                        <span className="close" onClick={(e) => removeTag(e,index)}> &times;</span>
                     </div>
                 ))}
 
@@ -74,7 +72,8 @@ export default function ChangeTag({ tags, setRestaurantTags }) {
                 >
 
                     {allTags.map((tag, index) => (
-                        <div className="bg-gray-900 rounded-lg my-1 p-2 flex justify-between items-center" key={index} onClick={(e) => addTag(e)}>
+                        <div className="bg-gray-900 rounded-lg my-1 p-2 flex justify-between items-center relative" key={index} >
+                            <div className="w-full h-full absolute top-0 left-0" onClick={(e) => addTag(e)}></div>
                             <p className="truncate mb-0  bg-gray-800 p-1 rounded-xl"> # {tag.name}</p>
                             <p className=" truncate mb-0 mx-3 bg-gray-800 p-1 rounded-xl">{Math.floor(Math.random() * 20 + 1)}.{Math.floor(Math.random() * 9 + 1)} mill</p>
                         </div>

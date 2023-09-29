@@ -34,7 +34,7 @@ function ListTags() {
       <div className="px-2 flex items-center gap-[0.5rem] flex-wrap justify-center" onClick={() =>setTagsModal(true)}>
         {tags.map((tag, index) => (
           <div className="tag-item bg-gradient-to-r from-yellow-400 via-yellow-500 to-yellow-600 hover:p-2 transition-all" key={index} >
-            <span className="text">#{tag}</span>
+            <span className="text"># {tag}</span>
           </div>
         ))}
       </div>

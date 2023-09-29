@@ -13,12 +13,12 @@ export default function RestaurantMenu({
   const [open, setOpen] = useState(1);
   const [page, setPage] = useState(0);
   const [loading, setLoading] = useState(false);
+  
   useEffect(() => {
     let page1 = 0;
     let loadedCategs = [];
     async function fetchData() {
       if (thisRestaurant) {
-        // console.log("++++++++++", thisRestaurant);
         fetch(
           `http://localhost:8080/categoryProduct/getSome/${thisRestaurant.menu.id}/${page1}/${ITEMS_PER_PAGE}`
         )

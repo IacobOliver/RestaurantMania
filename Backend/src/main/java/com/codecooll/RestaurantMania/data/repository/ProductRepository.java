@@ -1,5 +1,6 @@
 package com.codecooll.RestaurantMania.data.repository;
 
+import com.codecooll.RestaurantMania.restaurant.model.Image;
 import com.codecooll.RestaurantMania.restaurant.model.Product;
 import jakarta.transaction.Transactional;
 import org.springframework.data.jpa.repository.JpaRepository;
@@ -25,6 +26,11 @@ public interface ProductRepository extends JpaRepository<Product, Long> {
     @Query("UPDATE Product p SET p.price = :price " +
             "WHERE p.id = :id")
     public void updatePrice(Long id, double price);
+
+    @Modifying
+    @Transactional
+    @Query("UPDATE Product p SET p.image = :image WHERE p.id = :id")
+    void updateImageById(Long id, Image image);
 
     @Transactional
     @Modifying

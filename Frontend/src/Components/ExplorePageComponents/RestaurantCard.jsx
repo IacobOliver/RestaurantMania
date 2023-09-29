@@ -7,7 +7,7 @@ export default function RestauntCard({ restaurant }) {
   return (
     <div className="z-10 max-w-sm bg-tc1 px-6 pt-6 pb-2 rounded-xl shadow-lg transform hover:scale-105 transition duration-500">
       <h3 className="mb-3 text-xl font-bold text-tc2">{restaurant.name? restaurant.name:"RESTAURANT NAME"}</h3>
-      <div className="relative max-h-48 overflow-hidden">
+      <div className="relative h-48 overflow-hidden">
         <img
           className="w-full rounded-xl"
           src={

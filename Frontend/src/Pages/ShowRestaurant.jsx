@@ -162,7 +162,7 @@ export default function MyRestaurant() {
 
         {/* col2 */}
         <div className="pl-2 pr-3 bg-gray-900 w-full col-span-3">
-          <div className=" flex flex-col items-center p-2 bg-gradient-to-r from-gray-900 via-gray-800 to-gray-700 text-white rounded-lg shadow-lg">
+          <div className=" flex flex-col items-center p-2 bg-gradient-to-r from-gray-900 via-gray-800 to-gray-700 text-white rounded-t-lg shadow-lg">
             <h1 className="text-3xl font-bold mb-0">MENU</h1>
             <p className="text-sm text-gray-400 mt-1 mb-0">
               Last updated at {lastUpdatedMenu}
