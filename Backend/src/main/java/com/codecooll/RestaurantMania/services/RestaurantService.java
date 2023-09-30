@@ -1,10 +1,10 @@
 package com.codecooll.RestaurantMania.services;
 
 import com.codecooll.RestaurantMania.data.repository.*;
-import com.codecooll.RestaurantMania.restaurant.model.User;
 import com.codecooll.RestaurantMania.restaurant.model.Image;
 import com.codecooll.RestaurantMania.restaurant.model.Menu;
 import com.codecooll.RestaurantMania.restaurant.model.Restaurant;
+import com.codecooll.RestaurantMania.restaurant.model.User;
 import com.codecooll.RestaurantMania.services.cloudStorage.ImageService;
 import jakarta.transaction.Transactional;
 import lombok.RequiredArgsConstructor;
@@ -20,12 +20,8 @@ import java.util.List;
 @RequiredArgsConstructor
 public class RestaurantService {
     private final RestaurantRepository restaurantRepository;
-    private final AccountRepository accountRepository;
     private final ImageService imageService;
-    private final CategoryProductRepository categoryProductRepository;
     private final MenuRepository menuRepository;
-    private final ImageUrlRepository imageUrlRepository;
-
 
     public Restaurant addNewRestaurant(Long client_id, Restaurant newRestaurant) {
         User user = User.builder().id(client_id).build();

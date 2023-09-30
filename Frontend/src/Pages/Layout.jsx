@@ -326,12 +326,12 @@ export default function Layout() {
 
       <div className="relative w-full ">
         <nav className="z-10 bg-tc3 w-full  ">
-          <div className="container m-auto px-2 md:px-12 lg:px-7">
-            <div className="flex flex-wrap items-center justify-between py-3 gap-6 md:py-4 md:gap-0">
-              <div className="w-full px-6 flex justify-between items-center lg:w-max md:px-0">
+          <div className="container m-auto">
+            <div className="flex  justify-between py-3">
+              <div className="w-full flex justify-between items-center lg:w-max">
                 <div
                   onClick={() => navigate("/")}
-                  className="flex items-center hover:bg-gray-900 p-2 rounded-xl"
+                  className="hover:bg-gray-900 p-2 rounded-xl"
                 >
                   <img
                     className="w-60"
@@ -339,8 +339,6 @@ export default function Layout() {
                     draggable="false"
                   />
                 </div>
-
-                {/* <ThreeLinesMenu handleEvent={threeLinesMenuEvent} /> */}
 
                 <div className="lg:hidden">
                   <i

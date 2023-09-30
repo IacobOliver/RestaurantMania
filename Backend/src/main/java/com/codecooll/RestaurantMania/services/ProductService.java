@@ -12,6 +12,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.jpa.repository.Modifying;
 import org.springframework.stereotype.Service;
 
+import java.util.Objects;
 import java.util.Optional;
 
 @Service
@@ -30,7 +31,7 @@ public class ProductService {
 
     public void updateProduct(Long product_id, String value, String key) {
         if (key == "name") productRepository.updateName(product_id, value);
-        else if (key == "description") productRepository.updateDescription(product_id, value);
+        else if (Objects.equals(key, "description")) productRepository.updateDescription(product_id, value);
         else if (key == "price")
             productRepository.updatePrice(product_id, Integer.parseInt(value.replaceAll("[^\\d]", "")));
     }
