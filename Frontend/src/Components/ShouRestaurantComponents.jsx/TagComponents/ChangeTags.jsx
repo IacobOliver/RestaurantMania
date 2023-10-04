@@ -43,15 +43,16 @@ export default function ChangeTag({ tags, setRestaurantTags }) {
 
     function removeTag(e) {
      let tagName = e.target.parentElement.id
-     setRestaurantTags(tags.filter( name => name != tagName))
+     console.log(tagName)
+     setRestaurantTags(tags.filter( name => name.tag.name != tagName))
     }
 
     return (
         <div className=" bg-gradient-to-r from-gray-900 via-gray-800 to-gray-900">
             <div className="px-2 flex items-center gap-[0.5rem] flex-wrap">
                 {tags.map((tag, index) => (
-                    <div id={tag} className="tag-item bg-gradient-to-r from-yellow-400 via-yellow-500 to-yellow-600" key={index} >
-                        <span className="text"># {tag}</span>
+                    <div id={tag.tag.name} className="tag-item bg-gradient-to-r from-yellow-400 via-yellow-500 to-yellow-600" key={index} >
+                        <span className="text"># {tag.tag.name}</span>
                         <span className="close" onClick={(e) => removeTag(e,index)}> &times;</span>
                     </div>
                 ))}

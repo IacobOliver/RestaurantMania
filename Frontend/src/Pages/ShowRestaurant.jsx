@@ -137,7 +137,7 @@ export default function MyRestaurant() {
 
           {/* <Divider /> */}
 
-          <ListTags />
+          {thisRestaurant ? <ListTags thisRestaurant={thisRestaurant} /> : null}
 
           <Divider />
 
