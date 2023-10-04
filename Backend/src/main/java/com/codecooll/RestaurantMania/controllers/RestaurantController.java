@@ -36,12 +36,6 @@ public class RestaurantController {
     }
 
     @CrossOrigin(origins = "*")
-    @GetMapping(path = "/getAll/withoutMenu")
-    public ResponseEntity<List<Restaurant>> getRestaurantWithoutMenu() {
-        return ResponseEntity.ok(restaurantService.getWithoutMenu());
-    }
-
-    @CrossOrigin(origins = "*")
     @GetMapping(path = "/getById/{restaurantId}")
     public ResponseEntity<Restaurant> getRestaurantByID(@PathVariable Long restaurantId) {
         return ResponseEntity.ok(restaurantService.getById(restaurantId));

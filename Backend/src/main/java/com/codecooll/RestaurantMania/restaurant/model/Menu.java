@@ -23,12 +23,12 @@ public class Menu {
     private long id;
     private String lastUpdated = LocalDate.now().toString();
 
-    @JsonManagedReference
+    @JsonBackReference
     @OneToMany(mappedBy = "menu", cascade = CascadeType.ALL, fetch = FetchType.LAZY)
     private List<CategoryProduct> categoryProducts;
 
     @JsonIgnore
-    @OneToOne(mappedBy = "menu", cascade = CascadeType.ALL,orphanRemoval = true)
+    @OneToOne(mappedBy = "menu", cascade = CascadeType.ALL)
     private Restaurant restaurant;
 
     public Menu(long id, String lastUpdated){

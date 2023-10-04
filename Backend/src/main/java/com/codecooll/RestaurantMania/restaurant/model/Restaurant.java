@@ -2,9 +2,9 @@ package com.codecooll.RestaurantMania.restaurant.model;
 
 import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.fasterxml.jackson.annotation.JsonManagedReference;
+
 import jakarta.persistence.*;
 import lombok.*;
-
 import java.util.ArrayList;
 import java.util.List;
 
@@ -31,14 +31,18 @@ public class Restaurant {
     @OneToOne(cascade = CascadeType.ALL, orphanRemoval = true)
     private Image image;
 
+//    @JsonManagedReference
+//    @ManyToMany(fetch = FetchType.EAGER, cascade = CascadeType.ALL)
+//    @JoinTable(
+//            name = "restaurants_tags",
+//            joinColumns = @JoinColumn(name = "restaurant_id"),
+//            inverseJoinColumns = @JoinColumn(name = "tag_id")
+//    )
+//    private List<Tag> tags;
+
     @JsonManagedReference
-    @ManyToMany(fetch = FetchType.EAGER, cascade = CascadeType.ALL)
-    @JoinTable(
-            name = "restaurants_tags",
-            joinColumns = @JoinColumn(name = "restaurant_id"),
-            inverseJoinColumns = @JoinColumn(name = "tag_id")
-    )
-    private List<Tag> tags;
+    @OneToMany(mappedBy = "restaurant" ,cascade = CascadeType.ALL,fetch = FetchType.EAGER)
+    private List<RestaurantTag> restaurantTags;
 
     @JsonIgnore
     @ManyToOne
@@ -62,10 +66,6 @@ public class Restaurant {
         this.address = address;
     }
 
-    public void addTag(Tag tag){
-        if(this.tags == null){
-            this.tags = new ArrayList<>();
-        }
-        this.tags.add(tag);
-    }
+
+
 }

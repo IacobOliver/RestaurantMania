@@ -41,16 +41,11 @@ public class RestaurantService {
 
 
     public Restaurant getById(long restaurantID) {
-        Restaurant res = restaurantRepository.findByIdWithoutMenu(restaurantID).orElse(null);
-        System.out.println(res.getId());
+      // Restaurant res = restaurantRepository.findByIdWithoutMenu(restaurantID).orElse(null);
+        Restaurant res = restaurantRepository.findById(restaurantID).orElse(null);
         Menu menu = menuRepository.getByRestaurantIdWithoutCategoryProducts(restaurantID).orElse(null);
 
         res.setMenu(menu);
-        return res;
-    }
-
-    public List<Restaurant> getWithoutMenu() {
-        List<Restaurant> res = restaurantRepository.findAllRestaurantsWithNamesAndRatings();
         return res;
     }
 
@@ -61,7 +56,7 @@ public class RestaurantService {
     }
 
     public void setRestaurantImageUrl(Long restaurantId, Image image) {
-        Restaurant restaurant = restaurantRepository.findByIdWithoutMenu(restaurantId).orElse(null);
+        Restaurant restaurant = restaurantRepository.findById(restaurantId).orElse(null);
         if (restaurant.getImage() != null && restaurant.getImage().getImageUrl() != null) {
             String url = restaurant.getImage().getImageUrl();
             imageService.deleteImageByUrl(url);

@@ -9,23 +9,24 @@ import lombok.Builder;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 
-import java.util.ArrayList;
-import java.util.List;
-
 @Entity
 @Data
-@Builder
-@NoArgsConstructor
 @AllArgsConstructor
-public class Tag {
+@NoArgsConstructor
+@Builder
+public class RestaurantTag {
     @Id
     @GeneratedValue
-    private Long id;
-    private String name;
+    @JsonIgnore
+    private long restaurantTagId;
 
+    @ManyToOne(fetch = FetchType.LAZY)
+    @JoinColumn(name = "restaurant_id", nullable = false)
     @JsonBackReference
-    @OneToMany(mappedBy = "tag", cascade = CascadeType.ALL, fetch = FetchType.LAZY)
-    private List<RestaurantTag> restaurantTags;
+    private Restaurant restaurant;
 
-
+    @ManyToOne(fetch = FetchType.EAGER)
+    @JoinColumn(name = "tag_id", nullable = false)
+    @JsonManagedReference
+    private Tag tag;
 }

@@ -37,7 +37,8 @@ public class AccountService {
 
     public User getAccountByEmailForAutologin(String user_email) {
         User user = (User) accountRepository.findAccountByEmailForAutologin(user_email).orElse(null);
-        List<Restaurant> user_restaurants = restaurantRepository.findAllRestaurantsOfUser(user.getId());
+        List<Restaurant> user_restaurants = restaurantRepository.findRestaurantsByUserId(user.getId());
+
         user.setRestaurants(user_restaurants);
         return user;
     }
