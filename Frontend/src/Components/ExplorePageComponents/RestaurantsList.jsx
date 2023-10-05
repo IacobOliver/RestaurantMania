@@ -13,7 +13,7 @@ export default function RestaurantsList() {
 
 
   useEffect(() =>{
-      fetch(`http://localhost:8080/restaurant/getSome/${page}/${QUANTITY}`)
+      fetch(`http://localhost:8080/restaurant/getSome/${restaurants.length / QUANTITY}/${QUANTITY}`)
       .then(res => res.json())
       .then(data => {
         if(data.length < QUANTITY){

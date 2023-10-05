@@ -18,9 +18,9 @@ public class CategoryProductController {
 
     @CrossOrigin(origins = "*")
     @PostMapping(path = "post/new/category/{menu_id}")
-    public ResponseEntity<CategoryProduct> postNewCategory(@PathVariable Long menu_id, @RequestBody CategoryProduct categoryProduct) {
-
-        return ResponseEntity.ok( categoryProductService.addNewProductCategory(menu_id, categoryProduct));
+    public ResponseEntity<CategoryProduct> postNewCategory(@PathVariable Long menu_id) {
+        System.out.println(" ----------------"  );
+            return ResponseEntity.ok( categoryProductService.addNewProductCategory(menu_id));
     }
 
     @CrossOrigin(origins = "*")

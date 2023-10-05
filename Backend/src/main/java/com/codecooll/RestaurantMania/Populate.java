@@ -94,7 +94,7 @@ public class Populate {
 
     public void categoryProductFromJsonObject(JSONObject categoryProductJson, Long menuId) {
         String name = (String) categoryProductJson.get("name");
-        Long categoryId = categoryProductService.addNewProductCategory(menuId, CategoryProduct.builder().name(name).build()).getId();
+        Long categoryId = categoryProductService.addNewProductCategory(menuId).getId();
 
         JSONArray productsJson = (JSONArray) categoryProductJson.get("products");
         Iterator<JSONObject> iteratorObj = productsJson.iterator();

@@ -18,12 +18,12 @@ import java.util.List;
 public class CategoryProductService {
 
     private final CategoryProductRepository categoryProductRepository;
-    private final MenuRepository menuRepository;
     
-    public CategoryProduct addNewProductCategory(long menu_id, CategoryProduct categoryProduct) {
+    public CategoryProduct addNewProductCategory(long menu_id) {
 
         Menu menu = Menu.builder().id(menu_id).build();
-        categoryProduct.setMenu(menu);
+        CategoryProduct categoryProduct = CategoryProduct.builder().menu(menu).build();
+
 
         categoryProductRepository.save(categoryProduct);
 

@@ -11,9 +11,9 @@ export default function RestaurantMenu({
   setThisRestaurant,
 }) {
   const [open, setOpen] = useState(1);
-  const [page, setPage] = useState(0);
   const [loading, setLoading] = useState(false);
-  
+  let thisURL =window.document.URL;
+
   useEffect(() => {
     let page1 = 0;
     let loadedCategs = [];
@@ -24,7 +24,10 @@ export default function RestaurantMenu({
         )
           .then((res) => res.json())
           .then((data) => {
-            if (data.length === 0) return;
+            if (data.length === 0 || thisURL != window.document.URL) {
+              console.log("finished")
+              return;
+            }
             loadedCategs = [...loadedCategs, ...data];
             setThisRestaurant({
               ...thisRestaurant,
@@ -41,7 +44,7 @@ export default function RestaurantMenu({
     }
     fetchData();
   }, []);
- 
+
   const handleOpen = (value, e) => {
     if (e.target.nodeName != "I") setOpen(open === value ? 0 : value);
   };
@@ -55,7 +58,6 @@ export default function RestaurantMenu({
           "Content-Type": "application/json",
           Authorization: `Bearer ${localStorage.getItem("token")}`,
         },
-        body: JSON.stringify({}),
       }
     )
       .then((res) => res.json())
@@ -83,7 +85,6 @@ export default function RestaurantMenu({
         "Content-Type": "application/json",
         Authorization: `Bearer ${localStorage.getItem("token")}`,
       },
-      body: JSON.stringify({}),
     })
       .then((res) => res.json())
       .then((newProd) => {
@@ -165,7 +166,7 @@ export default function RestaurantMenu({
 
   return (
     <>
-     {isHolder ? (
+      {isHolder ? (
         <div className="w-full flex justify-center bg-gradient-to-r from-gray-900 via-gray-800 to-gray-700 py-3 border-b-2 border-b-white">
           <button
             className=" w-1/2 justify-center font-bold py-2 px-4 rounded inline-flex items-center   text-gray-200 bg-gradient-to-r from-yellow-400 via-yellow-500 to-yellow-600 hover:bg-gradient-to-br focus:ring-4 focus:outline-none focus:ring-yellow-300 dark:focus:ring-yellow-800 shadow-lg shadow-yellow-500/50 dark:shadow-lg dark:shadow-yellow-800/80  text-sm  text-center"
@@ -213,8 +214,8 @@ export default function RestaurantMenu({
         })}
       </div>
 
-     
-      
+
+
     </>
   );
 }

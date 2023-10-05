@@ -20,11 +20,19 @@ public class ProductService {
     private final ProductRepository productRepository;
     private final ImageService imageService;
 
-    public Product addNewProduct(Long categ_id, Product product) {
+    public Product addNewProduct(Long categ_id) {
        CategoryProduct categoryProduct = CategoryProduct.builder().id(categ_id).build();
+        Product product = Product.builder().categoryProduct(categoryProduct).build();
 
-       product.setCategoryProduct(categoryProduct);
        productRepository.save(product);
+        return product;
+    }
+
+    public Product addNewProduct(Long categ_id, Product product) {
+        CategoryProduct categoryProduct = CategoryProduct.builder().id(categ_id).build();
+        product.setCategoryProduct(categoryProduct);
+
+        productRepository.save(product);
         return product;
     }
 

@@ -27,8 +27,8 @@ public class ProductController {
 
     @CrossOrigin(origins = "*")
     @PostMapping(path = "post/new/product/{categ_id}")
-    public ResponseEntity<Product> postNewProduct(@PathVariable Long categ_id, @RequestBody Product product) {
-        return ResponseEntity.ok( productService.addNewProduct(categ_id, product)) ;
+    public ResponseEntity<Product> postNewProduct(@PathVariable Long categ_id) {
+        return ResponseEntity.ok( productService.addNewProduct(categ_id)) ;
     }
 
     @CrossOrigin(origins = "*")
